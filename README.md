@@ -9,4 +9,4 @@
 
 ## Small Business Job
 
-<img src="./public/img/site.png" width="400" height="100%">
+<img src="./public/img/site.png" width="100%" height="100%">
