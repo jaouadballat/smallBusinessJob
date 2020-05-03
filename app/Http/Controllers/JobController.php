@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\JobRepository\JobRepository;
-use App\Repositories\JobRepository\JobRepositoryInterface;
+use App\Services\JobService;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function __construct(JobRepositoryInterface $model)
+    public function __construct(JobService $service)
     {
-        $this->model = $model;
+        $this->service = $service;
     }
 
     public function index()
     {
-        return $this->model->all();
+        return $this->service->getAllJobs();
     }
 }

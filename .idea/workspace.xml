@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5766c090-c63a-4f14-b255-3e8f74aa86d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/JobRepository/JobRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/JobService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/JobRepository/JobRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/JobRepository/JobRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,11 +173,11 @@
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="458" y="183" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.798@0.23.1440.798" timestamp="1588548474457" />
-    <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588546935010">
+    <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588549358773">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.797@0.23.1440.797" timestamp="1588523890005" />
-    <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1588546935010" />
+    <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1588549358773" />
     <state x="541" y="352" key="NewPhpFileDialog" timestamp="1588546891096">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
