@@ -19,7 +19,7 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->float('salary');
             $table->string('contract_type')->default('freelance');
-            $table->bigInteger('agency_id')->nullable();
+            $table->string('agency_id')->nullable();
             $table->longText('job_description')->nullable();
             $table->longText('skills')->nullable();
             $table->longText('education')->nullable();

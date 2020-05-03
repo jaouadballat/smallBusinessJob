@@ -12,7 +12,7 @@ $factory->define(\App\Models\Job::class, function (Faker $faker) {
     return [
         'title' => $faker->jobTitle,
         'location' => $faker->city,
-        'salary' => $faker->randomFloat,
+        'salary' => $faker->randomFloat(6, 100, 100000),
         'contract_type' => \Illuminate\Support\Arr::random($contracts),
         'job_description' => $faker->sentence(50),
         'skills' => $faker->sentence(50),

@@ -26,4 +26,12 @@ trait HasUUID
         return false;
     }
 
+    /**
+     * @return string
+     */
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
 }

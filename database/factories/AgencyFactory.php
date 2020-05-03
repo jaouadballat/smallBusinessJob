@@ -15,5 +15,6 @@ $factory->define(\App\Models\Agency::class, function (Faker $faker) {
         'city' => $faker->city,
         'address' => $faker->address,
         'ceo' => $faker->name,
+        'foundedAt' => $faker->year,
     ];
 });

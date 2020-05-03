@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5766c090-c63a-4f14-b255-3e8f74aa86d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/HasUUID.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/HasUUID.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AgencyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AgencyFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/JobFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/JobFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_03_163135_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_03_163135_create_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_03_173729_create_agencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_03_173729_create_agencies_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +160,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588450225551</updated>
       <workItem from="1588450228397" duration="6452000" />
-      <workItem from="1588522733897" duration="7243000" />
+      <workItem from="1588522733897" duration="9287000" />
     </task>
     <servers />
   </component>
@@ -188,9 +192,9 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1588457312520" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588541533087">
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588544301114">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588541533087" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588544301114" />
   </component>
 </project>
