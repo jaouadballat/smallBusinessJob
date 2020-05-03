@@ -5,12 +5,9 @@ namespace App\Models;
 use App\Traits\HasUUID;
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class Agency extends Model
 {
     use HasUUID;
 
-    const CREATED_AT = 'postedDate';
-
     protected $guarded = [];
 }
-
