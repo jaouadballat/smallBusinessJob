@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5766c090-c63a-4f14-b255-3e8f74aa86d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/templats/featuredJobs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/templats/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/templats/menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/templats/services.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/slicknav.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/slicknav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/jquery.slicknav.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jquery.slicknav.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scss/_headerMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/_headerMenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/job_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/job_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/job_listing.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/job_listing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/single-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/JobService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/JobService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_03_173729_create_agencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_03_173729_create_agencies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/templats/featuredJobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/templats/featuredJobs.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +163,7 @@
       <workItem from="1588450228397" duration="6452000" />
       <workItem from="1588522733897" duration="9287000" />
       <workItem from="1588555709982" duration="1543000" />
-      <workItem from="1588592561013" duration="671000" />
+      <workItem from="1588592561013" duration="2600000" />
     </task>
     <servers />
   </component>
@@ -221,10 +206,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1588457312520" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588602747499">
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588605074606">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588602747499" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588605074606" />
     <state x="385" y="144" width="670" height="677" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1588555839751" />
   </component>
 </project>

@@ -17,4 +17,12 @@ class JobService
     {
         return $this->repository->all();
     }
+
+    public function featuredJobs()
+    {
+        return $this->repository
+                    ->limit(4)
+                    ->orderBy('postedDate', 'desc')
+                    ->get();
+    }
 }

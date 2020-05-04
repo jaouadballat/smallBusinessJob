@@ -10,6 +10,7 @@ class Job extends Model
     use HasUUID;
 
     const CREATED_AT = 'postedDate';
+    const CURRENCY = '$';
     const TABLE = 'jobs';
 
     protected $guarded = [];
@@ -28,6 +29,21 @@ class Job extends Model
             'job_id',
             'category_id'
         );
+    }
+
+    public function salary()
+    {
+        return round($this->salary) . $this->currency();
+    }
+
+    public function currency()
+    {
+        return self::CURRENCY;
+    }
+
+    public function posted_date()
+    {
+        return $this->postedDate->diffForHumans();
     }
 }
 

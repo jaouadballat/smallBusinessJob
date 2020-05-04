@@ -24,7 +24,7 @@ class CreateAgenciesTable extends Migration
             $table->string('address')->nullable();
             $table->string('ceo')->nullable();
             $table->year('foundedAt')->nullable();
-            $table->string('logo')->default('logo.png');
+            $table->string('logo')->default('img/icon/job-list1.png');
 
             $table->timestamps();
         });
