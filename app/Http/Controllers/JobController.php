@@ -16,4 +16,9 @@ class JobController extends Controller
     {
         return $this->service->getAllJobs();
     }
+
+    public function list()
+    {
+        return view('job-list');
+    }
 }
