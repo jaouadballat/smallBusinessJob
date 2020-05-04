@@ -19,5 +19,15 @@ class Job extends Model
     {
         return $this->belongsTo(Agency::class, 'agency_id');
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(
+            Category::class,
+            'category_job',
+            'job_id',
+            'category_id'
+        );
+    }
 }
 
