@@ -20,9 +20,13 @@ class JobController extends Controller
 
     public function list()
     {
-        return JobResource::collection(
-            $this->service->all()
-        );
-        //return view('job-list');
+
+        if(\request()->ajax()) {
+            return JobResource::collection(
+                $this->service->all()
+            );
+        }
+
+        return view('job-list');
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import JobList from './JobList';
+import JobList from './JobListContainer';
 
 function App() {
     return (

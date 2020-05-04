@@ -162,7 +162,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="support-location-img">
-                        <img src="{{asset('/img/service/support-img.jpg')}}" alt="">
+                        <img src="{{asset('/img/services/support-img.jpg')}}" alt="">
                         <div class="support-img-cap text-center">
                             <p>Since</p>
                             <span>1994</span>
