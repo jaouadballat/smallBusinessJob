@@ -13,7 +13,7 @@ class JobService
         $this->repository = $repository;
     }
 
-    public function getAllJobs()
+    public function all()
     {
         return $this->repository->all();
     }
