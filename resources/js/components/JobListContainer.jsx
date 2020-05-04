@@ -9,7 +9,7 @@ const JobListContainer = () => {
 
     useEffect(() => {
         fetchJobs().then(({data}) => setJobs(data.data))
-    }, [jobs])
+    }, [])
     return (
         <Fragment>
             <main>

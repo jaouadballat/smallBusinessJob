@@ -66184,7 +66184,7 @@ var JobListContainer = function JobListContainer() {
       var data = _ref.data;
       return setJobs(data.data);
     });
-  }, [jobs]);
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slider-area "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66450,7 +66450,12 @@ var Jobs = function Jobs() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchJobs", function() { return fetchJobs; });
 var fetchJobs = function fetchJobs() {
-  return axios.get('/jobs/list');
+  var filter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  return axios.get('/jobs/list', {
+    params: {
+      filter: filter
+    }
+  });
 };
 
 /***/ }),

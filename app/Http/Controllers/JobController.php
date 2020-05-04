@@ -23,7 +23,7 @@ class JobController extends Controller
 
         if(\request()->ajax()) {
             return JobResource::collection(
-                $this->service->all()
+                $this->service->withPagination()
             );
         }
 

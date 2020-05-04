@@ -1,1 +1,5 @@
-export const fetchJobs = () => axios.get('/jobs/list');
+export const fetchJobs = (filter = null) => axios.get('/jobs/list', {
+    params: {
+        filter: filter
+    }
+});
