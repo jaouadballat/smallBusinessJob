@@ -21,7 +21,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    // Menu
+    // templats
     .main-menu{
         & ul{
             & li{
@@ -76,21 +76,21 @@
                             color:$theme-color;
                         }
                     }
-                } 
+                }
             }
         }
     }
     // logo
     .logo{
         & img{
-            
+
         }
     }
 }
 
-   
 
-// Mobile Menu
+
+// Mobile templats
 .header-area ul > li:hover > ul.submenu {
 	visibility: visible;
     opacity: 1;
@@ -102,7 +102,7 @@
 }
 .header-sticky.sticky-bar.sticky .main-menu ul>li>a {
     padding: 26px 20px;
-  
+
     @media #{$lg}{
         padding: 30px 13px;
     }
@@ -130,7 +130,7 @@
 }
 
 
-// Sticky  Menu
+// Sticky  templats
     .header-sticky.sticky-bar.sticky .header-btn {
         & .get-btn{
             padding: 20px 20px;

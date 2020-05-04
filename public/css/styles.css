@@ -41,7 +41,7 @@
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
   font-family: Flaticon;
 
 font-style: normal;
@@ -840,24 +840,24 @@ img.mfp-img {
 
 }
 
- 
+
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
 
 
 }
 
- 
+
 /* small mobile :320px. */
 @media (max-width: 767px) {
 
- 
+
 }
- 
+
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .container {width:450px}
- 
+
 }
 
 /* Slider */
@@ -981,7 +981,7 @@ img.mfp-img {
 }
 
 /*!
- * SlickNav Responsive Mobile Menu v1.0.10
+ * SlickNav Responsive Mobile templats v1.0.10
  * (c) 2016 Josh Cope
  * licensed under MIT
  */
@@ -1084,9 +1084,9 @@ img.mfp-img {
     padding: 0;
     margin: 0 0 0 20px; }
   .slicknav_nav .slicknav_row {
-    
+
     /* padding: 5px 10px; */
-    margin: 2px 5px; 
+    margin: 2px 5px;
   }
     .slicknav_nav .slicknav_row:hover {
       -webkit-border-radius: 6px;
@@ -2580,7 +2580,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -2807,7 +2807,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -3136,7 +3136,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -3468,7 +3468,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -3808,7 +3808,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -4133,7 +4133,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -4462,7 +4462,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -4787,7 +4787,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5112,7 +5112,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5437,7 +5437,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5556,7 +5556,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5677,7 +5677,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5806,7 +5806,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -5920,7 +5920,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -6038,7 +6038,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -6152,7 +6152,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -6266,7 +6266,7 @@ section p {
  *
  * @version
  * 3.0.83 (July 02 2010)
- * 
+ *
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *

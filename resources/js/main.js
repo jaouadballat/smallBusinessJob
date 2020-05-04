@@ -1,6 +1,6 @@
 (function ($)
   { "use strict"
-  
+
 /* 1. Proloder */
     $(window).on('load', function () {
       $('#preloader-active').delay(450).fadeOut('slow');
@@ -170,7 +170,7 @@
       nice_Select.niceSelect();
     }
 
-/* 7.  Custom Sticky Menu  */
+/* 7.  Custom Sticky templats  */
     $(window).on('scroll', function () {
       var scroll = $(window).scrollTop();
       if (scroll < 245) {
@@ -214,8 +214,8 @@
     new WOW().init();
 
 /* 11. Datepicker */
-    
-// 11. ---- Mailchimp js --------//  
+
+// 11. ---- Mailchimp js --------//
     function mailChimp() {
       $('#mc_embed_signup').find('form').ajaxChimp();
     }
