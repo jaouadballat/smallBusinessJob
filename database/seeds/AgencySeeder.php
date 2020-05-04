@@ -15,7 +15,7 @@ class AgencySeeder extends Seeder
             $a->jobs()->saveMany(factory(\App\Models\Job::class, 3)->make());
         });
 
-        $caterories = factory(\App\models\Category::class, 10)->create();
+        $caterories = factory(\App\models\Category::class, 4)->create();
 
         \App\Models\Job::all()->each(function ($job) use ($caterories) {
             $job->categories()->attach(
