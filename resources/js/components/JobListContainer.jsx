@@ -1,16 +1,14 @@
 import React, {Fragment} from 'react'
 import JobList from './JobList'
 import { useFetch } from './services/useFetch'
+import {withLoader} from "./LoaderHoc";
 
 const JobListContainer = () => {
 
-    const {isLoading, ...props} = useFetch();
+    const  props = useFetch();
+    const WithLoader = withLoader(JobList);
 
-    return (
-        <Fragment>
-           {isLoading ? "Loading......." : <JobList {...props} />}
-        </Fragment>
-    )
+    return <WithLoader {...props} />
 }
 
 export default JobListContainer;
