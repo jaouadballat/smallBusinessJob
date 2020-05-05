@@ -135,7 +135,9 @@
 <!-- All JS Custom Plugins Link Here here -->
 <script src="{{ asset('/js/app.js') }}"></script>
 
-@yield('scripts')
+<script type="text/javascript">
+    @yield('scripts')
+</script>
 
 </body>
 </html>

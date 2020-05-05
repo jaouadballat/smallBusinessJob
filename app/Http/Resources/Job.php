@@ -21,7 +21,7 @@ class Job extends JsonResource
             'salary' => $this->salary,
             'contract' => $this->contract_type,
             'agency' => new Agency($this->agency),
-            'postedDate' => $this->postedDate,
+            'postedDate' => $this->postedDate->diffForHumans(),
         ];
     }
 }

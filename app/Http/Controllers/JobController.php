@@ -18,10 +18,10 @@ class JobController extends Controller
         return $this->service->all();
     }
 
-    public function list()
+    public function list(Request $request)
     {
 
-        if(\request()->ajax()) {
+        if($request->ajax()) {
             return JobResource::collection(
                 $this->service->withPagination()
             );
