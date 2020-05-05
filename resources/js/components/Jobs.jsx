@@ -1,14 +1,14 @@
 import React from 'react';
 import {imageLink} from "./services/helpers";
 
-const Jobs = ({jobs}) => (
+const Jobs = ({data: jobs, ...props}) => (
     <div className="col-xl-9 col-lg-9 col-md-8">
         <section className="featured-job-area">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="count-job mb-35">
-                            <span>{jobs.total} Jobs found</span>
+                            <span>{props.meta.total} Jobs found</span>
                             <div className="select-job-items">
                                 <span>Sort by</span>
                                 <select name="select">
