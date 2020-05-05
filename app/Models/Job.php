@@ -16,7 +16,7 @@ class Job extends Model
     protected $guarded = [];
     protected $table = self::TABLE;
 
-    protected function agency()
+    public function agency()
     {
         return $this->belongsTo(Agency::class, 'agency_id');
     }
