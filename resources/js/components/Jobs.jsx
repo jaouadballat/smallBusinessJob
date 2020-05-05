@@ -10,7 +10,7 @@ const Jobs = ({ data: jobs, ...props }) => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="count-job mb-35">
-                                <span>{props.meta.total} Jobs found</span>
+                                <span>{props?.meta?.total} Jobs found</span>
                                 <div className="select-job-items">
                                     <span>Sort by</span>
                                     <select name="select">
@@ -23,7 +23,7 @@ const Jobs = ({ data: jobs, ...props }) => {
                             </div>
                         </div>
                     </div>
-                    {jobs.map(job => {
+                    {jobs?.map(job => {
                         return (
                             <div className="single-job-items mb-30" key={job.id}>
                                 <div className="job-items">

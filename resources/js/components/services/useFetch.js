@@ -1,25 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {fetchCategories, fetchJobs} from "./api";
+import React, {useEffect, useContext} from 'react';
+import {JobContext} from "../store/context";
+import {getCategoriesList, getJobsList} from "../store/actions";
 
 export const useFetch = () => {
-    const [jobs, setJobs] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+
+    const [state, dispatch] = useContext(JobContext);
 
     useEffect(() => {
-        Promise.all([
-            fetchJobs(),
-            fetchCategories()
-        ]).then(([jobs, categories]) => {
-            setJobs(jobs.data);
-            setCategories(categories.data)
-        }).finally(() => setIsLoading(false));
+
+        getJobsList(dispatch);
+        getCategoriesList(dispatch);
 
     }, []);
 
-    return  {
-        isLoading,
-        jobs,
-        categories
-    }
+
+    return state;
 }

@@ -65917,12 +65917,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _JobListContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./JobListContainer */ "./resources/js/components/JobListContainer.jsx");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/components/store/index.js");
+
 
 
 
 
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobListContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_store__WEBPACK_IMPORTED_MODULE_3__["JobProvider"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobListContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -65979,7 +65981,7 @@ var Filter = function Filter(_ref) {
     name: "select"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: ""
-  }, "All categories"), categories.map(function (categorie) {
+  }, "All categories"), categories && categories.map(function (categorie) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       value: "",
       key: categorie.id
@@ -66153,9 +66155,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Filter */ "./resources/js/components/Filter.jsx");
 /* harmony import */ var _Jobs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Jobs */ "./resources/js/components/Jobs.jsx");
+/* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
 
 
 
+
+
+var renderPagination = function renderPagination(pages, currentPage) {
+  var pagination = [];
+
+  var _loop = function _loop(i) {
+    pagination.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "page-item ".concat(currentPage === i && 'active'),
+      key: i
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "page-link",
+      onClick: function onClick() {
+        return Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(i);
+      }
+    }, i)));
+  };
+
+  for (var i = 1; i < pages; i++) {
+    _loop(i);
+  }
+
+  return pagination;
+};
 
 var JobList = function JobList(_ref) {
   var jobs = _ref.jobs,
@@ -66193,29 +66219,7 @@ var JobList = function JobList(_ref) {
     "aria-label": "Page navigation example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "pagination justify-content-start"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "page-item active"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "page-link",
-    href: "#"
-  }, "01")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "page-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "page-link",
-    href: "#"
-  }, "02")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "page-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "page-link",
-    href: "#"
-  }, "03")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "page-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "page-link",
-    href: "#"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "ti-angle-right"
-  })))))))))));
+  }, jobs.meta && renderPagination(jobs.meta.last_page, jobs.meta.current_page)))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (JobList);
@@ -66243,6 +66247,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var JobListContainer = function JobListContainer() {
   var props = Object(_services_useFetch__WEBPACK_IMPORTED_MODULE_2__["useFetch"])();
+  console.log({
+    props: props
+  });
   var WithLoader = Object(_LoaderHoc__WEBPACK_IMPORTED_MODULE_3__["withLoader"])(_JobList__WEBPACK_IMPORTED_MODULE_1__["default"]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WithLoader, props);
 };
@@ -66271,6 +66278,8 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 var Jobs = function Jobs(_ref) {
+  var _props$meta;
+
   var jobs = _ref.data,
       props = _objectWithoutProperties(_ref, ["data"]);
 
@@ -66286,7 +66295,7 @@ var Jobs = function Jobs(_ref) {
     className: "col-lg-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "count-job mb-35"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, props.meta.total, " Jobs found"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, props === null || props === void 0 ? void 0 : (_props$meta = props.meta) === null || _props$meta === void 0 ? void 0 : _props$meta.total, " Jobs found"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "select-job-items"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Sort by"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "select"
@@ -66298,7 +66307,7 @@ var Jobs = function Jobs(_ref) {
     value: ""
   }, "job list"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: ""
-  }, "job list")))))), jobs.map(function (job) {
+  }, "job list")))))), jobs === null || jobs === void 0 ? void 0 : jobs.map(function (job) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "single-job-items mb-30",
       key: job.id
@@ -66404,12 +66413,9 @@ var withLoader = function withLoader(Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchJobs", function() { return fetchJobs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCategories", function() { return fetchCategories; });
-var fetchJobs = function fetchJobs() {
-  var filter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+var fetchJobs = function fetchJobs(filter) {
   return axios.get('/jobs/list', {
-    params: {
-      filter: filter
-    }
+    params: filter
   });
 };
 var fetchCategories = function fetchCategories() {
@@ -66422,14 +66428,24 @@ var fetchCategories = function fetchCategories() {
 /*!*****************************************************!*\
   !*** ./resources/js/components/services/helpers.js ***!
   \*****************************************************/
-/*! exports provided: imageLink */
+/*! exports provided: imageLink, getUrlParams, urlWithParams */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imageLink", function() { return imageLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlParams", function() { return getUrlParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "urlWithParams", function() { return urlWithParams; });
 var imageLink = function imageLink(link) {
   return "".concat(window.location.origin, "/").concat(link);
+};
+var getUrlParams = function getUrlParams() {
+  return new URLSearchParams(window.location.search);
+};
+var urlWithParams = function urlWithParams(page) {
+  var params = getUrlParams();
+  params.set('page', page);
+  window.history.pushState(null, null, "?".concat(params.toString()));
 };
 
 /***/ }),
@@ -66446,7 +66462,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFetch", function() { return useFetch; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api */ "./resources/js/components/services/api.js");
+/* harmony import */ var _store_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/context */ "./resources/js/components/store/context.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions */ "./resources/js/components/store/actions.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -66461,39 +66478,161 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var useFetch = function useFetch() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      jobs = _useState2[0],
-      setJobs = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      categories = _useState4[0],
-      setCategories = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
-      _useState6 = _slicedToArray(_useState5, 2),
-      isLoading = _useState6[0],
-      setIsLoading = _useState6[1];
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_store_context__WEBPACK_IMPORTED_MODULE_1__["JobContext"]),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      state = _useContext2[0],
+      dispatch = _useContext2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Promise.all([Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchJobs"])(), Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchCategories"])()]).then(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          jobs = _ref2[0],
-          categories = _ref2[1];
-
-      setJobs(jobs.data);
-      setCategories(categories.data);
-    })["finally"](function () {
-      return setIsLoading(false);
-    });
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch);
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getCategoriesList"])(dispatch);
   }, []);
+  return state;
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/store/actions.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/store/actions.js ***!
+  \**************************************************/
+/*! exports provided: getJobsList, getCategoriesList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getJobsList", function() { return getJobsList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategoriesList", function() { return getCategoriesList; });
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/api */ "./resources/js/components/services/api.js");
+
+var getJobsList = function getJobsList(dispatch) {
+  Object(_services_api__WEBPACK_IMPORTED_MODULE_0__["fetchJobs"])(null).then(function (jobs) {
+    return dispatch(jobDispatch(jobs));
+  });
+};
+var getCategoriesList = function getCategoriesList(dispatch) {
+  Object(_services_api__WEBPACK_IMPORTED_MODULE_0__["fetchCategories"])().then(function (categories) {
+    return dispatch(categoryDispatch(categories));
+  });
+};
+
+var jobDispatch = function jobDispatch(jobs) {
   return {
-    isLoading: isLoading,
-    jobs: jobs,
-    categories: categories
+    type: 'FETCH_JOBS',
+    jobs: jobs.data
   };
+};
+
+var categoryDispatch = function categoryDispatch(categories) {
+  return {
+    type: 'FETCH_CATEGORIES',
+    categories: categories.data
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/store/context.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/store/context.js ***!
+  \**************************************************/
+/*! exports provided: JobContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobContext", function() { return JobContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var JobContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+
+/***/ }),
+
+/***/ "./resources/js/components/store/index.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/store/index.js ***!
+  \************************************************/
+/*! exports provided: JobProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobProvider", function() { return JobProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducer */ "./resources/js/components/store/reducer.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./context */ "./resources/js/components/store/context.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var JobProvider = function JobProvider(_ref) {
+  var children = _ref.children;
+  var initialState = {
+    categories: [],
+    jobs: [],
+    isLoading: true
+  };
+
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducer__WEBPACK_IMPORTED_MODULE_1__["reducer"], initialState),
+      _useReducer2 = _slicedToArray(_useReducer, 2),
+      state = _useReducer2[0],
+      dispatch = _useReducer2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context__WEBPACK_IMPORTED_MODULE_2__["JobContext"].Provider, {
+    value: [state, dispatch]
+  }, children);
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/store/reducer.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/store/reducer.js ***!
+  \**************************************************/
+/*! exports provided: reducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var reducer = function reducer(state, action) {
+  switch (action.type) {
+    case 'FETCH_CATEGORIES':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        categories: action.categories,
+        isLoading: false
+      });
+
+    case 'FETCH_JOBS':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        jobs: action.jobs,
+        isLoading: false
+      });
+
+    default:
+      return state;
+  }
 };
 
 /***/ }),

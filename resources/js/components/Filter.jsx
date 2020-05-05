@@ -26,7 +26,7 @@ const Filter = ({data: categories}) => (
                 <div className="select-job-items2">
                     <select name="select">
                         <option value="" >All categories</option>
-                        {categories.map(categorie => <option value="" key={categorie.id}>{categorie.title}</option>)}
+                        {categories && categories.map(categorie => <option value="" key={categorie.id}>{categorie.title}</option>)}
                     </select>
                 </div>
                 <div className="select-Categories pt-80 pb-50">

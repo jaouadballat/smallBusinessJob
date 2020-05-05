@@ -1,6 +1,22 @@
 import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
+import {urlWithPage, urlWithParams} from "./services/helpers";
+
+const renderPagination = (pages, currentPage) => {
+    const pagination = [];
+    for(let i = 1; i < pages; i++) {
+        pagination.push(
+            <li className={`page-item ${currentPage === i && 'active'}`} key={i}>
+                <a className="page-link" onClick={() => urlWithParams(i)}>
+                    {i}
+                </a>
+            </li>
+        );
+    }
+
+    return pagination;
+}
 
 const JobList = ({jobs, categories}) => (
     <main>
@@ -35,11 +51,7 @@ const JobList = ({jobs, categories}) => (
                         <div className="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination justify-content-start">
-                                    <li className="page-item active"><a className="page-link" href="#">01</a></li>
-                                    <li className="page-item"><a className="page-link" href="#">02</a></li>
-                                    <li className="page-item"><a className="page-link" href="#">03</a></li>
-                                    <li className="page-item"><a className="page-link" href="#"><span
-                                        className="ti-angle-right"></span></a></li>
+                                    {jobs.meta && renderPagination(jobs.meta.last_page, jobs.meta.current_page)}
                                 </ul>
                             </nav>
                         </div>

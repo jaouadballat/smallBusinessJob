@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import JobList from './JobListContainer';
+import {JobProvider} from "./store";
 
 function App() {
     return (
-        <JobList />
+        <JobProvider>
+            <JobList />
+        </JobProvider>
     );
 }
 
