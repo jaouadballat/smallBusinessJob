@@ -24,6 +24,7 @@ class JobService
     public function featuredJobs()
     {
         return $this->repository
+                    ->with('agency')
                     ->limit(4)
                     ->orderBy('postedDate', 'desc')
                     ->get();

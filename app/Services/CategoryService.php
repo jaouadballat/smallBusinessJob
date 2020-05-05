@@ -16,6 +16,6 @@ class CategoryService
 
     public function all()
     {
-        return $this->repository->all();
+        return $this->repository->with('jobs')->all();
     }
 }
