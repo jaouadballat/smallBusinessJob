@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Filter = () => (
+const Filter = ({data: categories}) => (
     <div className="col-xl-3 col-lg-3 col-md-4">
         <div className="row">
             <div className="col-12">
@@ -25,11 +25,8 @@ const Filter = () => (
                 </div>
                 <div className="select-job-items2">
                     <select name="select">
-                        <option value="">All Category</option>
-                        <option value="">Category 1</option>
-                        <option value="">Category 2</option>
-                        <option value="">Category 3</option>
-                        <option value="">Category 4</option>
+                        <option value="" >All categories</option>
+                        {categories.map(categorie => <option value="" key={categorie.id}>{categorie.title}</option>)}
                     </select>
                 </div>
                 <div className="select-Categories pt-80 pb-50">

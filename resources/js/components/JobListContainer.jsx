@@ -1,22 +1,14 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment} from 'react'
 import JobList from './JobList'
-import {fetchJobs} from "./services/api";
+import { useFetch } from './services/useFetch'
 
 const JobListContainer = () => {
 
-    const [jobs, setJobs] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        fetchJobs().then(({data}) => {
-            setJobs(data);
-            setIsLoading(false)
-        })
-    }, [])
+    const {isLoading, ...props} = useFetch();
 
     return (
         <Fragment>
-           {isLoading ? "Loading......." : <JobList {...jobs} />}
+           {isLoading ? "Loading......." : <JobList {...props} />}
         </Fragment>
     )
 }

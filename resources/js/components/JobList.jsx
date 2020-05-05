@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
 
-const JobList = props => (
+const JobList = ({jobs, categories}) => (
     <main>
         <div className="slider-area ">
             <div className="single-slider section-overly slider-height2 d-flex align-items-center"
@@ -22,8 +22,8 @@ const JobList = props => (
             <div className="container">
                 <div className="row">
 
-                    <Filter />
-                    <Jobs {...props} />
+                    <Filter {...categories} />
+                    <Jobs {...jobs} />
 
                 </div>
             </div>

@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 Route::get('/jobs', 'JobController@index');
 Route::get('/jobs/list', 'JobController@list');
+Route::get('/categories', 'CategoryController@index');
 
