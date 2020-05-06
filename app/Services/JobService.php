@@ -4,12 +4,11 @@
 namespace App\Services;
 
 
+use App\Http\Resources\Job as JobResource;
 use App\Repositories\JobRepository\JobRepositoryInterface;
 
 class JobService
 {
-
-    const PER_PAGE = 5;
 
     public function __construct(JobRepositoryInterface $repository)
     {
@@ -30,8 +29,8 @@ class JobService
                     ->get();
     }
 
-    public function withPagination()
+    public function withPagination(int $page)
     {
-        return $this->repository->paginate(self::PER_PAGE);
+        return $this->repository->collectionsWithPaginate($page);
     }
 }

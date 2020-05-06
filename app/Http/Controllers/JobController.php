@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Job as JobResource;
 use App\Services\JobService;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Self_;
 
 class JobController extends Controller
 {
+
+    const PER_PAGE = 5;
+
     public function __construct(JobService $service)
     {
         $this->service = $service;
@@ -22,9 +26,7 @@ class JobController extends Controller
     {
 
         if($request->ajax()) {
-            return JobResource::collection(
-                $this->service->withPagination()
-            );
+            return $this->service->withPagination(static::PER_PAGE);
         }
 
         return view('job-list');
