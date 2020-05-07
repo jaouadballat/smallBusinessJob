@@ -1,18 +1,19 @@
 import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
-import {urlWithPage, urlWithParams} from "./services/helpers";
+import {urlWithParams} from "./services/helpers";
 import {getJobsList} from "./store/actions";
 
 const renderPagination = (pages, currentPage, dispatch) => {
-    const handlePageChange = (page) => {
-
+    const handlePageChange = (page, dispatch) => {
+        getJobsList(dispatch)
+        urlWithParams(page)
     }
     const pagination = [];
     for(let i = 1; i < pages; i++) {
         pagination.push(
             <li className={`page-item ${currentPage === i && 'active'}`} key={i}>
-                <a className="page-link" onClick={() => handlePageChange(i)}>
+                <a className="page-link" onClick={() => handlePageChange(i, dispatch)}>
                     {i}
                 </a>
             </li>

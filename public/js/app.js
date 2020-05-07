@@ -66164,7 +66164,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var renderPagination = function renderPagination(pages, currentPage, dispatch) {
-  var handlePageChange = function handlePageChange(page) {};
+  var handlePageChange = function handlePageChange(page, dispatch) {
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_4__["getJobsList"])(dispatch);
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
+  };
 
   var pagination = [];
 
@@ -66175,7 +66178,7 @@ var renderPagination = function renderPagination(pages, currentPage, dispatch) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       className: "page-link",
       onClick: function onClick() {
-        return handlePageChange(i);
+        return handlePageChange(i, dispatch);
       }
     }, i)));
   };
@@ -66277,7 +66280,8 @@ var JobListContainer = function JobListContainer() {
   var props = {
     jobs: jobs,
     categories: categories,
-    isLoading: isLoading
+    isLoading: isLoading,
+    dispatch: dispatch
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WithLoader, props);
 };

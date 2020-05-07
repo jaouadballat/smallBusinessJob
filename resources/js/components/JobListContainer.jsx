@@ -11,7 +11,8 @@ const JobListContainer = () => {
     const props = {
         jobs,
         categories,
-        isLoading
+        isLoading,
+        dispatch
     };
 
     return <WithLoader {...props} />

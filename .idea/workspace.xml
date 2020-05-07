@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5766c090-c63a-4f14-b255-3e8f74aa86d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Helper/Helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/JobList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/JobList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/JobListContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/JobListContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Jobs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Jobs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
