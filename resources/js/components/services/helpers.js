@@ -8,7 +8,7 @@ export const urlWithParams = page => {
     return getFilterFromUrlParams(params);
 }
 
-const getFilterFromUrlParams = params => {
+export const getFilterFromUrlParams = params => {
     const filter = {};
     params.forEach((value, key) => {
         filter[key] = value;

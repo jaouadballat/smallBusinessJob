@@ -66163,7 +66163,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var renderPagination = function renderPagination(pages, currentPage, dispatch) {
+var renderPagination = function renderPagination(_ref, dispatch) {
+  var pages = _ref.last_page,
+      current_page = _ref.current_page;
+
   var handlePageChange = function handlePageChange(page, dispatch) {
     var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_4__["getJobsList"])(dispatch, filter);
@@ -66173,7 +66176,7 @@ var renderPagination = function renderPagination(pages, currentPage, dispatch) {
 
   var _loop = function _loop(i) {
     pagination.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      className: "page-item ".concat(currentPage === i && 'active'),
+      className: "page-item ".concat(current_page === i && 'active'),
       key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       className: "page-link",
@@ -66190,12 +66193,10 @@ var renderPagination = function renderPagination(pages, currentPage, dispatch) {
   return pagination;
 };
 
-var JobList = function JobList(_ref) {
-  var _jobs$meta, _jobs$meta2;
-
-  var jobs = _ref.jobs,
-      categories = _ref.categories,
-      dispatch = _ref.dispatch;
+var JobList = function JobList(_ref2) {
+  var jobs = _ref2.jobs,
+      categories = _ref2.categories,
+      dispatch = _ref2.dispatch;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slider-area "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66229,7 +66230,7 @@ var JobList = function JobList(_ref) {
     "aria-label": "Page navigation example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "pagination justify-content-start"
-  }, renderPagination(jobs === null || jobs === void 0 ? void 0 : (_jobs$meta = jobs.meta) === null || _jobs$meta === void 0 ? void 0 : _jobs$meta.last_page, jobs === null || jobs === void 0 ? void 0 : (_jobs$meta2 = jobs.meta) === null || _jobs$meta2 === void 0 ? void 0 : _jobs$meta2.current_page, dispatch)))))))));
+  }, renderPagination(jobs === null || jobs === void 0 ? void 0 : jobs.meta, dispatch)))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (JobList);
@@ -66460,7 +66461,7 @@ var fetchCategories = function fetchCategories() {
 /*!*****************************************************!*\
   !*** ./resources/js/components/services/helpers.js ***!
   \*****************************************************/
-/*! exports provided: imageLink, getUrlParams, urlWithParams */
+/*! exports provided: imageLink, getUrlParams, urlWithParams, getFilterFromUrlParams */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66468,6 +66469,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imageLink", function() { return imageLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlParams", function() { return getUrlParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "urlWithParams", function() { return urlWithParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFilterFromUrlParams", function() { return getFilterFromUrlParams; });
 var imageLink = function imageLink(link) {
   return "".concat(window.location.origin, "/").concat(link);
 };
@@ -66480,7 +66482,6 @@ var urlWithParams = function urlWithParams(page) {
   window.history.pushState(null, null, "?".concat(params.toString()));
   return getFilterFromUrlParams(params);
 };
-
 var getFilterFromUrlParams = function getFilterFromUrlParams(params) {
   var filter = {};
   params.forEach(function (value, key) {
@@ -66505,6 +66506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/context */ "./resources/js/components/store/context.js");
 /* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions */ "./resources/js/components/store/actions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers */ "./resources/js/components/services/helpers.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -66520,6 +66522,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var useFetch = function useFetch() {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_store_context__WEBPACK_IMPORTED_MODULE_1__["JobContext"]),
       _useContext2 = _slicedToArray(_useContext, 2),
@@ -66527,7 +66530,9 @@ var useFetch = function useFetch() {
       dispatch = _useContext2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch);
+    var params = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getUrlParams"])();
+    var filter = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getFilterFromUrlParams"])(params);
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch, filter);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getCategoriesList"])(dispatch);
   }, []);
   return [state, dispatch];

@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/JobList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/JobList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/services/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/store/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

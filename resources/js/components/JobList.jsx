@@ -4,7 +4,7 @@ import Jobs from "./Jobs";
 import {urlWithParams} from "./services/helpers";
 import {getJobsList} from "./store/actions";
 
-const renderPagination = (pages, currentPage, dispatch) => {
+const renderPagination = ({last_page: pages, current_page}, dispatch) => {
     const handlePageChange = (page, dispatch) => {
         const filter = urlWithParams(page)
         getJobsList(dispatch, filter)
@@ -12,7 +12,7 @@ const renderPagination = (pages, currentPage, dispatch) => {
     const pagination = [];
     for(let i = 1; i < pages; i++) {
         pagination.push(
-            <li className={`page-item ${currentPage === i && 'active'}`} key={i}>
+            <li className={`page-item ${current_page === i && 'active'}`} key={i}>
                 <a className="page-link" onClick={() => handlePageChange(i, dispatch)}>
                     {i}
                 </a>
@@ -56,7 +56,7 @@ const JobList = ({jobs, categories, dispatch}) => (
                         <div className="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination justify-content-start">
-                                    {renderPagination(jobs?.meta?.last_page, jobs?.meta?.current_page, dispatch)}
+                                    {renderPagination(jobs?.meta, dispatch)}
                                 </ul>
                             </nav>
                         </div>
