@@ -13,6 +13,5 @@ export const useFetch = () => {
 
     }, []);
 
-
-    return state;
+    return [state, dispatch];
 }

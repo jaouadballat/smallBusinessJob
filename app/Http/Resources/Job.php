@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Helper\Helper;
 
 class Job extends JsonResource
 {
@@ -18,7 +19,7 @@ class Job extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'location' => $this->location,
-            'salary' => $this->salary,
+            'salary' => Helper::currencyFormat($this->salary),
             'contract' => $this->contract_type,
             'agency' => new Agency($this->agency),
             'postedDate' => $this->postedDate->diffForHumans(),

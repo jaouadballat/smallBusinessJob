@@ -5,9 +5,14 @@ import {withLoader} from "./LoaderHoc";
 
 const JobListContainer = () => {
 
-    const  props = useFetch();
-    console.log({props})
+    const  [{jobs, categories, isLoading}, dispatch] = useFetch();
     const WithLoader = withLoader(JobList);
+
+    const props = {
+        jobs,
+        categories,
+        isLoading
+    };
 
     return <WithLoader {...props} />
 }

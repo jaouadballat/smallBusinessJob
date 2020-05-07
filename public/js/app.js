@@ -66156,12 +66156,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Filter */ "./resources/js/components/Filter.jsx");
 /* harmony import */ var _Jobs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Jobs */ "./resources/js/components/Jobs.jsx");
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/actions */ "./resources/js/components/store/actions.js");
 
 
 
 
 
-var renderPagination = function renderPagination(pages, currentPage) {
+
+var renderPagination = function renderPagination(pages, currentPage, dispatch) {
+  var handlePageChange = function handlePageChange(page) {};
+
   var pagination = [];
 
   var _loop = function _loop(i) {
@@ -66171,7 +66175,7 @@ var renderPagination = function renderPagination(pages, currentPage) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       className: "page-link",
       onClick: function onClick() {
-        return Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(i);
+        return handlePageChange(i);
       }
     }, i)));
   };
@@ -66184,8 +66188,11 @@ var renderPagination = function renderPagination(pages, currentPage) {
 };
 
 var JobList = function JobList(_ref) {
+  var _jobs$meta, _jobs$meta2;
+
   var jobs = _ref.jobs,
-      categories = _ref.categories;
+      categories = _ref.categories,
+      dispatch = _ref.dispatch;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slider-area "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66219,7 +66226,7 @@ var JobList = function JobList(_ref) {
     "aria-label": "Page navigation example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "pagination justify-content-start"
-  }, jobs.meta && renderPagination(jobs.meta.last_page, jobs.meta.current_page)))))))));
+  }, renderPagination(jobs === null || jobs === void 0 ? void 0 : (_jobs$meta = jobs.meta) === null || _jobs$meta === void 0 ? void 0 : _jobs$meta.last_page, jobs === null || jobs === void 0 ? void 0 : (_jobs$meta2 = jobs.meta) === null || _jobs$meta2 === void 0 ? void 0 : _jobs$meta2.current_page, dispatch)))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (JobList);
@@ -66240,17 +66247,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _JobList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JobList */ "./resources/js/components/JobList.jsx");
 /* harmony import */ var _services_useFetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/useFetch */ "./resources/js/components/services/useFetch.js");
 /* harmony import */ var _LoaderHoc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoaderHoc */ "./resources/js/components/LoaderHoc.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 
 
 var JobListContainer = function JobListContainer() {
-  var props = Object(_services_useFetch__WEBPACK_IMPORTED_MODULE_2__["useFetch"])();
-  console.log({
-    props: props
-  });
+  var _useFetch = Object(_services_useFetch__WEBPACK_IMPORTED_MODULE_2__["useFetch"])(),
+      _useFetch2 = _slicedToArray(_useFetch, 2),
+      _useFetch2$ = _useFetch2[0],
+      jobs = _useFetch2$.jobs,
+      categories = _useFetch2$.categories,
+      isLoading = _useFetch2$.isLoading,
+      dispatch = _useFetch2[1];
+
   var WithLoader = Object(_LoaderHoc__WEBPACK_IMPORTED_MODULE_3__["withLoader"])(_JobList__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  var props = {
+    jobs: jobs,
+    categories: categories,
+    isLoading: isLoading
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WithLoader, props);
 };
 
@@ -66489,7 +66517,7 @@ var useFetch = function useFetch() {
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getCategoriesList"])(dispatch);
   }, []);
-  return state;
+  return [state, dispatch];
 };
 
 /***/ }),

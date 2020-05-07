@@ -2,13 +2,17 @@ import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
 import {urlWithPage, urlWithParams} from "./services/helpers";
+import {getJobsList} from "./store/actions";
 
-const renderPagination = (pages, currentPage) => {
+const renderPagination = (pages, currentPage, dispatch) => {
+    const handlePageChange = (page) => {
+
+    }
     const pagination = [];
     for(let i = 1; i < pages; i++) {
         pagination.push(
             <li className={`page-item ${currentPage === i && 'active'}`} key={i}>
-                <a className="page-link" onClick={() => urlWithParams(i)}>
+                <a className="page-link" onClick={() => handlePageChange(i)}>
                     {i}
                 </a>
             </li>
@@ -18,7 +22,7 @@ const renderPagination = (pages, currentPage) => {
     return pagination;
 }
 
-const JobList = ({jobs, categories}) => (
+const JobList = ({jobs, categories, dispatch}) => (
     <main>
         <div className="slider-area ">
             <div className="single-slider section-overly slider-height2 d-flex align-items-center"
@@ -51,7 +55,7 @@ const JobList = ({jobs, categories}) => (
                         <div className="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination justify-content-start">
-                                    {jobs.meta && renderPagination(jobs.meta.last_page, jobs.meta.current_page)}
+                                    {renderPagination(jobs?.meta?.last_page, jobs?.meta?.current_page, dispatch)}
                                 </ul>
                             </nav>
                         </div>

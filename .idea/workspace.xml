@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5766c090-c63a-4f14-b255-3e8f74aa86d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Helper/Helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/JobRepository/JobRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/JobRepository/JobRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/JobService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/JobService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/JobList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/JobList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/JobListContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/JobListContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Jobs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Jobs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +180,9 @@
       <workItem from="1588555709982" duration="1543000" />
       <workItem from="1588592561013" duration="23732000" />
       <workItem from="1588691632766" duration="7378000" />
+      <workItem from="1588727414585" duration="865000" />
+      <workItem from="1588730234380" duration="1567000" />
+      <workItem from="1588884070556" duration="660000" />
     </task>
     <servers />
   </component>
@@ -185,7 +194,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -205,10 +216,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="468" y="275" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.797@0.23.1440.797" timestamp="1588602865057" />
-    <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588606237821">
+    <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588726503283">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.797@0.23.1440.797" timestamp="1588606237821" />
+    <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.797@0.23.1440.797" timestamp="1588726503283" />
     <state x="472" y="245" key="NewPhpClassDialog/0.23.1440.798@0.23.1440.798" timestamp="1588549358773" />
     <state x="541" y="352" key="NewPhpFileDialog" timestamp="1588606120532">
       <screen x="0" y="23" width="1440" height="797" />
@@ -219,19 +230,19 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state width="538" height="445" key="SwitcherDM/0.23.1440.797@0.23.1440.797" timestamp="1588720930867" />
-    <state x="399" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1588691633160">
+    <state x="399" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1588884121283">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1588691633160" />
+    <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1588884121283" />
     <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.798@0.23.1440.798" timestamp="1588555709777" />
     <state x="386" y="178" width="667" height="486" key="find.popup" timestamp="1588634295959">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1588634295959" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588723632430">
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588727664303">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588723632430" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588727664303" />
     <state x="385" y="144" width="670" height="677" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1588555839751" />
   </component>
   <component name="XDebuggerManager">

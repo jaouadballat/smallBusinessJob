@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\Helper;
 use App\Traits\HasUUID;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +11,6 @@ class Job extends Model
     use HasUUID;
 
     const CREATED_AT = 'postedDate';
-    const CURRENCY = '$';
     const TABLE = 'jobs';
 
     protected $guarded = [];
@@ -33,13 +33,9 @@ class Job extends Model
 
     public function salary()
     {
-        return round($this->salary) . $this->currency();
+        return Helper::currencyFormat($this->salary);
     }
 
-    public function currency()
-    {
-        return self::CURRENCY;
-    }
 
     public function posted_date()
     {

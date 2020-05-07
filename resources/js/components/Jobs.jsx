@@ -2,7 +2,6 @@ import React from 'react';
 import {imageLink} from "./services/helpers";
 
 const Jobs = ({ data: jobs, ...props }) => {
-
     return (
         <div className="col-xl-9 col-lg-9 col-md-8">
             <section className="featured-job-area">
