@@ -66165,8 +66165,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var renderPagination = function renderPagination(pages, currentPage, dispatch) {
   var handlePageChange = function handlePageChange(page, dispatch) {
-    Object(_store_actions__WEBPACK_IMPORTED_MODULE_4__["getJobsList"])(dispatch);
-    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
+    var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_4__["getJobsList"])(dispatch, filter);
   };
 
   var pagination = [];
@@ -66478,6 +66478,15 @@ var urlWithParams = function urlWithParams(page) {
   var params = getUrlParams();
   params.set('page', page);
   window.history.pushState(null, null, "?".concat(params.toString()));
+  return getFilterFromUrlParams(params);
+};
+
+var getFilterFromUrlParams = function getFilterFromUrlParams(params) {
+  var filter = {};
+  params.forEach(function (value, key) {
+    filter[key] = value;
+  });
+  return filter;
 };
 
 /***/ }),
@@ -66540,7 +66549,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/api */ "./resources/js/components/services/api.js");
 
 var getJobsList = function getJobsList(dispatch) {
-  Object(_services_api__WEBPACK_IMPORTED_MODULE_0__["fetchJobs"])(null).then(function (jobs) {
+  var filter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  Object(_services_api__WEBPACK_IMPORTED_MODULE_0__["fetchJobs"])(filter).then(function (jobs) {
     return dispatch(jobDispatch(jobs));
   });
 };

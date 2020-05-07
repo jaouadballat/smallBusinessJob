@@ -6,8 +6,8 @@ import {getJobsList} from "./store/actions";
 
 const renderPagination = (pages, currentPage, dispatch) => {
     const handlePageChange = (page, dispatch) => {
-        getJobsList(dispatch)
-        urlWithParams(page)
+        const filter = urlWithParams(page)
+        getJobsList(dispatch, filter)
     }
     const pagination = [];
     for(let i = 1; i < pages; i++) {

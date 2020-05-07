@@ -1,7 +1,7 @@
 import {fetchCategories, fetchJobs} from "../services/api";
 
-export const getJobsList = dispatch => {
-    fetchJobs(null).then(jobs => dispatch(jobDispatch(jobs)))
+export const getJobsList = (dispatch, filter = null) => {
+    fetchJobs(filter).then(jobs => dispatch(jobDispatch(jobs)))
 }
 
 export const getCategoriesList = dispatch => {
