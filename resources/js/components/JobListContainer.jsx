@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react'
+import React from 'react'
 import JobList from './JobList'
 import { useFetch } from './services/useFetch'
 import {withLoader} from "./LoaderHoc";

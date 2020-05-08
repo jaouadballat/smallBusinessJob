@@ -66164,8 +66164,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var renderPagination = function renderPagination(_ref, dispatch) {
-  var pages = _ref.last_page,
-      current_page = _ref.current_page;
+  var current_page = _ref.current_page,
+      pages = _ref.last_page;
 
   var handlePageChange = function handlePageChange(page, dispatch) {
     var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
@@ -66230,7 +66230,7 @@ var JobList = function JobList(_ref2) {
     "aria-label": "Page navigation example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "pagination justify-content-start"
-  }, renderPagination(jobs === null || jobs === void 0 ? void 0 : jobs.meta, dispatch)))))))));
+  }, (jobs === null || jobs === void 0 ? void 0 : jobs.meta) && renderPagination(jobs === null || jobs === void 0 ? void 0 : jobs.meta, dispatch)))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (JobList);
