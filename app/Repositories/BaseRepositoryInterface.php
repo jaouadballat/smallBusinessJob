@@ -31,4 +31,5 @@ interface BaseRepositoryInterface
     public function whereIn($column, $value);
 
     public function with($relations);
+    public function whereHas($relation, $closure);
 }

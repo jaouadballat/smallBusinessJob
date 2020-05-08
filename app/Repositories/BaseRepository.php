@@ -104,6 +104,13 @@ class BaseRepository implements BaseRepositoryInterface
         return $model;
     }
 
+    public function whereHas($relation, $closure)
+    {
+        $this->model = $this->model->whereHas($relation, $closure);
+
+        return $this;
+    }
+
     /**
      * Get all the specified model records in the database.
      *
@@ -270,7 +277,7 @@ class BaseRepository implements BaseRepositoryInterface
      *
      * @return $this
      */
-    protected function newQuery()
+    public function newQuery()
     {
         $this->query = $this->model->newQuery();
 

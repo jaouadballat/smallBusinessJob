@@ -66166,6 +66166,7 @@ __webpack_require__.r(__webpack_exports__);
 var renderPagination = function renderPagination(_ref, dispatch) {
   var pages = _ref.last_page,
       current_page = _ref.current_page;
+  console.log(pages);
 
   var handlePageChange = function handlePageChange(page, dispatch) {
     var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
