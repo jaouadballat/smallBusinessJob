@@ -2,6 +2,7 @@ import React from 'react'
 import JobList from './JobList'
 import { useFetch } from './services/useFetch'
 import {withLoader} from "./LoaderHoc";
+import {getFilterFromUrlParams} from "./services/helpers";
 
 const JobListContainer = () => {
 
@@ -9,8 +10,9 @@ const JobListContainer = () => {
     const WithLoader = withLoader(JobList);
 
     const handleChangeEvent = e => {
-        const {name, value, type} = e.target;
-        console.log({name, value, type})
+        const {name, value, type, id} = e.target;
+        console.log({name, value, type, id})
+        console.log({filter: getFilterFromUrlParams()})
 
     }
 

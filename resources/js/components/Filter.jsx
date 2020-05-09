@@ -3,6 +3,8 @@ import ContractType from "./ContractType";
 import Experience from "./Experience";
 import PostedDate from "./PostedDate";
 import Categories from "./Categories";
+import Location from "./Location";
+import Salary from "./Salary";
 
 const Filter = ({data: categories, onChange}) => (
     <div className="col-xl-3 col-lg-3 col-md-4">
@@ -28,53 +30,15 @@ const Filter = ({data: categories, onChange}) => (
 
             <ContractType onChange={onChange} />
 
-            <div className="single-listing">
-                <div className="small-section-tittle2">
-                    <h4>Job Location</h4>
-                </div>
-                <div className="select-job-items2">
-                    <select name="select">
-                        <option value="">Anywhere</option>
-                        <option value="">Category 1</option>
-                        <option value="">Category 2</option>
-                        <option value="">Category 3</option>
-                        <option value="">Category 4</option>
-                    </select>
-                </div>
+            <Location onChange={onChange} />
 
-                <Experience onChange={onChange} />
+            <Experience onChange={onChange} />
 
-            </div>
-            <div className="single-listing">
+            <PostedDate onChange={onChange} />
 
-                <PostedDate onChange={onChange} />
+            <Salary onChange={onChange} />
 
-            </div>
-            <div className="single-listing">
-                <aside
-                    className="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                    <div className="small-section-tittle2">
-                        <h4>Filter Jobs</h4>
-                    </div>
-                    <div className="widgets_inner">
-                        <div className="range_item">
-                            <input type="text" className="js-range-slider" value=""/>
-                            <div className="d-flex align-items-center">
-                                <div className="price_text">
-                                    <p>Price :</p>
-                                </div>
-                                <div className="price_value d-flex justify-content-center">
-                                    <input type="text" className="js-input-from" id="amount"
-                                           readOnly/>
-                                    <span>to</span>
-                                    <input type="text" className="js-input-to" id="amount"
-                                           readOnly/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
+
         </div>
     </div>
 )

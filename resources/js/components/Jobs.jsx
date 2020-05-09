@@ -10,15 +10,6 @@ const Jobs = ({ data: jobs, ...props }) => {
                         <div className="col-lg-12">
                             <div className="count-job mb-35">
                                 <span>{props?.meta?.total} Jobs found</span>
-                                <div className="select-job-items">
-                                    <span>Sort by</span>
-                                    <select name="select">
-                                        <option value="">None</option>
-                                        <option value="">job list</option>
-                                        <option value="">job list</option>
-                                        <option value="">job list</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>

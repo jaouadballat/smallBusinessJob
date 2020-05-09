@@ -13,8 +13,9 @@ const ContractType = ({onChange}) => {
 
     const handleChangeEvent = (event) => {
         const { id: value } = event.target;
-        appendParamsToUrl('contract', value);
         setValue(value);
+        appendParamsToUrl('contract', value);
+        appendParamsToUrl('page', 1);
         onChange(event);
     }
 
@@ -27,7 +28,7 @@ const ContractType = ({onChange}) => {
                 {types.map(type => (
                     <label className="container">
                         {type}
-                        <input type="checkbox" id={type} name='Contract' value={value} checked={type === value && 'checked'} onChange={handleChangeEvent}/>
+                        <input type="checkbox" id={type} name='contract' value={type} checked={type === value && 'checked'} onChange={handleChangeEvent}/>
                         <span className="checkmark"></span>
                     </label>
                 ))}

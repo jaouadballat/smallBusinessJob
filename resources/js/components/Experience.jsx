@@ -21,16 +21,19 @@ const Experience = ({onChange}) => {
     }
 
     return (
-        <div className="select-Categories pt-80 pb-50">
-            <div className="small-section-tittle2">
-                <h4>Experience</h4>
+        <div className="single-listing">
+
+            <div className="select-Categories pt-80 pb-50">
+                <div className="small-section-tittle2">
+                    <h4>Experience</h4>
+                </div>
+                {experiences.map(experience => (
+                    <label className="container">{experience?.label}
+                        <input type="checkbox" name="experience" id={experience?.value} value={experience?.value} checked={experience?.value === value && 'checked'} onChange={onChangeHandler}  />
+                        <span className="checkmark" />
+                    </label>
+                ))}
             </div>
-            {experiences.map(experience => (
-                <label className="container">{experience?.label}
-                    <input type="checkbox" id={experience?.value} value={experience?.value} checked={experience?.value === value && 'checked'} onChange={onChangeHandler}  />
-                    <span className="checkmark" />
-                </label>
-            ))}
         </div>
     );
 }

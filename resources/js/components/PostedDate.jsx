@@ -23,17 +23,19 @@ const PostedDate = ({onChange}) => {
     }
 
     return (
-        <div className="select-Categories pb-50">
-            <div className="small-section-tittle2">
-                <h4>Posted Within</h4>
-            </div>
-            {dates.map(date => (
-                <label className="container">{date}
-                    <input type="checkbox" name='posted_date' id={date} value={value} checked={date === value && 'checked'} onChange={onChangeHandler} />
-                    <span className="checkmark"></span>
-                </label>
-            ))}
+        <div className="single-listing">
 
+            <div className="select-Categories pb-50">
+                <div className="small-section-tittle2">
+                    <h4>Posted Within</h4>
+                </div>
+                {dates.map(date => (
+                    <label className="container">{date}
+                        <input type="checkbox" name='posted_date' id={date} value={date} checked={date === value && 'checked'} onChange={onChangeHandler} />
+                        <span className="checkmark"></span>
+                    </label>
+                ))}
+            </div>
 
         </div>
     );
