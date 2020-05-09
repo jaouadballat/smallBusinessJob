@@ -1,7 +1,7 @@
 import React, {useEffect, useContext} from 'react';
 import {JobContext} from "../store/context";
 import {getCategoriesList, getJobsList} from "../store/actions";
-import {getUrlParams, getFilterFromUrlParams} from "./helpers";
+import {getUrlParams, getFilterFromUrlParams, urlWithParams} from "./helpers";
 
 export const useFetch = () => {
 
@@ -9,6 +9,9 @@ export const useFetch = () => {
 
     useEffect(() => {
         const params = getUrlParams();
+        if(!params.has('page')) {
+            urlWithParams(1);
+        }
         const filter = getFilterFromUrlParams(params)
         getJobsList(dispatch, filter);
         getCategoriesList(dispatch);

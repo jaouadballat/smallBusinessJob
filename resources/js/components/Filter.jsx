@@ -2,6 +2,7 @@ import React from 'react';
 import ContractType from "./ContractType";
 import Experience from "./Experience";
 import PostedDate from "./PostedDate";
+import Categories from "./Categories";
 
 const Filter = ({data: categories, onChange}) => (
     <div className="col-xl-3 col-lg-3 col-md-4">
@@ -22,20 +23,11 @@ const Filter = ({data: categories, onChange}) => (
             </div>
         </div>
         <div className="job-category-listing mb-50">
-            <div className="single-listing">
-                <div className="small-section-tittle2">
-                    <h4>Job Category</h4>
-                </div>
-                <div className="select-job-items2">
-                    <select name="category" onChange={onChange}>
-                        <option value="" >All categories</option>
-                        {categories && categories.map(categorie => <option value={categorie.title} key={categorie.id}>{categorie.title}</option>)}
-                    </select>
-                </div>
 
-                <ContractType onChange={onChange} />
+            <Categories categories={categories} onChange={onChange} />
 
-            </div>
+            <ContractType onChange={onChange} />
+
             <div className="single-listing">
                 <div className="small-section-tittle2">
                     <h4>Job Location</h4>

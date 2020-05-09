@@ -65935,6 +65935,54 @@ if (document.getElementById('job-list')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Categories.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/Categories.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
+
+
+
+var Categories = function Categories(_ref) {
+  var onChange = _ref.onChange,
+      categories = _ref.categories;
+
+  var onChangeHandler = function onChangeHandler(event) {
+    var value = event.target.value;
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["categoryFromUrl"])(value);
+    onChange(event);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "single-listing"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "small-section-tittle2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Category")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "select-job-items2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "category",
+    onChange: onChangeHandler
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "All categories"), categories && categories.map(function (categorie) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: categorie.title,
+      key: categorie.id
+    }, categorie.title);
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Categories);
+
+/***/ }),
+
 /***/ "./resources/js/components/ContractType.jsx":
 /*!**************************************************!*\
   !*** ./resources/js/components/ContractType.jsx ***!
@@ -66047,6 +66095,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ContractType__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContractType */ "./resources/js/components/ContractType.jsx");
 /* harmony import */ var _Experience__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Experience */ "./resources/js/components/Experience.jsx");
 /* harmony import */ var _PostedDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PostedDate */ "./resources/js/components/PostedDate.jsx");
+/* harmony import */ var _Categories__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Categories */ "./resources/js/components/Categories.jsx");
+
 
 
 
@@ -66076,25 +66126,12 @@ var Filter = function Filter(_ref) {
     d: "M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Filter Jobs")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "job-category-listing mb-50"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "single-listing"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "small-section-tittle2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Category")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "select-job-items2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "category",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Categories__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    categories: categories,
     onChange: onChange
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "All categories"), categories && categories.map(function (categorie) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      value: categorie.title,
-      key: categorie.id
-    }, categorie.title);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContractType__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContractType__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onChange: onChange
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "single-listing"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "small-section-tittle2"
@@ -66557,7 +66594,7 @@ var fetchCategories = function fetchCategories() {
 /*!*****************************************************!*\
   !*** ./resources/js/components/services/helpers.js ***!
   \*****************************************************/
-/*! exports provided: imageLink, getUrlParams, urlWithParams, getFilterFromUrlParams */
+/*! exports provided: imageLink, getUrlParams, urlWithParams, getFilterFromUrlParams, categoryFromUrl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66566,6 +66603,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlParams", function() { return getUrlParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "urlWithParams", function() { return urlWithParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFilterFromUrlParams", function() { return getFilterFromUrlParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "categoryFromUrl", function() { return categoryFromUrl; });
 var imageLink = function imageLink(link) {
   return "".concat(window.location.origin, "/").concat(link);
 };
@@ -66583,6 +66621,27 @@ var getFilterFromUrlParams = function getFilterFromUrlParams(params) {
   params.forEach(function (value, key) {
     filter[key] = value;
   });
+  return filter;
+};
+var categoryFromUrl = function categoryFromUrl(category) {
+  var params = getUrlParams();
+  params.append('category', category);
+  window.history.pushState(null, null, constructUrlParams(params));
+};
+
+var constructUrlParams = function constructUrlParams(params) {
+  var filter = '';
+  var urlKeys = Array.from(params.keys());
+  var urlValues = Array.from(params.values());
+
+  for (var i = 0; i < urlKeys.length; i++) {
+    if (i === 0) {
+      filter += "?".concat(urlKeys[i], "=").concat(urlValues[i]);
+    } else {
+      filter += "&".concat(urlKeys[i], "=").concat(urlValues[i]);
+    }
+  }
+
   return filter;
 };
 
@@ -66627,6 +66686,11 @@ var useFetch = function useFetch() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var params = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getUrlParams"])();
+
+    if (!params.has('page')) {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(1);
+    }
+
     var filter = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getFilterFromUrlParams"])(params);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch, filter);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getCategoriesList"])(dispatch);
