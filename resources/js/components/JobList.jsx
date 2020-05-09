@@ -1,13 +1,14 @@
 import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
-import {urlWithParams} from "./services/helpers";
+import {appendParamsToUrl, getFilterFromUrlParams} from "./services/helpers";
 import {getJobsList} from "./store/actions";
 
 const renderPagination = ({current_page, last_page: pages}, dispatch) => {
 
     const handlePageChange = (page, dispatch) => {
-        const filter = urlWithParams(page)
+        appendParamsToUrl('page', page);
+        const filter = getFilterFromUrlParams();
         getJobsList(dispatch, filter)
     }
 

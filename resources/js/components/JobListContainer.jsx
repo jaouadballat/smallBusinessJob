@@ -11,6 +11,7 @@ const JobListContainer = () => {
     const handleChangeEvent = e => {
         const {name, value, type} = e.target;
         console.log({name, value, type})
+
     }
 
     const props = {

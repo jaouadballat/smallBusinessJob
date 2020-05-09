@@ -1,14 +1,8 @@
 export const imageLink = link => `${window.location.origin}/${link}`;
-export const getUrlParams = () => new URLSearchParams(window.location.search)
-export const urlWithParams = page => {
-    const params = getUrlParams();
-    params.set('page', page)
+export const getUrlParams = () => new URLSearchParams(window.location.search);
 
-    window.history.pushState(null, null, `?${params.toString()}`)
-    return getFilterFromUrlParams(params);
-}
-
-export const getFilterFromUrlParams = params => {
+export const getFilterFromUrlParams = () => {
+    const params = getUrlParams()
     const filter = {};
     params.forEach((value, key) => {
         filter[key] = value;
@@ -16,11 +10,13 @@ export const getFilterFromUrlParams = params => {
     return filter;
 }
 
-export const categoryFromUrl = (category) => {
+export const appendParamsToUrl = (key, value) => {
     const params = getUrlParams();
-    params.append('category', category);
+    params.set([key], value);
     window.history.pushState(null, null, constructUrlParams(params));
 }
+
+export const valueFromUrlParams = key => getUrlParams().get([key])
 
 
 const constructUrlParams = params => {
@@ -38,3 +34,5 @@ const constructUrlParams = params => {
 
     return filter;
 }
+
+

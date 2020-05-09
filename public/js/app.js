@@ -65947,6 +65947,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -65954,9 +65966,16 @@ var Categories = function Categories(_ref) {
   var onChange = _ref.onChange,
       categories = _ref.categories;
 
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('category') || ''),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
   var onChangeHandler = function onChangeHandler(event) {
     var value = event.target.value;
-    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["categoryFromUrl"])(value);
+    setValue(value);
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('category', value);
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('page', 1);
     onChange(event);
   };
 
@@ -65968,7 +65987,8 @@ var Categories = function Categories(_ref) {
     className: "select-job-items2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "category",
-    onChange: onChangeHandler
+    onChange: onChangeHandler,
+    value: value
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: ""
   }, "All categories"), categories && categories.map(function (categorie) {
@@ -65994,12 +66014,41 @@ var Categories = function Categories(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 var ContractType = function ContractType(_ref) {
   var onChange = _ref.onChange;
   var types = ['Full Time', 'Part Time', 'Remote', 'Freelance'];
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('contract') || ''),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var handleChangeEvent = function handleChangeEvent(event) {
+    var value = event.target.id;
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('contract', value);
+    setValue(value);
+    onChange(event);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "single-listing"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "select-Categories pt-80 pb-50"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "small-section-tittle2"
@@ -66009,13 +66058,14 @@ var ContractType = function ContractType(_ref) {
     }, type, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "checkbox",
       id: type,
-      name: type,
-      checked: "checked active",
-      onChange: onChange
+      name: "Contract",
+      value: value,
+      checked: type === value && 'checked',
+      onChange: handleChangeEvent
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "checkmark"
     }));
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ContractType);
@@ -66220,7 +66270,8 @@ var renderPagination = function renderPagination(_ref, dispatch) {
       pages = _ref.last_page;
 
   var handlePageChange = function handlePageChange(page, dispatch) {
-    var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(page);
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["appendParamsToUrl"])('page', page);
+    var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_3__["getFilterFromUrlParams"])();
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_4__["getJobsList"])(dispatch, filter);
   };
 
@@ -66594,39 +66645,37 @@ var fetchCategories = function fetchCategories() {
 /*!*****************************************************!*\
   !*** ./resources/js/components/services/helpers.js ***!
   \*****************************************************/
-/*! exports provided: imageLink, getUrlParams, urlWithParams, getFilterFromUrlParams, categoryFromUrl */
+/*! exports provided: imageLink, getUrlParams, getFilterFromUrlParams, appendParamsToUrl, valueFromUrlParams */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imageLink", function() { return imageLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlParams", function() { return getUrlParams; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "urlWithParams", function() { return urlWithParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFilterFromUrlParams", function() { return getFilterFromUrlParams; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "categoryFromUrl", function() { return categoryFromUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendParamsToUrl", function() { return appendParamsToUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "valueFromUrlParams", function() { return valueFromUrlParams; });
 var imageLink = function imageLink(link) {
   return "".concat(window.location.origin, "/").concat(link);
 };
 var getUrlParams = function getUrlParams() {
   return new URLSearchParams(window.location.search);
 };
-var urlWithParams = function urlWithParams(page) {
+var getFilterFromUrlParams = function getFilterFromUrlParams() {
   var params = getUrlParams();
-  params.set('page', page);
-  window.history.pushState(null, null, "?".concat(params.toString()));
-  return getFilterFromUrlParams(params);
-};
-var getFilterFromUrlParams = function getFilterFromUrlParams(params) {
   var filter = {};
   params.forEach(function (value, key) {
     filter[key] = value;
   });
   return filter;
 };
-var categoryFromUrl = function categoryFromUrl(category) {
+var appendParamsToUrl = function appendParamsToUrl(key, value) {
   var params = getUrlParams();
-  params.append('category', category);
+  params.set([key], value);
   window.history.pushState(null, null, constructUrlParams(params));
+};
+var valueFromUrlParams = function valueFromUrlParams(key) {
+  return getUrlParams().get([key]);
 };
 
 var constructUrlParams = function constructUrlParams(params) {
@@ -66688,10 +66737,10 @@ var useFetch = function useFetch() {
     var params = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getUrlParams"])();
 
     if (!params.has('page')) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["urlWithParams"])(1);
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["appendParamsToUrl"])('page', 1);
     }
 
-    var filter = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getFilterFromUrlParams"])(params);
+    var filter = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getFilterFromUrlParams"])();
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getJobsList"])(dispatch, filter);
     Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["getCategoriesList"])(dispatch);
   }, []);

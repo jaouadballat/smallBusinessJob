@@ -1,11 +1,15 @@
-import React from 'react';
-import {categoryFromUrl} from "./services/helpers";
+import React,{useState} from 'react';
+import {appendParamsToUrl, getUrlParams, valueFromUrlParams} from "./services/helpers";
 
 const Categories = ({onChange, categories}) => {
 
+    const [value, setValue] = useState(valueFromUrlParams('category') || '');
+
     const onChangeHandler = event => {
         const value  = event.target.value;
-        categoryFromUrl(value);
+        setValue(value);
+        appendParamsToUrl('category', value);
+        appendParamsToUrl('page', 1);
         onChange(event);
     }
 
@@ -15,7 +19,7 @@ const Categories = ({onChange, categories}) => {
                 <h4>Job Category</h4>
             </div>
             <div className="select-job-items2">
-                <select name="category" onChange={onChangeHandler}>
+                <select name="category" onChange={onChangeHandler} value={value}>
                     <option value="" >All categories</option>
                     {categories && categories.map(categorie => <option value={categorie.title} key={categorie.id}>{categorie.title}</option>)}
                 </select>

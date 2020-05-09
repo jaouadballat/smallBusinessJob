@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e015ade2-ec3e-4b9c-b2e5-6564015836d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Categories.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Filter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Filter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Categories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ContractType.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ContractType.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/services/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/useFetch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,8 +178,23 @@
       <workItem from="1588727414585" duration="865000" />
       <workItem from="1588730234380" duration="1567000" />
       <workItem from="1588884070556" duration="660000" />
-      <workItem from="1589031396243" duration="2303000" />
+      <workItem from="1589031396243" duration="5895000" />
     </task>
+    <task id="LOCAL-00001" summary="add categories to filter">
+      <created>1589038159924</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589038159924</updated>
+    </task>
+    <task id="LOCAL-00002" summary="WIP">
+      <created>1589056804966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589056804966</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +213,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add categories to filter" />
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="453" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588718164872">
       <screen x="0" y="23" width="1440" height="797" />
@@ -213,6 +232,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="468" y="275" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.797@0.23.1440.797" timestamp="1588602865057" />
+    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2" timestamp="1589056804379">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1589056804379" />
     <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588726503283">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -232,25 +255,14 @@
     </state>
     <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1589032265006" />
     <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.798@0.23.1440.798" timestamp="1588555709777" />
-    <state x="386" y="178" width="667" height="486" key="find.popup" timestamp="1589034529049">
+    <state x="386" y="178" width="667" height="486" key="find.popup" timestamp="1589054250949">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1589034529049" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1588989849104">
+    <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1589054250949" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1589050376950">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1588989849104" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1589050376950" />
     <state x="385" y="144" width="670" height="677" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1588555839751" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/resources/js/components/JobListContainer.jsx</url>
-          <line>5</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
