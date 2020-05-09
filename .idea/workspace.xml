@@ -4,9 +4,8 @@
     <list default="true" id="e015ade2-ec3e-4b9c-b2e5-6564015836d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Categories.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ContractType.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ContractType.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/services/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/services/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Experience.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Experience.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589056804966</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor code and apply filter for contract type">
+      <created>1589057482048</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589057482049</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +222,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add categories to filter" />
     <MESSAGE value="WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+    <MESSAGE value="refactor code and apply filter for contract type" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor code and apply filter for contract type" />
   </component>
   <component name="WindowStateProjectService">
     <state x="453" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588718164872">
@@ -232,10 +239,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="468" y="275" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.797@0.23.1440.797" timestamp="1588602865057" />
-    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2" timestamp="1589056804379">
+    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2" timestamp="1589057481484">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1589056804379" />
+    <state x="314" y="23" width="812" height="797" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1589057481484" />
     <state x="472" y="245" key="NewPhpClassDialog" timestamp="1588726503283">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -246,10 +253,10 @@
     </state>
     <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.797@0.23.1440.797" timestamp="1588606120532" />
     <state x="541" y="352" key="NewPhpFileDialog/0.23.1440.798@0.23.1440.798" timestamp="1588546891096" />
-    <state width="538" height="445" key="SwitcherDM" timestamp="1588720930867">
+    <state width="538" height="445" key="SwitcherDM" timestamp="1589058434661">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="538" height="445" key="SwitcherDM/0.23.1440.797@0.23.1440.797" timestamp="1588720930867" />
+    <state width="538" height="445" key="SwitcherDM/0.23.1440.797@0.23.1440.797" timestamp="1589058434661" />
     <state x="399" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1589032265006">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -259,10 +266,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="386" y="178" width="667" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1589054250949" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1589050376950">
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1589058013795">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1589050376950" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1589058013795" />
     <state x="385" y="144" width="670" height="677" key="search.everywhere.popup/0.23.1440.798@0.23.1440.798" timestamp="1588555839751" />
   </component>
 </project>

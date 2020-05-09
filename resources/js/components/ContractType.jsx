@@ -17,6 +17,7 @@ const ContractType = ({onChange}) => {
         setValue(value);
         onChange(event);
     }
+
     return (
         <div className="single-listing">
             <div className="select-Categories pt-80 pb-50">
