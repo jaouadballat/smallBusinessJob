@@ -7,11 +7,13 @@ namespace App\Services;
 use App\Http\Resources\Job as JobResource;
 use App\Repositories\JobRepository\JobRepositoryInterface;
 
-class JobService
+class JobService extends Service
 {
 
     public function __construct(JobRepositoryInterface $repository)
     {
+        parent::__construct($repository);
+
         $this->repository = $repository;
     }
 
