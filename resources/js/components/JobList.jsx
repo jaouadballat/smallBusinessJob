@@ -26,7 +26,7 @@ const renderPagination = ({current_page, last_page: pages}, dispatch) => {
     return pagination;
 }
 
-const JobList = ({jobs, categories, dispatch}) => (
+const JobList = ({jobs, categories, dispatch, handleChangeEvent}) => (
     <main>
         <div className="slider-area ">
             <div className="single-slider section-overly slider-height2 d-flex align-items-center"
@@ -46,7 +46,7 @@ const JobList = ({jobs, categories, dispatch}) => (
             <div className="container">
                 <div className="row">
 
-                    <Filter {...categories} />
+                    <Filter {...categories} onChange={handleChangeEvent} />
                     <Jobs {...jobs} />
 
                 </div>

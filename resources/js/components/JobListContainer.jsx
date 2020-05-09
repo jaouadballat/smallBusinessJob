@@ -8,11 +8,17 @@ const JobListContainer = () => {
     const  [{jobs, categories, isLoading}, dispatch] = useFetch();
     const WithLoader = withLoader(JobList);
 
+    const handleChangeEvent = e => {
+        const {name, value, type} = e.target;
+        console.log({name, value, type})
+    }
+
     const props = {
         jobs,
         categories,
         isLoading,
-        dispatch
+        dispatch,
+        handleChangeEvent
     };
 
     return <WithLoader {...props} />

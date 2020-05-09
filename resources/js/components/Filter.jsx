@@ -1,6 +1,9 @@
 import React from 'react';
+import ContractType from "./ContractType";
+import Experience from "./Experience";
+import PostedDate from "./PostedDate";
 
-const Filter = ({data: categories}) => (
+const Filter = ({data: categories, onChange}) => (
     <div className="col-xl-3 col-lg-3 col-md-4">
         <div className="row">
             <div className="col-12">
@@ -24,32 +27,14 @@ const Filter = ({data: categories}) => (
                     <h4>Job Category</h4>
                 </div>
                 <div className="select-job-items2">
-                    <select name="select">
+                    <select name="category" onChange={onChange}>
                         <option value="" >All categories</option>
-                        {categories && categories.map(categorie => <option value="" key={categorie.id}>{categorie.title}</option>)}
+                        {categories && categories.map(categorie => <option value={categorie.title} key={categorie.id}>{categorie.title}</option>)}
                     </select>
                 </div>
-                <div className="select-Categories pt-80 pb-50">
-                    <div className="small-section-tittle2">
-                        <h4>Job Type</h4>
-                    </div>
-                    <label className="container">Full Time
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Part Time
-                        <input type="checkbox" checked="checked active" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Remote
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Freelance
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                </div>
+
+                <ContractType onChange={onChange} />
+
             </div>
             <div className="single-listing">
                 <div className="small-section-tittle2">
@@ -64,58 +49,14 @@ const Filter = ({data: categories}) => (
                         <option value="">Category 4</option>
                     </select>
                 </div>
-                <div className="select-Categories pt-80 pb-50">
-                    <div className="small-section-tittle2">
-                        <h4>Experience</h4>
-                    </div>
-                    <label className="container">1-2 Years
-                        <input type="checkbox" />
-                        <span className="checkmark" />
-                    </label>
-                    <label className="container">2-3 Years
-                        <input type="checkbox" checked="checked active" />
-                        <span className="checkmark" />
-                    </label>
-                    <label className="container">3-6 Years
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">6-more..
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                </div>
+
+                <Experience onChange={onChange} />
+
             </div>
             <div className="single-listing">
-                <div className="select-Categories pb-50">
-                    <div className="small-section-tittle2">
-                        <h4>Posted Within</h4>
-                    </div>
-                    <label className="container">Any
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Today
-                        <input type="checkbox" checked="checked active" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Last 2 days
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Last 3 days
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Last 5 days
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <label className="container">Last 10 days
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                </div>
+
+                <PostedDate onChange={onChange} />
+
             </div>
             <div className="single-listing">
                 <aside
