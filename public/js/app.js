@@ -66848,6 +66848,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getJobsList", function() { return getJobsList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategoriesList", function() { return getCategoriesList; });
 /* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/api */ "./resources/js/components/services/api.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./resources/js/components/store/types.js");
+
 
 var getJobsList = function getJobsList(dispatch) {
   var filter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -66863,14 +66865,14 @@ var getCategoriesList = function getCategoriesList(dispatch) {
 
 var jobDispatch = function jobDispatch(jobs) {
   return {
-    type: 'FETCH_JOBS',
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_JOBS"],
     jobs: jobs.data
   };
 };
 
 var categoryDispatch = function categoryDispatch(categories) {
   return {
-    type: 'FETCH_CATEGORIES',
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_CATEGORIES"],
     categories: categories.data
   };
 };
@@ -66953,21 +66955,23 @@ var JobProvider = function JobProvider(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/store/types.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var reducer = function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_CATEGORIES':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["FETCH_CATEGORIES"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         categories: action.categories,
         isLoading: false
       });
 
-    case 'FETCH_JOBS':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["FETCH_JOBS"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         jobs: action.jobs,
         isLoading: false
@@ -66977,6 +66981,22 @@ var reducer = function reducer(state, action) {
       return state;
   }
 };
+
+/***/ }),
+
+/***/ "./resources/js/components/store/types.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/store/types.js ***!
+  \************************************************/
+/*! exports provided: FETCH_JOBS, FETCH_CATEGORIES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_JOBS", function() { return FETCH_JOBS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CATEGORIES", function() { return FETCH_CATEGORIES; });
+var FETCH_JOBS = 'FETCH_JOBS';
+var FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 
 /***/ }),
 
