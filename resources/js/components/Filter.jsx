@@ -6,7 +6,7 @@ import Categories from "./Categories";
 import Location from "./Location";
 import Salary from "./Salary";
 
-const Filter = ({data: categories, onChange}) => (
+const Filter = props => (
     <div className="col-xl-3 col-lg-3 col-md-4">
         <div className="row">
             <div className="col-12">
@@ -26,17 +26,17 @@ const Filter = ({data: categories, onChange}) => (
         </div>
         <div className="job-category-listing mb-50">
 
-            <Categories categories={categories} onChange={onChange} />
+            <Categories {...props} />
 
-            <ContractType onChange={onChange} />
+            <ContractType {...props} />
 
-            <Location onChange={onChange} />
+            <Location {...props} />
 
-            <Experience onChange={onChange} />
+            <Experience {...props} />
 
-            <PostedDate onChange={onChange} />
+            <PostedDate {...props} />
 
-            <Salary onChange={onChange} />
+            <Salary {...props} />
 
 
         </div>

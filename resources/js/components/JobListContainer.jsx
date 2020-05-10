@@ -21,7 +21,7 @@ const JobListContainer = () => {
         categories,
         isLoading,
         dispatch,
-        handleChangeEvent
+        onChange: handleChangeEvent
     };
 
     return <WithLoader {...props} />

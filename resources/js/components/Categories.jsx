@@ -21,7 +21,7 @@ const Categories = ({onChange, categories}) => {
             <div className="select-job-items2">
                 <select name="category" onChange={onChangeHandler} value={value}>
                     <option value="" >All categories</option>
-                    {categories && categories.map(categorie => <option value={categorie.title} key={categorie.id}>{categorie.title}</option>)}
+                    {categories?.data?.map(categorie => <option value={categorie.title} key={categorie.id}>{categorie.title}</option>)}
                 </select>
             </div>
         </div>

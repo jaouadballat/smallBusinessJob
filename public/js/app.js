@@ -65963,6 +65963,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Categories = function Categories(_ref) {
+  var _categories$data;
+
   var onChange = _ref.onChange,
       categories = _ref.categories;
 
@@ -65991,7 +65993,7 @@ var Categories = function Categories(_ref) {
     value: value
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: ""
-  }, "All categories"), categories && categories.map(function (categorie) {
+  }, "All categories"), categories === null || categories === void 0 ? void 0 : (_categories$data = categories.data) === null || _categories$data === void 0 ? void 0 : _categories$data.map(function (categorie) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       value: categorie.title,
       key: categorie.id
@@ -66181,9 +66183,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Filter = function Filter(_ref) {
-  var categories = _ref.data,
-      onChange = _ref.onChange;
+var Filter = function Filter(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-xl-3 col-lg-3 col-md-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66205,20 +66205,7 @@ var Filter = function Filter(_ref) {
     d: "M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Filter Jobs")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "job-category-listing mb-50"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Categories__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    categories: categories,
-    onChange: onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContractType__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    onChange: onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Location__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    onChange: onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Experience__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    onChange: onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostedDate__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    onChange: onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Salary__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    onChange: onChange
-  })));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Categories__WEBPACK_IMPORTED_MODULE_4__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContractType__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Location__WEBPACK_IMPORTED_MODULE_5__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Experience__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostedDate__WEBPACK_IMPORTED_MODULE_3__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Salary__WEBPACK_IMPORTED_MODULE_6__["default"], props)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Filter);
@@ -66240,8 +66227,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jobs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Jobs */ "./resources/js/components/Jobs.jsx");
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
 /* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/actions */ "./resources/js/components/store/actions.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 
 
 
@@ -66279,11 +66264,9 @@ var renderPagination = function renderPagination(_ref, dispatch) {
   return pagination;
 };
 
-var JobList = function JobList(_ref2) {
-  var jobs = _ref2.jobs,
-      categories = _ref2.categories,
-      dispatch = _ref2.dispatch,
-      handleChangeEvent = _ref2.handleChangeEvent;
+var JobList = function JobList(props) {
+  var _props$jobs, _props$jobs2;
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slider-area "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66303,9 +66286,7 @@ var JobList = function JobList(_ref2) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filter__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, categories, {
-    onChange: handleChangeEvent
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Jobs__WEBPACK_IMPORTED_MODULE_2__["default"], jobs)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filter__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Jobs__WEBPACK_IMPORTED_MODULE_2__["default"], props)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pagination-area pb-115 text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
@@ -66319,7 +66300,7 @@ var JobList = function JobList(_ref2) {
     "aria-label": "Page navigation example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "pagination justify-content-start"
-  }, (jobs === null || jobs === void 0 ? void 0 : jobs.meta) && renderPagination(jobs === null || jobs === void 0 ? void 0 : jobs.meta, dispatch)))))))));
+  }, (props === null || props === void 0 ? void 0 : (_props$jobs = props.jobs) === null || _props$jobs === void 0 ? void 0 : _props$jobs.meta) && renderPagination(props === null || props === void 0 ? void 0 : (_props$jobs2 = props.jobs) === null || _props$jobs2 === void 0 ? void 0 : _props$jobs2.meta, props === null || props === void 0 ? void 0 : props.dispatch)))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (JobList);
@@ -66392,7 +66373,7 @@ var JobListContainer = function JobListContainer() {
     categories: categories,
     isLoading: isLoading,
     dispatch: dispatch,
-    handleChangeEvent: handleChangeEvent
+    onChange: handleChangeEvent
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WithLoader, props);
 };
@@ -66413,19 +66394,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 
 
+var Jobs = function Jobs(props) {
+  var _jobs$meta, _jobs$data;
 
-var Jobs = function Jobs(_ref) {
-  var _props$meta;
-
-  var jobs = _ref.data,
-      props = _objectWithoutProperties(_ref, ["data"]);
-
+  var jobs = props.jobs;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-xl-9 col-lg-9 col-md-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -66438,7 +66413,7 @@ var Jobs = function Jobs(_ref) {
     className: "col-lg-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "count-job mb-35"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, props === null || props === void 0 ? void 0 : (_props$meta = props.meta) === null || _props$meta === void 0 ? void 0 : _props$meta.total, " Jobs found")))), jobs === null || jobs === void 0 ? void 0 : jobs.map(function (job) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, jobs === null || jobs === void 0 ? void 0 : (_jobs$meta = jobs.meta) === null || _jobs$meta === void 0 ? void 0 : _jobs$meta.total, " Jobs found")))), jobs === null || jobs === void 0 ? void 0 : (_jobs$data = jobs.data) === null || _jobs$data === void 0 ? void 0 : _jobs$data.map(function (job) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "single-job-items mb-30",
       key: job.id
@@ -66692,7 +66667,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Salary = function Salary() {
+var Salary = function Salary(_ref) {
+  var onChange = _ref.onChange;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('salary') || ''),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],

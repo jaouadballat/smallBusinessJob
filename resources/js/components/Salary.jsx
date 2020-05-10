@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {appendParamsToUrl, valueFromUrlParams} from "./services/helpers";
 
 
-const Salary = () => {
+const Salary = ({onChange}) => {
 
     const [value, setValue] = useState(valueFromUrlParams('salary') || '');
 
