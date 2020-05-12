@@ -66322,6 +66322,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_useFetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/useFetch */ "./resources/js/components/services/useFetch.js");
 /* harmony import */ var _LoaderHoc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoaderHoc */ "./resources/js/components/LoaderHoc.jsx");
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/actions */ "./resources/js/components/store/actions.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -66340,6 +66341,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var JobListContainer = function JobListContainer() {
   var _useFetch = Object(_services_useFetch__WEBPACK_IMPORTED_MODULE_2__["useFetch"])(),
       _useFetch2 = _slicedToArray(_useFetch, 2),
@@ -66351,21 +66353,9 @@ var JobListContainer = function JobListContainer() {
 
   var WithLoader = Object(_LoaderHoc__WEBPACK_IMPORTED_MODULE_3__["withLoader"])(_JobList__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-  var handleChangeEvent = function handleChangeEvent(e) {
-    var _e$target = e.target,
-        name = _e$target.name,
-        value = _e$target.value,
-        type = _e$target.type,
-        id = _e$target.id;
-    console.log({
-      name: name,
-      value: value,
-      type: type,
-      id: id
-    });
-    console.log({
-      filter: Object(_services_helpers__WEBPACK_IMPORTED_MODULE_4__["getFilterFromUrlParams"])()
-    });
+  var handleChangeEvent = function handleChangeEvent() {
+    var filter = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_4__["getFilterFromUrlParams"])();
+    Object(_store_actions__WEBPACK_IMPORTED_MODULE_5__["getJobsList"])(dispatch, filter);
   };
 
   var props = {

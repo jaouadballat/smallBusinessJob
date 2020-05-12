@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(Request $resquest)
     {
         if($resquest->ajax()) {
-            return Category::collection($this->service->all());
+            return $this->service->all();
         }
     }
 }
