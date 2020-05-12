@@ -1,17 +1,38 @@
 export const imageLink = link => `${window.location.origin}/${link}`;
-export const getUrlParams = () => new URLSearchParams(window.location.search)
-export const urlWithParams = page => {
-    const params = getUrlParams();
-    params.set('page', page)
+export const getUrlParams = () => new URLSearchParams(window.location.search);
 
-    window.history.pushState(null, null, `?${params.toString()}`)
-    return getFilterFromUrlParams(params);
-}
-
-export const getFilterFromUrlParams = params => {
+export const getFilterFromUrlParams = () => {
+    const params = getUrlParams()
     const filter = {};
     params.forEach((value, key) => {
         filter[key] = value;
     });
     return filter;
 }
+
+export const appendParamsToUrl = (key, value) => {
+    const params = getUrlParams();
+    params.set([key], value);
+    window.history.pushState(null, null, constructUrlParams(params));
+}
+
+export const valueFromUrlParams = key => getUrlParams().get([key])
+
+
+const constructUrlParams = params => {
+    let filter = '';
+    const urlKeys = Array.from(params.keys());
+    const urlValues = Array.from(params.values());
+    for (let i = 0; i < urlKeys.length; i++) {
+
+        if(i === 0) {
+            filter += `?${urlKeys[i]}=${urlValues[i]}`;
+        } else {
+            filter += `&${urlKeys[i]}=${urlValues[i]}`;
+        }
+    }
+
+    return filter;
+}
+
+

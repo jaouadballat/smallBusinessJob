@@ -1,7 +1,8 @@
 import React from 'react';
 import {imageLink} from "./services/helpers";
 
-const Jobs = ({ data: jobs, ...props }) => {
+const Jobs = props => {
+    const { jobs } = props;
     return (
         <div className="col-xl-9 col-lg-9 col-md-8">
             <section className="featured-job-area">
@@ -9,20 +10,11 @@ const Jobs = ({ data: jobs, ...props }) => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="count-job mb-35">
-                                <span>{props?.meta?.total} Jobs found</span>
-                                <div className="select-job-items">
-                                    <span>Sort by</span>
-                                    <select name="select">
-                                        <option value="">None</option>
-                                        <option value="">job list</option>
-                                        <option value="">job list</option>
-                                        <option value="">job list</option>
-                                    </select>
-                                </div>
+                                <span>{jobs?.meta?.total} Jobs found</span>
                             </div>
                         </div>
                     </div>
-                    {jobs?.map(job => {
+                    {jobs?.data?.map(job => {
                         return (
                             <div className="single-job-items mb-30" key={job.id}>
                                 <div className="job-items">

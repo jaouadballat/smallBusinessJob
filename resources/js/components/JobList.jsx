@@ -1,13 +1,14 @@
 import React from 'react'
 import Filter from "./Filter";
 import Jobs from "./Jobs";
-import {urlWithParams} from "./services/helpers";
+import {appendParamsToUrl, getFilterFromUrlParams} from "./services/helpers";
 import {getJobsList} from "./store/actions";
 
 const renderPagination = ({current_page, last_page: pages}, dispatch) => {
 
     const handlePageChange = (page, dispatch) => {
-        const filter = urlWithParams(page)
+        appendParamsToUrl('page', page);
+        const filter = getFilterFromUrlParams();
         getJobsList(dispatch, filter)
     }
 
@@ -26,7 +27,7 @@ const renderPagination = ({current_page, last_page: pages}, dispatch) => {
     return pagination;
 }
 
-const JobList = ({jobs, categories, dispatch}) => (
+const JobList = props => (
     <main>
         <div className="slider-area ">
             <div className="single-slider section-overly slider-height2 d-flex align-items-center"
@@ -46,8 +47,8 @@ const JobList = ({jobs, categories, dispatch}) => (
             <div className="container">
                 <div className="row">
 
-                    <Filter {...categories} />
-                    <Jobs {...jobs} />
+                    <Filter {...props}  />
+                    <Jobs {...props} />
 
                 </div>
             </div>
@@ -59,7 +60,7 @@ const JobList = ({jobs, categories, dispatch}) => (
                         <div className="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination justify-content-start">
-                                    {jobs?.meta && renderPagination(jobs?.meta, dispatch)}
+                                    {props?.jobs?.meta && renderPagination(props?.jobs?.meta, props?.dispatch)}
                                 </ul>
                             </nav>
                         </div>
