@@ -254,6 +254,21 @@ class BaseRepository implements BaseRepositoryInterface
         return $this;
     }
 
+     /**
+     * Add whereBetween condition for next query.
+     *
+     * @param string $column
+     * @param array  $value
+     *
+     * @return void
+     */
+    public function whereBetween($column, array $value)
+    {
+        $this->model = $this->model->whereBetween($column, $value);
+
+        return $this;
+    }
+
     /**
      * Set Eloquent relationships to eager load.
      *
