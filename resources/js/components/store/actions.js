@@ -1,7 +1,8 @@
 import {fetchCategories, fetchJobs} from "../services/api";
-import {FETCH_CATEGORIES, FETCH_JOBS} from "./types";
+import {FETCH_CATEGORIES, FETCH_JOBS, LOADING} from "./types";
 
 export const getJobsList = (dispatch, filter = null) => {
+    dispatch(loadingDispatch());
     fetchJobs(filter).then(jobs => dispatch(jobDispatch(jobs)))
 }
 
@@ -17,4 +18,8 @@ const jobDispatch = jobs => ({
 const categoryDispatch = categories => ({
     type: FETCH_CATEGORIES,
     categories: categories.data
+});
+
+const loadingDispatch = () => ({
+    type: LOADING,
 });

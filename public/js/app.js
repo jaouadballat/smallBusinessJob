@@ -66763,7 +66763,7 @@ var constructUrlParams = function constructUrlParams(params) {
   for (var i = 0; i < urlKeys.length; i++) {
     if (i === 0) {
       filter += "?".concat(urlKeys[i], "=").concat(urlValues[i]);
-    } else {
+    } else if (!_.isEmpty(urlValues[i])) {
       filter += "&".concat(urlKeys[i], "=").concat(urlValues[i]);
     }
   }
@@ -66843,6 +66843,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var getJobsList = function getJobsList(dispatch) {
   var filter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  dispatch(loadingDispatch());
   Object(_services_api__WEBPACK_IMPORTED_MODULE_0__["fetchJobs"])(filter).then(function (jobs) {
     return dispatch(jobDispatch(jobs));
   });
@@ -66864,6 +66865,12 @@ var categoryDispatch = function categoryDispatch(categories) {
   return {
     type: _types__WEBPACK_IMPORTED_MODULE_1__["FETCH_CATEGORIES"],
     categories: categories.data
+  };
+};
+
+var loadingDispatch = function loadingDispatch() {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_1__["LOADING"]
   };
 };
 
@@ -66967,6 +66974,11 @@ var reducer = function reducer(state, action) {
         isLoading: false
       });
 
+    case _types__WEBPACK_IMPORTED_MODULE_0__["LOADING"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        isLoading: true
+      });
+
     default:
       return state;
   }
@@ -66978,15 +66990,17 @@ var reducer = function reducer(state, action) {
 /*!************************************************!*\
   !*** ./resources/js/components/store/types.js ***!
   \************************************************/
-/*! exports provided: FETCH_JOBS, FETCH_CATEGORIES */
+/*! exports provided: FETCH_JOBS, FETCH_CATEGORIES, LOADING */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_JOBS", function() { return FETCH_JOBS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_CATEGORIES", function() { return FETCH_CATEGORIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOADING", function() { return LOADING; });
 var FETCH_JOBS = 'FETCH_JOBS';
 var FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+var LOADING = 'LOADING';
 
 /***/ }),
 

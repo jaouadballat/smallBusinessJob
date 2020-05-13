@@ -1,4 +1,4 @@
-import {FETCH_CATEGORIES, FETCH_JOBS} from "./types";
+import {FETCH_CATEGORIES, FETCH_JOBS, LOADING} from "./types";
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -12,6 +12,11 @@ export const reducer = (state, action) => {
             return {
                 ...state, jobs: action.jobs,
                 isLoading: false
+            }
+        case LOADING: 
+            return {
+                ...state,
+                isLoading: true
             }
         default:
             return state;

@@ -27,7 +27,7 @@ const constructUrlParams = params => {
 
         if(i === 0) {
             filter += `?${urlKeys[i]}=${urlValues[i]}`;
-        } else {
+        } else if(!_.isEmpty(urlValues[i])) {
             filter += `&${urlKeys[i]}=${urlValues[i]}`;
         }
     }

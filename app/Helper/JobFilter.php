@@ -19,7 +19,6 @@ class JobFilter
     public static function apply(Request $request, $repository)
     {
         $jobs = $repository->newQuery();
-
         if($request->has('category')) {
             $jobs->whereHas('categories', function(Builder $query) use ($request){
                 $query->where('name', 'like', $request->category);
@@ -30,9 +29,9 @@ class JobFilter
             $jobs->where('contract_type', $request->contract);
         }
 
-        if($request->has('experiences_number')) {
-            $jobs->whereBeteween('experiences_number', $request->experience);
-        }
+        // if($request->has('experience')) {
+        //     $jobs->whereBetween('experience', $request->experience);
+        // }
 
         return JobResource::collection(
             $jobs->paginate(self::PER_PAGE)
