@@ -6,9 +6,9 @@ const Experience = ({onChange}) => {
     const [value, setValue] = useState(valueFromUrlParams('experience') || '');
 
     const experiences = [
-        {label: '1-2 Years', value:'[1-2]'},
-        {label: '2-3 Years', value:'[2-3]'},
-        {label: '3-6 Years', value:'[3-6]'},
+        {label: '1-2 Years', value:'1,2'},
+        {label: '2-3 Years', value:'2,3'},
+        {label: '3-6 Years', value:'3,6'},
         {label: '6 Years', value:'6'},
     ];
 

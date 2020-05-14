@@ -34,7 +34,7 @@ interface BaseRepositoryInterface
 
     public function whereHas($relation, $closure);
 
-    public function whereBetween($column, $value);
+    public function whereBetween($column, array $value);
 
     public function newQuery();
 }
