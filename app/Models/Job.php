@@ -15,6 +15,9 @@ class Job extends Model
 
     protected $guarded = [];
     protected $table = self::TABLE;
+    protected $casts = [
+        'postedDate' => 'datetime:Y-m-d'
+    ];
 
     public function agency()
     {
