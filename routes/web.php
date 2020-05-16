@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 Route::get('/jobs', 'JobController@index');
-Route::get('/jobs/list', 'JobController@list');
+Route::get('/jobs/list', 'JobController@list')->name('jobs.list');
 Route::get('/categories', 'CategoryController@index');
+Route::post('/search-job', 'SearchJobController')->name('search.job');
 

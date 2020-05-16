@@ -63,6 +63,10 @@ class JobFilter
             $jobs->where('location', '%' . $request->location . '%', 'like');
         }
 
+        if($request->has('job_title')) {
+            $jobs->where('title', '%' . $request->title . '%', 'like');
+        }
+
         return JobResource::collection(
             $jobs->paginate(self::PER_PAGE)
         );
