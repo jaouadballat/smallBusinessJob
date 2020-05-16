@@ -40,16 +40,17 @@ class JobFilter
 
         if($request->has('posted_date')) {
             switch($request->posted_date) {
-                case 'Today': $jobs->where('postedDate', now(), '<=');
+                case 'Today': $jobs->where('postedDate', now()->format('Y-m-d'), '>=');
                     break;
-                case 'Last 2 days': $jobs->where('postedDate', now()->subDays(2), '>=');
+                case 'Last 2 days': $jobs->where('postedDate', now()->subDays(2)->format('Y-m-d'), '>=');
                     break;
-                case 'Last 3 days': $jobs->where('postedDate', now()->subDays(3), '>=');
+                case 'Last 3 days': $jobs->where('postedDate', now()->subDays(3)->format('Y-m-d'), '>=');
                     break;
-                case 'Last 5 days': $jobs->where('postedDate', now()->subDays(5), '>=');
+                case 'Last 5 days': $jobs->where('postedDate', now()->subDays(5)->format('Y-m-d'), '>=');
                     break;
-                case 'Last 10 days': $jobs->where('postedDate', now()->subDays(12), '>=');
+                case 'Last 10 days': $jobs->where('postedDate', now()->subDays(10)->format('Y-m-d'), '>=');
                     break;
+                case 'Any': break;
                 default: return null;
             }
         }
@@ -57,6 +58,5 @@ class JobFilter
         return JobResource::collection(
             $jobs->paginate(self::PER_PAGE)
         );
-        //return $jobs->get();
     }
 }

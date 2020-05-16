@@ -19,6 +19,8 @@ class Job extends Model
         'postedDate' => 'datetime:Y-m-d'
     ];
 
+    protected $with = ['agency'];
+
     public function agency()
     {
         return $this->belongsTo(Agency::class, 'agency_id');
