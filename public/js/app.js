@@ -66533,12 +66533,16 @@ var Location = function Location(_ref) {
       value = _useState2[0],
       setValue = _useState2[1];
 
+  var debouncedFunction = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (event) {
+    onChange(event);
+  }, 2000);
+
   var onChangeHandler = function onChangeHandler(event) {
     var value = event.target.value;
     setValue(value);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('location', value);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('page', 1);
-    onChange(event);
+    debouncedFunction(event);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66665,12 +66669,16 @@ var Salary = function Salary(_ref) {
       value = _useState2[0],
       setValue = _useState2[1];
 
+  var debouncedFunction = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (event) {
+    onChange(event);
+  }, 1000);
+
   var onChangeHandler = function onChangeHandler(event) {
     var value = event.target.value;
     setValue(value);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('salary', value);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('page', 1);
-    onChange(event);
+    debouncedFunction(event);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66722,7 +66730,7 @@ var fetchCategories = function fetchCategories() {
 /*!*****************************************************!*\
   !*** ./resources/js/components/services/helpers.js ***!
   \*****************************************************/
-/*! exports provided: imageLink, getUrlParams, getFilterFromUrlParams, appendParamsToUrl, valueFromUrlParams */
+/*! exports provided: imageLink, getUrlParams, getFilterFromUrlParams, appendParamsToUrl, valueFromUrlParams, debounce */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66732,6 +66740,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFilterFromUrlParams", function() { return getFilterFromUrlParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendParamsToUrl", function() { return appendParamsToUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "valueFromUrlParams", function() { return valueFromUrlParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 var imageLink = function imageLink(link) {
   return "".concat(window.location.origin, "/").concat(link);
 };
@@ -66770,6 +66779,25 @@ var constructUrlParams = function constructUrlParams(params) {
 
   return filter;
 };
+
+function debounce(func, timeout) {
+  var timer;
+  return function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var next = function next() {
+      return func.apply(void 0, args);
+    };
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(next, timeout > 0 ? timeout : 300);
+  };
+}
 
 /***/ }),
 

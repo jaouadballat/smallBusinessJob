@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
-import {appendParamsToUrl, valueFromUrlParams} from "./services/helpers";
+import {appendParamsToUrl, valueFromUrlParams, debounce} from "./services/helpers";
 
 const Location = ({onChange}) => {
 
     const [value, setValue] = useState(valueFromUrlParams('location') || '');
 
-    const onChangeHandler = event => {
+    const debouncedFunction = debounce((event) => { 
+        onChange(event);
+    }, 2000);
+
+    const onChangeHandler = event => { 
         const value  = event.target.value;
         setValue(value);
         appendParamsToUrl('location', value);
         appendParamsToUrl('page', 1);
-        onChange(event);
+        debouncedFunction(event);
     }
 
     return (

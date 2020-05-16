@@ -1,19 +1,22 @@
 import React, {useState} from 'react'
-import {appendParamsToUrl, valueFromUrlParams} from "./services/helpers";
+import {appendParamsToUrl, valueFromUrlParams, debounce} from "./services/helpers";
 
 
 const Salary = ({onChange}) => {
 
     const [value, setValue] = useState(valueFromUrlParams('salary') || '');
+    const debouncedFunction = debounce((event) => {        
+        onChange(event);
+    }, 1000);
 
+    
     const onChangeHandler = event => {
         const value  = event.target.value;
         setValue(value);
         appendParamsToUrl('salary', value);
         appendParamsToUrl('page', 1);
-        onChange(event);
+        debouncedFunction(event)
     }
-
 
     return (
         <div className="single-listing">

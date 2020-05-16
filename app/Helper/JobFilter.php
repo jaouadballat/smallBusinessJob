@@ -59,6 +59,10 @@ class JobFilter
             $jobs->where('salary', $request->salary, '<=');
         }
 
+        if($request->has('location')) {
+            $jobs->where('location', '%' . $request->location . '%', 'like');
+        }
+
         return JobResource::collection(
             $jobs->paginate(self::PER_PAGE)
         );
