@@ -55,6 +55,10 @@ class JobFilter
             }
         }
 
+        if($request->has('salary')) {
+            $jobs->where('salary', $request->salary, '<=');
+        }
+
         return JobResource::collection(
             $jobs->paginate(self::PER_PAGE)
         );
