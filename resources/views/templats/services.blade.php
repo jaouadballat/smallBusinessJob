@@ -17,7 +17,7 @@
                             <span class="flaticon-tour"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="job_listing.html">{{ $category->name }}</a></h5>
+                            <h5><a href="{{ route('jobs.list', ['category' => $category->name]) }}">{{ $category->name }}</a></h5>
                             <span>({{ $category->jobs->count() }})</span>
                         </div>
                     </div>
