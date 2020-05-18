@@ -1,7 +1,7 @@
 <div class="single-job-items mb-30">
     <div class="job-items">
         <div class="company-img">
-            <a href="job_details.html"><img src="{{$job->agency->logo}}" alt=""></a>
+            <a href="job_details.html"><img src="/{{$job->agency->logo}}" alt=""></a>
         </div>
         <div class="job-tittle">
             <a href="job_details.html"><h4>{{ $job->title }}</h4></a>

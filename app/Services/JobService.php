@@ -30,6 +30,11 @@ class JobService extends Service
                     ->get();
     }
 
+    public function findOne($id)
+    {
+        return $this->repository->with('categories')->getById($id);
+    }
+
     public function withPagination(int $page)
     {
         return $this->repository->collectionsWithPaginate($page);
