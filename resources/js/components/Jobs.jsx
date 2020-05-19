@@ -23,7 +23,7 @@ const Jobs = props => {
                                         <a href="#"><img src={imageLink(job.agency.logo)} alt={job.title} /></a>
                                     </div>
                                     <div className="job-tittle job-tittle2">
-                                        <a href="#">
+                                        <a href={imageLink(`${job.id}/job-details`)}>
                                             <h4>{job.title}</h4>
                                         </a>
                                         <ul>
