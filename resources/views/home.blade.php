@@ -1,6 +1,7 @@
 @extends('base')
 
 @section('content')
+
     <main>
 
     <!-- slider Area Start-->

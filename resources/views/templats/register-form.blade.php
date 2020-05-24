@@ -3,6 +3,13 @@
     @csrf
 
     <div class="form-group row">
+
+        <div class="col-md-6">
+            <input id="role" type="hidden" class="form-control" name="role" value="{{ $role }}">
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
         <div class="col-md-6">
