@@ -1,13 +1,5 @@
-<h1 style="text-align: center">Sign up as {{ $role }}</h1>
 <form method="POST" action="{{ route('register') }}">
     @csrf
-
-    <div class="form-group row">
-
-        <div class="col-md-6">
-            <input id="role" type="hidden" class="form-control" name="role" value="{{ $role }}">
-        </div>
-    </div>
 
     <div class="form-group row">
         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -57,6 +49,14 @@
         <div class="col-md-6">
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+        <select class="form-control col-md-6" id="role" name="role">
+            <option value="freelancer">Freelancer</option>
+            <option value="ceo">Company</option>
+        </select>
     </div>
 
     <div class="form-group row mb-0">

@@ -74,11 +74,6 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        $roles = [
-            "freelancer",
-            "company"
-        ];
-
-        return view('auth.register', compact('roles'));
+        return view('auth.register');
     }
 }
