@@ -22,7 +22,7 @@ class CreateAgenciesTable extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
-            $table->string('ceo')->nullable();
+            $table->string('user_id')->nullable();
             $table->year('foundedAt')->nullable();
             $table->string('logo')->default('img/icon/job-list1.png');
 
