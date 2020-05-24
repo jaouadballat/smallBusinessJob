@@ -52,9 +52,9 @@
     </div>
 
     <div class="form-group row">
-        <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+        <label for="role" class="col-md-4 col-form-label text-md-right">Sign Up as</label>
         <select class="form-control col-md-6" id="role" name="role">
-            <option value="freelancer">Freelancer</option>
+            <option value="freelancer">Individual</option>
             <option value="ceo">Company</option>
         </select>
     </div>
