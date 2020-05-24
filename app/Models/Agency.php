@@ -22,6 +22,6 @@ class Agency extends Model
 
     public function ceo()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id')->whereRole('ceo');
     }
 }
