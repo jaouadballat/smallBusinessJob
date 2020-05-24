@@ -70,4 +70,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        $roles = [
+            "freelancer",
+            "company"
+        ];
+
+        return view('auth.register', compact('roles'));
+    }
 }
