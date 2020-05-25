@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUUID;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Agency extends Model
@@ -17,5 +18,10 @@ class Agency extends Model
     public function jobs()
     {
         return $this->hasMany(Job::class);
+    }
+
+    public function ceo()
+    {
+        return $this->belongsTo(User::class, 'user_id')->whereRole('ceo');
     }
 }

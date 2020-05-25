@@ -93,11 +93,11 @@
                               <p>I
                                   {{ $job->agency->about }}
                               </p>
-                            <ul>
+                            <ul class="p-0">
                                 <li>Web : <span> {{ $job->agency->web }}</span></li>
                                 <li>Email: <span>{{ $job->agency->email }}</span></li>
                                 <li>Address: <span>{{ $job->agency->address }}</span></li>
-                                <li>CEO: <span>{{ $job->agency->ceo }}</span></li>
+                                <li>CEO: <span>{{ $job->agency->ceo->name }}</span></li>
                             </ul>
                        </div>
                     </div>

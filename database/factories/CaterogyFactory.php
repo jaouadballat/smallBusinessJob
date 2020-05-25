@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\models\Category::class, function (Faker $faker) {
     $categories = [
-        'Design & Creative',
-        'Design & Development',
-        'Sales & Marketing',
+        'Design and Creative',
+        'Design and Development',
+        'Sales and Marketing',
         'Mobile Application',
     ];
 
