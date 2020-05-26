@@ -32,10 +32,17 @@
                                 </nav>
                             </div>
                             <!-- Header-btn -->
-                            <div class="header-btn d-none f-right d-lg-block">
-                                <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
-                                <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
-                            </div>
+                            @guest
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
+                                    <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
+                                </div>
+                            @endguest
+                            @auth
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="{{ route('logout') }}" class="btn head-btn1">Logout</a>
+                                </div>
+                            @endauth
                         </div>
                     </div>
                     <!-- Mobile templats -->

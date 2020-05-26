@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -80,14 +81,6 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        if($user->role === 'ceo') {
-            return redirect('/ceopage');
-        } elseif($user->role == 'freelancer') {
-            return redirect('freelancepage');
-        } else {
-            return redirect()->route('logout');
-            // logout
-            // redirect to register
-        }
+        return Helper::authenticated($user);
     }
 }
