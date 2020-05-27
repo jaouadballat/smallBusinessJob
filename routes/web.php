@@ -11,10 +11,10 @@ Route::post('/search-job', 'SearchJobController')->name('search.job');
 Route::get('/{id}/job-details', 'JobDetailController@index')->name('job-details');
 Route::get('/freelancer/dashboard', function() {
     return view('freelancer');
-})->name('freelancer.dashboard');
+})->name('freelancer.dashboard')->middleware('freelancer');
 Route::get('/ceo/dashboard', function() {
     return view('ceo');
-})->name('ceo.dashboard');
+})->name('ceo.dashboard')->middleware('ceo');
 
 Auth::routes();
 
