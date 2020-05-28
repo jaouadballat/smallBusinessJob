@@ -134,7 +134,8 @@
 
 <!-- All JS Custom Plugins Link Here here -->
 <script src="{{ asset('/js/app.js') }}"></script>
-
+<script src='https://cdn.tiny.cloud/1/9i5k6nhluronwhjx3gxzscats8cqkxc4df9cg9fbl6ky557l/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+</script>
 <script type="text/javascript">
     @yield('scripts')
 </script>
