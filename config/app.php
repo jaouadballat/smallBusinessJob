@@ -175,6 +175,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
 
     ],

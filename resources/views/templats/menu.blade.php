@@ -38,6 +38,12 @@
                                     <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
                                 </div>
                             @endguest
+
+                            @ceo
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
+                                </div>
+                            @endceo
                             @auth
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="{{ route('logout') }}" class="btn head-btn1">Logout</a>
