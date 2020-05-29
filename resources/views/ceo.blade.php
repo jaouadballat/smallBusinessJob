@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container mb-5">
-        <h1>Ceo Dashboard</h1>
+        <h1>Agency Dashboard</h1>
+
         <form class="row" action="/">
             <div class="col-md-6">
                 <div class="mt-10">
