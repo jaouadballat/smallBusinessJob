@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AgencyRequest;
 use App\Services\AgencyService;
 use Illuminate\Http\Request;
 
@@ -27,25 +28,9 @@ class AgencyController extends Controller
         return view('Agency.lists');
     }
 
-    public function create(Request $request)
+    public function create(AgencyRequest $request)
     {
-        $file = $request->file('company_logo');
-
-        if($file) {
-            $fileName = sprintf('%s.%s',
-                $request->user()->id,
-                $file->extension()
-            );
-            $logo = $file->storeAs(
-                'logos',
-                $fileName
-            );
-
-            $request['logo'] = $logo;
-        }
-
-        $request['user_id'] = $request->user()->id;
-        $this->service->save($request->except('company_logo'));
+        $this->service->save($request->storeAgency());
         return redirect()->route('agency.jobs');
     }
 }

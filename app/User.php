@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use Notifiable, HasUUID;
 
+
+    const CEO = 'ceo';
+    const FEELANCER = 'freelancer';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isCeo()
+    {
+        return $this->role === self::CEO;
+    }
 }
