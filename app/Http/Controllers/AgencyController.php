@@ -22,6 +22,11 @@ class AgencyController extends Controller
         return view('ceo');
     }
 
+    public function list()
+    {
+        return view('Agency.lists');
+    }
+
     public function create(Request $request)
     {
         $file = $request->file('company_logo');
@@ -41,6 +46,6 @@ class AgencyController extends Controller
 
         $request['user_id'] = $request->user()->id;
         $this->service->save($request->except('company_logo'));
-
+        return redirect()->route('agency.jobs');
     }
 }

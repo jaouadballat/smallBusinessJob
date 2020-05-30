@@ -16,7 +16,7 @@ class CeoMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role !== self::CEO) {
+        if(auth()->user() && auth()->user()->role !== self::CEO) {
             return redirect()->back();
         }
         return $next($request);

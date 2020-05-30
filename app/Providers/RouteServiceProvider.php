@@ -46,7 +46,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAgencyWebRoutes();
     }
 
     /**
@@ -61,6 +61,18 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+    }
+
+    /**
+     * Define the "web" routes for Agency Dashboard.
+     * @return void
+     */
+    protected function mapAgencyWebRoutes()
+    {
+        Route::prefix('/ceo/dashboard')
+            ->middleware(['web', 'ceo'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/agency.php'));
     }
 
     /**
