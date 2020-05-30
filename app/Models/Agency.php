@@ -13,6 +13,10 @@ class Agency extends Model
     protected $guarded = [];
     const TABLE = 'agencies';
 
+    protected $casts = [
+        'foundedAt' => 'datetime:Y'
+    ];
+
     protected $table = self::TABLE;
 
     public function jobs()

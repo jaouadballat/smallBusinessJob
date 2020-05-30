@@ -12,9 +12,14 @@ Route::get('/{id}/job-details', 'JobDetailController@index')->name('job-details'
 Route::get('/freelancer/dashboard', function() {
     return view('freelancer');
 })->name('freelancer.dashboard')->middleware('freelancer');
-Route::get('/ceo/dashboard', function() {
-    return view('ceo');
-})->name('ceo.dashboard')->middleware('ceo');
+
+Route::get('/ceo/dashboard', 'AgencyController@index')
+    ->name('ceo.dashboard')
+    ->middleware('ceo');
+
+Route::post('/ceo/dashboard', 'AgencyController@create')
+    ->name('agency.create')
+    ->middleware('ceo');
 
 Auth::routes();
 

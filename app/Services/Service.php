@@ -26,5 +26,10 @@ abstract class Service
         $this->service->whereHas($relation, $closure);
     }
 
+    public function save($data)
+    {
+        $this->service->save($data);
+    }
+
 
 }

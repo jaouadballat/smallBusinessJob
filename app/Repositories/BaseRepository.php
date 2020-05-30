@@ -314,6 +314,17 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
+     * create new model
+     * @param array $data
+     * @return bool
+     */
+    public function save(array $data)
+    {
+        $this->model->create($data);
+        return $this;
+    }
+
+    /**
      * Set clauses on the query builder.
      *
      * @return $this

@@ -37,4 +37,6 @@ interface BaseRepositoryInterface
     public function whereBetween($column, array $value);
 
     public function newQuery();
+
+    public function save(array $data);
 }
