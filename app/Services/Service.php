@@ -31,5 +31,10 @@ abstract class Service
         $this->service->save($data);
     }
 
+    public function update($data, $id)
+    {
+        $this->service->update($data, $id);
+    }
+
 
 }

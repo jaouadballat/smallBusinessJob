@@ -40,15 +40,31 @@
                             @endguest
 
                             @ceo
-                                <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
+                                @if(request()->route()->getName() !== "ceo.dashboard")
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
+                                    </div>
+                                @endif
+
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="#">Profile</a>
+                                                <ul class="submenu">
+                                                    @if(auth()->user()->hasRegisterAgency())
+                                                        <li>
+                                                            <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
+                                                        </li>
+                                                    @endif
+                                                    <li>
+                                                        <a href="{{ route('logout') }}">logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             @endceo
-                            @auth
-                                <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="{{ route('logout') }}" class="btn head-btn1">Logout</a>
-                                </div>
-                            @endauth
                         </div>
                     </div>
                     <!-- Mobile templats -->

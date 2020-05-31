@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->role === self::CEO;
     }
+
+    public function agency()
+    {
+        return $this->hasOne(Agency::class);
+    }
+
+    public function hasRegisterAgency()
+    {
+        return !empty($this->agency->name);
+    }
 }

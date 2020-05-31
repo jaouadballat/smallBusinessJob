@@ -39,4 +39,6 @@ interface BaseRepositoryInterface
     public function newQuery();
 
     public function save(array $data);
+
+    public function update(array $data, $id);
 }

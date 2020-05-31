@@ -20,7 +20,10 @@ class AgencyController extends Controller
 
     public function index()
     {
-        return view('ceo');
+        if(auth()->user()->hasRegisterAgency()) {
+            return redirect()->back();
+        }
+        return view('Agency.ceo');
     }
 
     public function list()
@@ -31,6 +34,18 @@ class AgencyController extends Controller
     public function create(AgencyRequest $request)
     {
         $this->service->save($request->storeAgency());
+        return redirect()->route('agency.jobs');
+    }
+
+    public function edit($id)
+    {
+        $agency = $this->service->findOne($id);
+        return view('Agency.edit-dashboard', compact('agency'));
+    }
+
+    public function update(AgencyRequest $request, $id)
+    {
+        $this->service->update($request->except('company_logo'), $id);
         return redirect()->route('agency.jobs');
     }
 }

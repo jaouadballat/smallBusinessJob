@@ -25,7 +25,7 @@ class BladeServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::if('ceo', function () {
-            return auth()->user() && auth()->user()->role === 'ceo' && request()->route()->getName() !== "ceo.dashboard";
+            return auth()->user() && auth()->user()->role === 'ceo';
         });
     }
 }

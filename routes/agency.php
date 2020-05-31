@@ -10,3 +10,9 @@ Route::post('/', 'AgencyController@create')
 
 Route::get('/job-list', 'AgencyController@list')
     ->name('agency.jobs');
+
+Route::get('/edit/{id}', 'AgencyController@edit')
+    ->name('agency.dashboard.update');
+
+Route::put('/edit/{id}', 'AgencyController@update')
+    ->name('agency.dashboard.update');

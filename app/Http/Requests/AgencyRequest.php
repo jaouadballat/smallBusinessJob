@@ -46,8 +46,8 @@ class AgencyRequest extends FormRequest
                 $file->extension()
             );
             $logo = $file->storeAs(
-                'logos',@
-            $fileName
+                'logos',
+                    $fileName
             );
 
             $this['logo'] = $logo;

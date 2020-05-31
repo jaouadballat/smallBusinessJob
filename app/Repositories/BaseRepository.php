@@ -325,6 +325,18 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
+     * update model
+     * @param array $data
+     * @param string $id
+     * @return bool
+     */
+    public function update(array $data, $id)
+    {
+        $this->getById($id)->update($data);
+        return $this;
+    }
+
+    /**
      * Set clauses on the query builder.
      *
      * @return $this

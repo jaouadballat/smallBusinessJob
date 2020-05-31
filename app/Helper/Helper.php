@@ -27,6 +27,9 @@ class Helper
     public static function authenticated($user)
     {
         if($user->role === self::CEO) {
+            if($user->hasRegisterAgency()) {
+                return redirect()->route('agency.jobs');
+            }
             return redirect()->route('ceo.dashboard');
         } elseif($user->role === self::FREELANCER) {
             return redirect()->route('freelancer.dashboard');
