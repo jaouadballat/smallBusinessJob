@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between">
             <h1>Post a job</h1>
         </div>
-        <form class="row" action="" method="post">
+        <form class="row" action="{{ route('agency.job.create') }}" method="post">
             @csrf
             @method('POST')
             <div class="col-md-6">
@@ -34,11 +34,17 @@
             <div class="col-md-6">
                 <div class="mt-10">
                     <label for="experiences_number">Number of experience</label>
-                    <input type="text" name="experiences_number" placeholder="Experiences number" class="single-input">
+                    <input type="number" name="experiences_number" placeholder="Experiences number" class="single-input">
                 </div>
                 <div class="mt-10">
                     <label for="contract_type">Contract Type</label>
-                    <input type="text" name="contract_type" placeholder="Contract Type" class="single-input @error('contract_type') is-invalid @enderror">
+                    <select class="form-control" name="contract_type" id="contract_type">
+                        <option value="cdi">CDI</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="remote">Remote</option>
+                        <option value="Full time">Full time</option>
+                        <option value="Part time">Part time</option>
+                    </select>
                     @error('contract_type')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -49,7 +55,7 @@
                 <textarea name="job_description" id="job_description" cols="30" rows="10"></textarea>
             </div>
             <div class="col-md-12 my-3">
-                <label for="skills">Description</label>
+                <label for="skills">Skills</label>
                 <textarea name="skills" id="skills" cols="30" rows="10"></textarea>
             </div>
             <div class="col-md-12 my-3">

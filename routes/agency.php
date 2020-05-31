@@ -17,5 +17,10 @@ Route::get('/edit/{id}', 'AgencyController@edit')
 Route::put('/edit/{id}', 'AgencyController@update')
     ->name('agency.dashboard.update');
 
-Route::get('/job', 'JobController@create')
-    ->name('agency.job.create');
+Route::get('/job', 'JobController@show')
+    ->name('agency.job.create')
+    ->middleware('register.agency');
+
+Route::post('/job', 'JobController@create')
+    ->name('agency.job.create')
+    ->middleware('register.agency');

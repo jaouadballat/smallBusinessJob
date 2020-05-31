@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\JobFilter;
-use App\Http\Resources\Job as JobResource;
+use App\Http\Requests\JobRequest;
 use App\Services\JobService;
 use Illuminate\Http\Request;
 
@@ -30,8 +30,15 @@ class JobController extends Controller
         return view('job-list');
     }
 
-    public function create()
+    public function show()
     {
         return view('job.create');
+    }
+
+    public function create(JobRequest $request)
+    {
+        $request['agency_id'] = $request->user()->agency->id;
+        $this->service->save($request->all());
+        return redirect()->route('agency.jobs');
     }
 }

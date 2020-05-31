@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="container mb-5">
+        @if(session('create_agency_warning'))
+            <span class="alert alert-warning d-block">{{ session('create_agency_warning') }}</span>
+        @endif
         <h1>Agency Dashboard</h1>
-
         <form class="row" action="{{ route('agency.create') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
