@@ -40,12 +40,6 @@
                             @endguest
 
                             @ceo
-                                @if(request()->route()->getName() !== "ceo.dashboard")
-                                    <div class="header-btn d-none f-right d-lg-block">
-                                        <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
-                                    </div>
-                                @endif
-
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">

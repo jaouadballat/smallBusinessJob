@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="container mb-5">
-        <h1>Agency Dashboard</h1>
-
+        <div class="d-flex justify-content-between">
+            <h1>Agency Dashboard</h1>
+            <div class="header-btn mr-85">
+                <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
+            </div>
+        </div>
         <form class="row" action="{{ route('agency.dashboard.update', ['id' => $agency->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
