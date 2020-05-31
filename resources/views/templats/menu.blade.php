@@ -33,7 +33,7 @@
                             </div>
                             <!-- Header-btn -->
                             @guest
-                                <div class="header-btn d-none f-right d-lg-block">
+                                <div class="header-btn f-right d-lg-block">
                                     <a href="{{ route('register') }}" class="btn head-btn1">Register</a>
                                     <a href="{{ route('login') }}" class="btn head-btn2">Login</a>
                                 </div>
@@ -41,11 +41,14 @@
 
                             @ceo
                                 <div class="main-menu">
-                                    <nav class="d-none d-lg-block">
+                                    <nav class="d-lg-block">
                                         <ul id="navigation">
                                             <li><a href="#">Profile</a>
                                                 <ul class="submenu">
                                                     @if(auth()->user()->hasRegisterAgency())
+                                                        <li>
+                                                            <a href="{{ route('agency.job.create') }}">Post a job</a>
+                                                        </li>
                                                         <li>
                                                             <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
                                                         </li>

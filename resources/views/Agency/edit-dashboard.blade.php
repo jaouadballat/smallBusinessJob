@@ -5,27 +5,27 @@
         <div class="d-flex justify-content-between">
             <h1>Agency Dashboard</h1>
             <div class="header-btn mr-85">
-                <a href="{{ route('ceo.dashboard') }}" class="btn head-btn2">Post a job</a>
+                <a href="{{ route('agency.job.create') }}" class="btn head-btn2">Post a job</a>
             </div>
         </div>
-        <form class="row" action="{{ route('agency.dashboard.update', ['id' => $agency->id]) }}" method="post" enctype="multipart/form-data">
+        <form class="row" action="" method="post">
             @csrf
-            @method('PUT')
+            @method('POST')
             <div class="col-md-6">
                 <div class="mt-10">
-                    <label for="name">Company name</label>
-                    <input type="text" name="name" placeholder="Company name" class="single-input @error('name') is-invalid @enderror" value="{{ $agency->name }}">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" placeholder="Title" class="single-input @error('title') is-invalid @enderror">
                     @error('name')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mt-10">
                     <label for="web">Web</label>
-                    <input type="text" name="web" placeholder="web" class="single-input"  value="{{ $agency->web }}">
+                    <input type="text" name="web" placeholder="web" class="single-input">
                 </div>
                 <div class="mt-10">
                     <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="email" class="single-input @error('email') has-error @enderror"  value="{{ $agency->email }}">
+                    <input type="email" name="email" placeholder="email" class="single-input @error('email') has-error @enderror">
                     @error('email')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror

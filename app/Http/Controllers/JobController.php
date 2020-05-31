@@ -29,4 +29,9 @@ class JobController extends Controller
 
         return view('job-list');
     }
+
+    public function create()
+    {
+        return view('job.create');
+    }
 }
