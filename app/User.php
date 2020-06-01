@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Agency;
+use App\Models\Job;
 use App\Traits\HasUUID;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,5 +57,10 @@ class User extends Authenticatable
     public function hasRegisterAgency()
     {
         return !empty($this->agency->name);
+    }
+
+    public function jobs()
+    {
+        return $this->hasManyThrough(Job::class, Agency::class);
     }
 }

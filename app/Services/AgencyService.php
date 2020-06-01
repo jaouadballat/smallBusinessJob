@@ -24,4 +24,9 @@ class AgencyService extends Service
         return $this->repository->getById($id);
     }
 
+    public function jobs()
+    {
+        return $this->repository->jobs();
+    }
+
 }
