@@ -46,7 +46,7 @@ class AgencyRequest extends FormRequest
                 $file->extension()
             );
             $logo = $file->storeAs(
-                'logos',
+                '/img/icon',
                     $fileName
             );
 

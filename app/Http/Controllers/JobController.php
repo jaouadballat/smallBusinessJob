@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Helper\JobFilter;
 use App\Http\Requests\JobRequest;
+use App\Services\CategoryService;
 use App\Services\JobService;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
 
-    public function __construct(JobService $service)
+    public function __construct(JobService $service, CategoryService $categoryService)
     {
         $this->service = $service;
+        $this->categoryService = $categoryService;
     }
 
     public function index()
@@ -32,13 +34,13 @@ class JobController extends Controller
 
     public function show()
     {
-        return view('job.create');
+        $categories = $this->categoryService->all();
+        return view('job.create', compact('categories'));
     }
 
     public function create(JobRequest $request)
     {
-        $request['agency_id'] = $request->user()->agency->id;
-        $this->service->save($request->all());
+        $this->service->create($request->all());
         return redirect()->route('agency.jobs');
     }
 }

@@ -23,4 +23,12 @@ class JobRepository extends BaseRepository implements JobRepositoryInterface
         );
     }
 
+    public function create($data)
+    {
+        ['categories' => $categories] = $data;
+        unset($data['categories']);
+        $job = auth()->user()->agency->jobs()->create($data);
+        return $job->categories()->attach($categories);
+    }
+
 }

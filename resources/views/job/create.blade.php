@@ -49,6 +49,12 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="col-md-12 my-3 d-flex flex-wrap">
+                    @foreach($categories as $category)
+                        <label for="categories" class="px-3">{{ $category->name }}</label>
+                        <input type="checkbox" name="categories[]" id="categories" value="{{ $category->id }}">
+                    @endforeach
+                </div>
             </div>
             <div class="col-md-12 my-3">
                 <label for="job_description">Description</label>

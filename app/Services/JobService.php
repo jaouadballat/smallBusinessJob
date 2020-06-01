@@ -39,4 +39,9 @@ class JobService extends Service
     {
         return $this->repository->collectionsWithPaginate($page);
     }
+
+    public function create($data)
+    {
+        return $this->repository->create($data);
+    }
 }

@@ -1,7 +1,7 @@
 <div class="single-job-items mb-30">
     <div class="job-items">
         <div class="company-img">
-            <a href="{{ route('job-details', ['id' => $job->id]) }}"><img src="/{{$job->agency->logo}}" alt=""></a>
+            <a href="{{ route('job-details', ['id' => $job->id]) }}"><img src="{{ asset($job->agency->logo) }}" alt=""></a>
         </div>
         <div class="job-tittle">
             <a href="{{ route('job-details', ['id' => $job->id]) }}"><h4>{{ $job->title }}</h4></a>
