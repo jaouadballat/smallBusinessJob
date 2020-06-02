@@ -24,3 +24,11 @@ Route::get('/job', 'JobController@show')
 Route::post('/job', 'JobController@create')
     ->name('agency.job.create')
     ->middleware('register.agency');
+
+Route::put('/job/{id}', 'JobController@udpate')
+    ->name('agency.job.update')
+    ->middleware('register.agency');
+
+Route::get('/job/{id}', 'JobController@edit')
+    ->name('agency.job.update')
+    ->middleware('register.agency');
