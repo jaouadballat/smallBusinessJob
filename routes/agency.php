@@ -25,7 +25,7 @@ Route::post('/job', 'JobController@create')
     ->name('agency.job.create')
     ->middleware('register.agency');
 
-Route::put('/job/{id}', 'JobController@udpate')
+Route::put('/job/{id}', 'JobController@update')
     ->name('agency.job.update')
     ->middleware('register.agency');
 

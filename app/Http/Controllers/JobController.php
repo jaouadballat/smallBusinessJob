@@ -55,9 +55,9 @@ class JobController extends Controller
         return view('job.update', compact(['job', 'categories']));
     }
 
-    public function update($data, $id)
+    public function update(jobRequest $request, $id)
     {
-        $this->jobService->update($data, $id);
+        $this->jobService->update($request->all(), $id);
         return redirect()->route('agency.jobs');
     }
 }

@@ -53,7 +53,7 @@ class JobRepository extends BaseRepository implements JobRepositoryInterface
     {
         ['categories' => $categories] = $data;
         unset($data['categories']);
-        $job = $this->model->getById($id);
+        $job = $this->model->findOrFail($id);
         return $job->categories()->sync($categories);
     }
 
