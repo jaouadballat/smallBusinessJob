@@ -70,7 +70,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAgencyWebRoutes()
     {
         Route::prefix('/ceo/dashboard')
-            ->middleware(['web', 'ceo'])
+            ->middleware(['web', 'auth', 'ceo'])
             ->namespace($this->namespace)
             ->group(base_path('routes/agency.php'));
     }

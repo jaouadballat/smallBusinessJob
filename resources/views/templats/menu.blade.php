@@ -50,7 +50,7 @@
                                                             <a href="{{ route('agency.job.create') }}">Post a job</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('agency.jobs') }}">List of jobs</a>
+                                                            <a href="{{ route('agency.jobs') }}">My jobs</a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
