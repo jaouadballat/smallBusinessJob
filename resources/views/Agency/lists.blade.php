@@ -7,7 +7,7 @@
             <x-job :job="$job">
                 <div class="mx-3">
                     <a href="{{ route('agency.job.update', ['id' => $job->id]) }}" class="text-primary">Edit</a>
-                    <a href="job_details.html" class="text-danger">remove</a>
+                    <a href="{{ route('agency.job.delete', ['id' => $job->id]) }}" class="text-danger">remove</a>
                 </div>
             </x-job>
         @empty

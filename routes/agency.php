@@ -17,18 +17,19 @@ Route::get('/edit/{id}', 'AgencyController@edit')
 Route::put('/edit/{id}', 'AgencyController@update')
     ->name('agency.dashboard.update');
 
-Route::get('/job', 'JobController@show')
-    ->name('agency.job.create')
-    ->middleware('register.agency');
+Route::middleware('register.agency')->group(function() {
+    Route::get('/job', 'JobController@show')
+        ->name('agency.job.create');
 
-Route::post('/job', 'JobController@create')
-    ->name('agency.job.create')
-    ->middleware('register.agency');
+    Route::post('/job', 'JobController@create')
+        ->name('agency.job.create');
 
-Route::put('/job/{id}', 'JobController@update')
-    ->name('agency.job.update')
-    ->middleware('register.agency');
+    Route::put('/job/{id}', 'JobController@update')
+        ->name('agency.job.update');
 
-Route::get('/job/{id}', 'JobController@edit')
-    ->name('agency.job.update')
-    ->middleware('register.agency');
+    Route::get('/job/{id}', 'JobController@edit')
+        ->name('agency.job.update');
+
+    Route::get('/job/{id}/delete', 'JobController@delete')
+        ->name('agency.job.delete');
+});

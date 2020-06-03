@@ -82,4 +82,14 @@ class JobService extends Service
     {
         return $this->repository->update($data, $id);
     }
+
+    /**
+     * delete record
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        return $this->repository->deleteById($id);
+    }
 }

@@ -60,4 +60,10 @@ class JobController extends Controller
         $this->jobService->update($request->all(), $id);
         return redirect()->route('agency.jobs');
     }
+
+    public function delete($id)
+    {
+        $this->jobService->delete($id);
+        return redirect()->route('agency.jobs');
+    }
 }
