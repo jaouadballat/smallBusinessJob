@@ -29,7 +29,7 @@ class AgencyController extends Controller
     public function list()
     {
         $jobs = $this->service->jobs();
-        return view('Agency.lists');
+        return view('Agency.lists', compact('jobs'));
     }
 
     public function create(AgencyRequest $request)
