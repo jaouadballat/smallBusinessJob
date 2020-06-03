@@ -6,6 +6,8 @@ use App\Repositories\AgencyRepository\AgencyRepository;
 use App\Repositories\AgencyRepository\AgencyRepositoryInterface;
 use App\Repositories\CategoryRepository\CategoryRepository;
 use App\Repositories\CategoryRepository\CategoryRepositoryInterface;
+use App\Repositories\FreelancerRepository\FreelancerRepository;
+use App\Repositories\FreelancerRepository\FreelancerRepositoryInterface;
 use App\Repositories\JobRepository\JobRepository;
 use App\Repositories\JobRepository\JobRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -32,6 +34,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             AgencyRepositoryInterface::class,
             AgencyRepository::class
+        );
+
+        $this->app->bind(
+            FreelancerRepositoryInterface::class,
+            FreelancerRepository::class
         );
     }
 
