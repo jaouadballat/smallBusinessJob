@@ -15,7 +15,7 @@ class User extends Authenticatable
 
 
     const CEO = 'ceo';
-    const FEELANCER = 'freelancer';
+    const FREELANCER = 'freelancer';
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +47,11 @@ class User extends Authenticatable
     public function isCeo()
     {
         return $this->role === self::CEO;
+    }
+
+    public function isFreelancer()
+    {
+        return $this->role === self::FREELANCER;
     }
 
     public function agency()

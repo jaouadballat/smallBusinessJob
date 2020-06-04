@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FreelancerRequest;
 use App\Services\JobService;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class FreelancerController extends Controller
         return view('freelancer.apply', compact('job'));
     }
 
-    public function apply(Request $request) {
-        dd($request->all());
+    public function apply(FreelancerRequest $request) {
+        dd($request->storeResume());
     }
 }
