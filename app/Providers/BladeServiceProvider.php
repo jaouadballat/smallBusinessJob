@@ -27,5 +27,9 @@ class BladeServiceProvider extends ServiceProvider
         Blade::if('ceo', function () {
             return auth()->user() && auth()->user()->role === 'ceo';
         });
+
+        Blade::if('freelancer', function () {
+            return auth()->user() && auth()->user()->role === 'freelancer';
+        });
     }
 }

@@ -29,7 +29,7 @@ class FreelancerController extends Controller
         return view('freelancer.apply', compact('job'));
     }
 
-    public function apply(FreelancerRequest $request) {
-        dd($request->storeResume());
+    public function apply(FreelancerRequest $request, $id) {
+        dd($request->storeResume(), $id);
     }
 }
