@@ -9,13 +9,14 @@ class Freelancer extends Model
 {
     use HasUUID;
 
+    protected $table = self::TABLE;
+
     protected $guarded = [];
     const TABLE = 'freelancers';
 
-    protected $table = self::TABLE;
 
     public function messages()
     {
-        return $this->hasMany(Message::class,  'message_id');
+        return $this->hasMany(Message::class);
     }
 }
