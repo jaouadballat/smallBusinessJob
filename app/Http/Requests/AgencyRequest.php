@@ -30,7 +30,7 @@ class AgencyRequest extends FormRequest
             'city' => ['required'],
             'address' => ['required'],
             'foundedAt' => ['required', 'min:4', 'max:4'],
-            'company_logo' => ['required', 'mimes:jpeg,jpg,png', 'max:1000'],
+            'company_logo' => ['mimes:jpeg,jpg,png', 'max:1000'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->user()->id)],
         ];
     }

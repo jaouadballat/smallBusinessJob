@@ -39,23 +39,33 @@
                                 </div>
                             @endguest
 
-                            @ceo
                                 <div class="main-menu">
                                     <nav class="d-lg-block">
                                         <ul id="navigation">
                                             <li><a href="#">Profile</a>
                                                 <ul class="submenu">
-                                                    @if(auth()->user()->hasRegisterAgency())
+                                                    @ceo
+                                                        @if(auth()->user()->hasRegisterAgency())
+                                                            <li>
+                                                                <a href="{{ route('agency.job.create') }}">Post a job</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('agency.jobs') }}">My jobs</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
+                                                            </li>
+                                                        @endif
+                                                    @endceo
+
+                                                    @freelancer
                                                         <li>
-                                                            <a href="{{ route('agency.job.create') }}">Post a job</a>
+                                                            <a href="">Messages</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('agency.jobs') }}">My jobs</a>
+                                                            <a href="">My jobs</a>
                                                         </li>
-                                                        <li>
-                                                            <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
-                                                        </li>
-                                                    @endif
+                                                    @endfreelancer
                                                     <li>
                                                         <a href="{{ route('logout') }}">logout</a>
                                                     </li>
@@ -64,7 +74,6 @@
                                         </ul>
                                     </nav>
                                 </div>
-                            @endceo
                         </div>
                     </div>
                     <!-- Mobile templats -->
