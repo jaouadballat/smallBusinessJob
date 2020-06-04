@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FreelancerRequest;
+use App\Services\FreelancerService;
 use App\Services\JobService;
-use Illuminate\Http\Request;
 
 class FreelancerController extends Controller
 {
@@ -12,10 +12,18 @@ class FreelancerController extends Controller
      * @var JobService
      */
     private $jobService;
+    /**
+     * @var FreelancerService
+     */
+    private $freelancerService;
 
-    public function __construct(JobService $jobService)
+    public function __construct(
+        JobService $jobService,
+        FreelancerService $freelancerService
+    )
     {
         $this->jobService = $jobService;
+        $this->freelancerService = $freelancerService;
     }
 
     public function dashboard()
@@ -30,6 +38,7 @@ class FreelancerController extends Controller
     }
 
     public function apply(FreelancerRequest $request, $id) {
-        dd($request->storeResume(), $id);
+        $this->freelancerService->applyForJob($request->storeResume(), $id);
+        return redirect()->route('freelancer.dashboard');
     }
 }

@@ -17,4 +17,9 @@ class FreelancerService extends Service
         parent::__construct($repository);
         $this->repository = $repository;
     }
+
+    public function applyForJob($data, $jobId)
+    {
+        return $this->repository->create($data, $jobId);
+    }
 }

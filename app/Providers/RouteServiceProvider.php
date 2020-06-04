@@ -47,6 +47,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAgencyWebRoutes();
+
+        $this->mapFreelancerWebRoutes();
     }
 
     /**
@@ -73,6 +75,18 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth', 'ceo'])
             ->namespace($this->namespace)
             ->group(base_path('routes/agency.php'));
+    }
+
+    /**
+     * Define the "web" routes for Freelancer Dashboard.
+     * @return void
+     */
+    protected function mapFreelancerWebRoutes()
+    {
+        Route::prefix('/freelancer/dashboard')
+            ->middleware(['web', 'auth', 'freelancer'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/freelancer.php'));
     }
 
     /**

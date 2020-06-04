@@ -39,6 +39,7 @@
                                 </div>
                             @endguest
 
+                            @auth
                                 <div class="main-menu">
                                     <nav class="d-lg-block">
                                         <ul id="navigation">
@@ -74,6 +75,7 @@
                                         </ul>
                                     </nav>
                                 </div>
+                                @endauth
                         </div>
                     </div>
                     <!-- Mobile templats -->

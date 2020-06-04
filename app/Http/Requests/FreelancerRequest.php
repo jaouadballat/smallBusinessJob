@@ -45,7 +45,6 @@ class FreelancerRequest extends FormRequest
             $this['resume'] = $resume;
         }
 
-        $this['user_id'] = $this->user()->id;
         return $this->except('cv');
     }
 }

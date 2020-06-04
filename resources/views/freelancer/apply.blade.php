@@ -16,8 +16,8 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <label for="message" class="mt-5">Cover Letter</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <label for="body" class="mt-5">Cover Letter</label>
+                <textarea name="body" id="body" cols="30" rows="10"></textarea>
             </div>
             <button class="ml-auto mt-5 btn head-btn1" type="submit">Apply</button>
         </form>
@@ -26,6 +26,6 @@
 
 @section('scripts')
     tinymce.init({
-        selector: '#message'
+        selector: '#body'
     });
 @endsection

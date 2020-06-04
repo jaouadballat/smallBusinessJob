@@ -9,6 +9,10 @@ use App\Repositories\JobRepository\JobRepositoryInterface;
 
 class JobService extends Service
 {
+    /**
+     * @var JobRepositoryInterface
+     */
+    private $repository;
 
     /**
      * JobService constructor.
