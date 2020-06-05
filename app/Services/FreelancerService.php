@@ -22,4 +22,9 @@ class FreelancerService extends Service
     {
         return $this->repository->create($data, $jobId);
     }
+
+    public function myJobs()
+    {
+        return $this->repository->allPostedJob();
+    }
 }

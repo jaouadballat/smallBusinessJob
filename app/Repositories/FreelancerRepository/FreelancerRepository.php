@@ -27,4 +27,13 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
         $freelancer->messages()->create($data);
     }
+
+    public function allPostedJob()
+    {
+        $freelancer = auth()->user()->freelancer()->first();
+        $messages = $freelancer->messages()->get();
+        return $messages->map(function($message) {
+            return $message->job()->first();
+        });
+    }
 }
