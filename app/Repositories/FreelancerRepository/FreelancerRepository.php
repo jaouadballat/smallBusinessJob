@@ -5,27 +5,49 @@ namespace App\Repositories\FreelancerRepository;
 
 
 use App\Models\Freelancer;
+use App\Models\Job;
+use App\Models\Message;
 use App\Repositories\BaseRepository;
 
 class FreelancerRepository extends BaseRepository implements FreelancerRepositoryInterface
 {
-    public function __construct(Freelancer $model)
+    /**
+     * @var Freelancer
+     */
+    private $freelancerModel;
+    /**
+     * @var Message
+     */
+    private $messageModel;
+    /**
+     * @var Job
+     */
+    private $jobModel;
+
+    public function __construct(Freelancer $freelancerModel, Message $messageModel, Job $jobModel)
     {
-        $this->model = $model;
+        $this->freelancerModel = $freelancerModel;
+        $this->messageModel = $messageModel;
+        $this->jobModel = $jobModel;
     }
 
     public function create($data, $jobId)
     {
+        $job = $this->jobModel->findOrFail($jobId);
+        $user = auth()->user();
 
-        $freelancer = auth()->user()->freelancer()->create([
+        $freelancer = $user->freelancer()->create([
             'resume' => $data['resume']
         ]);
 
-       unset($data['resume']);
+        unset($data['resume']);
 
-        $data['job_id'] = $jobId;
+        $this->messageModel->body = $data['body'];
 
-        $freelancer->messages()->create($data);
+        $freelancer->messages()->save($this->messageModel);
+        $job->messages()->save($this->messageModel);
+
+        $user->notify(new \App\Notifications\Job($this->messageModel));
     }
 
     public function allPostedJob()

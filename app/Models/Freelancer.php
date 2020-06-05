@@ -18,6 +18,6 @@ class Freelancer extends Model
 
     public function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->morphToMany(Message::class, 'messageable');
     }
 }
