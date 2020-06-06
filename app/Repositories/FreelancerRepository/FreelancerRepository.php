@@ -4,6 +4,7 @@
 namespace App\Repositories\FreelancerRepository;
 
 
+use App\Events\JobEvent;
 use App\Models\Freelancer;
 use App\Models\Job;
 use App\Models\Message;
@@ -36,7 +37,7 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         $job = $this->jobModel->findOrFail($jobId);
         $user = auth()->user();
 
-        $freelancer = $user->freelancer()->create([
+        $freelancer = $user->freelancer()->updateOrCreate([
             'resume' => $data['resume']
         ]);
 
@@ -47,7 +48,7 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         $freelancer->messages()->save($this->messageModel);
         $job->messages()->save($this->messageModel);
 
-        $user->notify(new \App\Notifications\Job($this->messageModel));
+        event(new JobEvent($user, $this->messageModel));
     }
 
     public function allPostedJob()
