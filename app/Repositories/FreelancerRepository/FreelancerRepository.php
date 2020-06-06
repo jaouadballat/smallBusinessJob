@@ -9,6 +9,7 @@ use App\Models\Freelancer;
 use App\Models\Job;
 use App\Models\Message;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Arr;
 
 class FreelancerRepository extends BaseRepository implements FreelancerRepositoryInterface
 {
@@ -55,8 +56,9 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
     {
         $freelancer = auth()->user()->freelancer()->first();
         $messages = $freelancer->messages()->get();
-        return $messages->map(function($message) {
-            return $message->job()->first();
-        });
+
+
+        return $messages;
+
     }
 }

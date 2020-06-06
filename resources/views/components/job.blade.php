@@ -3,7 +3,7 @@
         <div class="company-img mr-2" style="width: 20%">
             <a href="{{ route('job-details', ['id' => $job->id]) }}"><img src="{{ asset($job->agency->logo) }}" alt="" style="width: 100%"></a>
         </div>
-        <div class="job-tittle">
+        <div class="job-tittle" style="flex: 1">
             <a href="{{ route('job-details', ['id' => $job->id]) }}"><h4>{{ $job->title }}</h4></a>
             <ul>
                 <li>{{ $job->agency->name }}</li>
