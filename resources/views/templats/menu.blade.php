@@ -61,10 +61,7 @@
 
                                                     @freelancer
                                                         <li>
-                                                            <a href="">Messages</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('freelancer.list') }}">My jobs</a>
+                                                            <a href="{{ route('freelancer.list') }}">Messages</a>
                                                         </li>
                                                     @endfreelancer
                                                     <li>

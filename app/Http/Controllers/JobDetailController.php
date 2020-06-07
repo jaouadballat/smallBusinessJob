@@ -14,7 +14,6 @@ class JobDetailController extends Controller
     public function index($id)
     {
         $job = $this->service->findOne($id);
-        //dd($job);
         return view('job-details', compact('job'));
     }
 }

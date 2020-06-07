@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Agency;
 use App\Models\Freelancer;
 use App\Models\Job;
+use App\Models\Message;
 use App\Traits\HasUUID;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -78,7 +79,11 @@ class User extends Authenticatable
     public function hasApplied($jobId)
     {
         return $this->isFreelancer() &&
-            $this->freelancer()->first() &&
-            $this->freelancer()->first()->messages()->where('job_id', $jobId)->count() !== 0;
+            $this->messages()->where('job_id', $jobId)->count() !== 0;
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 }
