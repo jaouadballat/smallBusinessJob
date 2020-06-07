@@ -33,8 +33,9 @@ class FreelancerController extends Controller
 
     public function list()
     {
-        $messages = $this->freelancerService->myJobs();
-        return view('freelancer.list', compact('messages'));
+        $jobs = $this->freelancerService->myJobs();
+
+        return view('freelancer.list', compact('jobs'));
     }
 
     public function show($id)

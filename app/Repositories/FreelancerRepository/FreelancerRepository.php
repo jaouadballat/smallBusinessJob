@@ -46,8 +46,10 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
         $this->messageModel->body = $data['body'];
 
-        $freelancer->messages()->save($this->messageModel);
-        $job->messages()->save($this->messageModel);
+        $freelancer->messages()->create([
+            'job_id' => $jobId,
+            'body' => $data['body']
+        ]);
 
         event(new JobEvent($user, $this->messageModel));
     }
@@ -55,10 +57,12 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
     public function allPostedJob()
     {
         $freelancer = auth()->user()->freelancer()->first();
-        $messages = $freelancer->messages()->get();
-
-
-        return $messages;
+        $messages = $freelancer->messages()->get()->groupBy('job_id');
+        $jobIds = [];
+        foreach ($messages as $jobId => $messages) {
+            $jobIds[] = $jobId;
+        }
+        return $this->jobModel->findMany($jobIds);
 
     }
 }
