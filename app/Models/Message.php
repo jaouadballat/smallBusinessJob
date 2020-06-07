@@ -13,17 +13,4 @@ class Message extends Model
     const TABLE = 'messages';
 
     protected $table = self::TABLE;
-
-    public function freelancers()
-    {
-        return $this->morphedByMany(Freelancer::class, 'messageable');
-    }
-
-    public function jobs()
-    {
-        return $this->morphedByMany(Job::class, 'messageable');
-    }
-
-
-
 }
