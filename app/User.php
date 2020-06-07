@@ -74,4 +74,11 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Job::class, Agency::class);
     }
+
+    public function hasApplied($jobId)
+    {
+        return $this->isFreelancer() &&
+            $this->freelancer()->first() &&
+            $this->freelancer()->first()->messages()->where('job_id', $jobId)->count() !== 0;
+    }
 }
