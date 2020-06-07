@@ -10,6 +10,8 @@ use App\Repositories\FreelancerRepository\FreelancerRepository;
 use App\Repositories\FreelancerRepository\FreelancerRepositoryInterface;
 use App\Repositories\JobRepository\JobRepository;
 use App\Repositories\JobRepository\JobRepositoryInterface;
+use App\Repositories\MessageRepository\MessageRepository;
+use App\Repositories\MessageRepository\MessageRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -39,6 +41,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             FreelancerRepositoryInterface::class,
             FreelancerRepository::class
+        );
+
+        $this->app->bind(
+            MessageRepositoryInterface::class,
+            MessageRepository::class
         );
     }
 
