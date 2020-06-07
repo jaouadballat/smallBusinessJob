@@ -10,8 +10,9 @@
             @method('POST')
             <div class="col-md-12 my-3">
                 <div class="mt-10">
-                    <label for="cv">Resume</label>
-                    <input type="file" name="cv" placeholder="Resume" class="single-input" >
+                    <button class="btn btn-danger" id="resume">Upload resume</button>
+                    <span id="file-name"></span>
+                    <input type="file" name="cv" id="cv" placeholder="Resume" class="single-input" style="display: none">
                     @error('cv')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -28,4 +29,14 @@
     tinymce.init({
         selector: '#body'
     });
+
+    document.getElementById('resume')
+        .addEventListener('click', function(e) {
+            let cv = document.getElementById('cv');
+            e.preventDefault();
+            cv.click();
+            cv.addEventListener('change', function(e){
+                document.getElementById('file-name').textContent = e.target.files[0].name;
+            });
+        });
 @endsection

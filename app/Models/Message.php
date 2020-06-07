@@ -14,13 +14,16 @@ class Message extends Model
 
     protected $table = self::TABLE;
 
-    public function freelancer()
+    public function freelancers()
     {
-        return $this->belongsTo(Freelancer::class, 'freelancer_id');
+        return $this->morphedByMany(Freelancer::class, 'messageable');
     }
 
-    public function job()
+    public function jobs()
     {
-        return $this->belongsTo(Job::class, 'job_id');
+        return $this->morphedByMany(Job::class, 'messageable');
     }
+
+
+
 }
