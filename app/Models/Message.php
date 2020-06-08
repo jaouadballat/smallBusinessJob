@@ -13,4 +13,9 @@ class Message extends Model
     const TABLE = 'messages';
 
     protected $table = self::TABLE;
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class, 'job_id');
+    }
 }

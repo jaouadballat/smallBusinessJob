@@ -12,12 +12,12 @@ class Freelancer extends Model
     protected $table = self::TABLE;
 
     protected $guarded = [];
-    protected $with = ['messages'];
     const TABLE = 'freelancers';
 
 
-    public function messages()
+   /* public function messages()
     {
         return $this->hasMany(Message::class);
     }
+   */
 }

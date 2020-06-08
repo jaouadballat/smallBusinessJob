@@ -35,12 +35,13 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
     public function create($data, $jobId)
     {
-        $job = $this->jobModel->findOrFail($jobId);
+       // $job = $this->jobModel->findOrFail($jobId);
         $user = auth()->user();
 
-        $freelancer = $user->freelancer()->updateOrCreate([
+        $user->freelancer()->updateOrCreate([
             'resume' => $data['resume']
         ]);
+
 
         unset($data['resume']);
 

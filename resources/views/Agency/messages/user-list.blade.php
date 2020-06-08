@@ -1,0 +1,25 @@
+@extends('base')
+
+@section('content')
+    <div class="container mb-5">
+        <h1>My Messages</h1>
+        @forelse($messages as $user => $msgs)
+            <ul>
+                <li class="font-weight-bold">
+                    from: <a href="" class="text-danger">{{ \App\User::find($user)->name }}</a>
+                    <ul>
+                        @forelse($msgs->groupBy('job_id') as $jobId => $messages)
+                            {{($messages)}}
+                            <li>{{ \App\Models\Job::find($jobId)->title }}</li>
+                        @empty
+                            no message
+                        @endforelse
+                    </ul>
+                </li>
+            </ul>
+        @empty
+            <p>No job yet</p>
+        @endforelse
+    </div>
+@endsection
+

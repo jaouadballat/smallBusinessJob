@@ -52,8 +52,7 @@ class AgencyController extends Controller
 
     public function messages()
     {
-        $jobs = $this->service->myMessages();
-
-        return view('freelancer.list', compact('jobs'));
+        $messages = $this->service->myMessages();
+        return view('agency.messages.user-list', compact('messages'));
     }
 }
