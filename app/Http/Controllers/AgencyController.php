@@ -55,4 +55,10 @@ class AgencyController extends Controller
         $messages = $this->service->myMessages();
         return view('agency.messages.user-list', compact('messages'));
     }
+
+    public function showMessagesForEachJob($user, $job)
+    {
+        $messages = $this->service->getMessagesByUserAndByJob($user, $job);
+        return view('agency.messages.messages', compact('messages', 'job'));
+    }
 }

@@ -15,3 +15,4 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
+Route::post('/job/{jobId}/messages', 'MessageController@send')->name('messages.send');

@@ -43,13 +43,24 @@ class AgencyRepository extends BaseRepository implements AgencyRepositoryInterfa
         foreach ($jobs as $job) {
             $jobIds[] = $job->id;
         }
-         $messages = $this->messageModel->whereIn('job_id', $jobIds)->get()->groupBy('user_id');
+         $messages = $this->messageModel
+             ->whereIn('job_id', $jobIds)
+             ->whereNotIn('user_id', [auth()->user()->id])
+             ->get()->groupBy('user_id')->orderBy('created_at', 'asc');
         foreach ($messages as $userId => $message) {
             $userIds[] = $userId;
         }
 
         return $messages;
 
+    }
+
+    public function getMessagesForThisUserWithThisJob($user, $job)
+    {
+         return $this->messageModel
+                ->where('user_id', $user)
+                ->orWhere('user_id', auth()->user()->id)
+                ->where('job_id', $job)->orderBy('created_at', 'asc')->get();
     }
 
 }

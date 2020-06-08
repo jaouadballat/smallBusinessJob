@@ -9,8 +9,7 @@
                     from: <a href="" class="text-danger">{{ \App\User::find($user)->name }}</a>
                     <ul>
                         @forelse($msgs->groupBy('job_id') as $jobId => $messages)
-                            {{($messages)}}
-                            <li>{{ \App\Models\Job::find($jobId)->title }}</li>
+                                <li><a href="{{route('agency.user.messages', ['user' => $user, 'job' => $jobId])}}" class="text-danger">{{ \App\Models\Job::find($jobId)->title }}</a></li>
                         @empty
                             no message
                         @endforelse

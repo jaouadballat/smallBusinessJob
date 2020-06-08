@@ -34,4 +34,9 @@ class AgencyService extends Service
         return $this->repository->allMessages();
     }
 
+    public function getMessagesByUserAndByJob($user, $job)
+    {
+        return $this->repository->getMessagesForThisUserWithThisJob($user, $job);
+    }
+
 }
