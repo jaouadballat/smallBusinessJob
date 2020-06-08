@@ -54,6 +54,9 @@
                                                                 <a href="{{ route('agency.jobs') }}">My jobs</a>
                                                             </li>
                                                             <li>
+                                                                <a href="{{ route('agency.jobs') }}">Messages</a>
+                                                            </li>
+                                                            <li>
                                                                 <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
                                                             </li>
                                                         @endif

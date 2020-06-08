@@ -29,4 +29,9 @@ class AgencyService extends Service
         return $this->repository->jobs();
     }
 
+    public function myMessages()
+    {
+        return $this->repository->allMessages();
+    }
+
 }

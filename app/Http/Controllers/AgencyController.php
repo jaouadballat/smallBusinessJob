@@ -49,4 +49,11 @@ class AgencyController extends Controller
         $this->service->update($request->except('company_logo'), $id);
         return redirect()->route('agency.jobs');
     }
+
+    public function messages()
+    {
+        $jobs = $this->service->myMessages();
+
+        return view('freelancer.list', compact('jobs'));
+    }
 }
