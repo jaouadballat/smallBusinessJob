@@ -46,7 +46,7 @@ class AgencyRepository extends BaseRepository implements AgencyRepositoryInterfa
          $messages = $this->messageModel
              ->whereIn('job_id', $jobIds)
              ->whereNotIn('user_id', [auth()->user()->id])
-             ->get()->groupBy('user_id')->orderBy('created_at', 'asc');
+             ->get()->groupBy('user_id');
         foreach ($messages as $userId => $message) {
             $userIds[] = $userId;
         }

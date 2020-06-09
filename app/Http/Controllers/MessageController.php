@@ -19,10 +19,10 @@ class MessageController extends Controller
         $this->messageService = $messageService;
     }
 
-    public function show($jobId)
+    public function show($job, $user)
     {
-        $messages = $this->messageService->allMessagesWithThisJob($jobId);
-        return view('messages.show', compact('messages', 'jobId'));
+        $messages = $this->messageService->allMessagesWithThisJob($job, $user);
+        return view('messages.show', compact('messages', 'job'));
     }
 
     public function send($jobId)

@@ -9,7 +9,7 @@
                 </div>
             @endforeach
         </div>
-        <form action="{{ route('messages.send', ['jobId' => $jobId]) }}" method="post">
+        <form action="{{ route('messages.send', ['job' => $job]) }}" method="post">
             @csrf
             @method('POST')
             <textarea name="body" id="body" class="form-control my-3" id="" cols="10" rows="10"></textarea>
