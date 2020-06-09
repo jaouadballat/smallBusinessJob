@@ -15,8 +15,10 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('user_id');
+            $table->string('freelancer_id');
+            $table->string('agency_id');
             $table->string('job_id');
+            $table->string('from_id');
             $table->text('body');
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUUID;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Freelancer extends Model
@@ -15,9 +16,13 @@ class Freelancer extends Model
     const TABLE = 'freelancers';
 
 
-   /* public function messages()
+    public function messages()
     {
         return $this->hasMany(Message::class);
     }
-   */
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'freelancer_id');
+    }
 }

@@ -19,9 +19,9 @@ class MessageService extends Service
         $this->repository = $repository;
     }
 
-    public function allMessagesWithThisJob($jobId)
+    public function allMessagesWithThisJob($job)
     {
-        return $this->repository->allMessages($jobId);
+        return $this->repository->allMessages($job);
     }
 
     public function create($data)

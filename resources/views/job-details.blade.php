@@ -81,9 +81,9 @@
                                 <li>Salary :  <span>{{ $job->salary() }} yearly</span></li>
                             </ul>
                             <div class="apply-btn2">
-                                <a href="{{ auth()->user()->hasApplied($job->id) ? 'javascript:void(0)' : route('freelancer.show', ['id' => $job->id]) }}"
-                                   class="btn" style="opacity: {{ auth()->user()->hasApplied($job->id) ? '.4' : '1' }}">
-                                    {{auth()->user()->hasApplied($job->id) ? 'Already applied' : 'Apply Now'}}
+                                <a href="{{ route('freelancer.show', ['id' => $job->id]) }}"
+                                   class="btn">
+                                    Apply Now
                                 </a>
                             </div>
                         </div>

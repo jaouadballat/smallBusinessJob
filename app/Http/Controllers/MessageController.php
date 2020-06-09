@@ -19,9 +19,9 @@ class MessageController extends Controller
         $this->messageService = $messageService;
     }
 
-    public function show($jobId)
+    public function show($job)
     {
-        $messages = $this->messageService->allMessagesWithThisJob($jobId);
+        $messages = $this->messageService->allMessagesWithThisJob($job);
         return view('messages.show', compact('messages', 'jobId'));
     }
 

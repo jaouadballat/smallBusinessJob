@@ -27,4 +27,9 @@ class FreelancerService extends Service
     {
         return $this->repository->allPostedJob();
     }
+
+    public function messages($jobId)
+    {
+        return $this->repository->messages($jobId);
+    }
 }

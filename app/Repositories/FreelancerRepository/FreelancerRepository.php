@@ -35,20 +35,21 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
     public function create($data, $jobId)
     {
-       // $job = $this->jobModel->findOrFail($jobId);
         $user = auth()->user();
+        $job = $this->jobModel->findOrFail($jobId);
 
-        $user->freelancer()->updateOrCreate([
+        $freelancer = $user->freelancer()->updateOrCreate([
             'resume' => $data['resume']
         ]);
-
 
         unset($data['resume']);
 
         $this->messageModel->body = $data['body'];
 
-        $user->messages()->create([
+        $freelancer->messages()->create([
             'job_id' => $jobId,
+            'agency_id' => $job->agency->id,
+            'from_id' => $user->id,
             'body' => $data['body']
         ]);
 
@@ -57,12 +58,24 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
     public function allPostedJob()
     {
-        $messages = auth()->user()->messages()->get()->groupBy('job_id');
         $jobIds = [];
+
+        $freelancer = auth()->user()->freelancer()->first();
+        $messages = $freelancer->messages()->get()->groupBy('job_id');
+
         foreach ($messages as $jobId => $messages) {
             $jobIds[] = $jobId;
         }
         return $this->jobModel->findMany($jobIds);
 
+    }
+
+    public function messages($jobId)
+    {
+        $job = $this->jobModel->findOrFail($jobId);
+        $freelancer = auth()->user()->freelancer()->first();
+        $agency = $job->agency;
+
+        return $freelancer->messages()->where('job_id', $jobId)->where('agency_id', $agency->id)->get();
     }
 }

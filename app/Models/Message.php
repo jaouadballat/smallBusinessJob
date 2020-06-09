@@ -18,4 +18,14 @@ class Message extends Model
     {
         return $this->belongsTo(Job::class, 'job_id');
     }
+
+    public function freelancer()
+    {
+        return $this->belongsTo(Freelancer::class, 'freelancer_id');
+    }
+
+    public function agency()
+    {
+        return $this->belongsTo(Agency::class, 'agency_id');
+    }
 }
