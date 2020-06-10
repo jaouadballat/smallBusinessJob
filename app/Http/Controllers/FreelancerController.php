@@ -31,13 +31,6 @@ class FreelancerController extends Controller
         return view('freelancer.dashboard');
     }
 
-    public function list()
-    {
-        $jobs = $this->freelancerService->myJobs();
-
-        return view('freelancer.list', compact('jobs'));
-    }
-
     public function show($id)
     {
         $job = $this->jobService->findOne($id);

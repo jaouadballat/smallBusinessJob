@@ -21,22 +21,12 @@ class AgencyService extends Service
 
     public function findOne($id)
     {
-        return $this->repository->findById($id);
+        return $this->repository->getById($id);
     }
 
     public function jobs()
     {
         return $this->repository->jobs();
-    }
-
-    public function myMessages()
-    {
-        return $this->repository->allMessages();
-    }
-
-    public function getMessagesByUserAndByJob($user, $job)
-    {
-        return $this->repository->getMessagesForThisUserWithThisJob($user, $job);
     }
 
 }

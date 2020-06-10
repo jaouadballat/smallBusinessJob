@@ -12,14 +12,14 @@ class AgencyRepository extends BaseRepository implements AgencyRepositoryInterfa
     /**
      * @var Agency
      */
-    private $agencyModel;
+    protected $model;
 
 
     public function __construct(
-        Agency $agencyModel
+        Agency $model
     )
     {
-        $this->agencyModel = $agencyModel;
+        $this->model = $model;
     }
 
     public function jobs()
