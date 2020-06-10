@@ -16,17 +16,8 @@ class Freelancer extends Model
     const TABLE = 'freelancers';
 
 
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function scopeName($query, $userId) {
-        return $query->find($userId)->first()->user()->first()->name;
     }
 }

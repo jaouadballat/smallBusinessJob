@@ -25,8 +25,4 @@ class Agency extends Model
         return $this->belongsTo(User::class, 'user_id')->whereRole('ceo');
     }
 
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
 }
