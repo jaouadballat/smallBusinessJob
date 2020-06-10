@@ -21,7 +21,7 @@ class AgencyService extends Service
 
     public function findOne($id)
     {
-        return $this->repository->getById($id);
+        return $this->repository->findById($id);
     }
 
     public function jobs()

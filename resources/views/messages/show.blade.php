@@ -4,7 +4,7 @@
     <div class="container">
         <div class="my-5">
             @foreach($messages as $message)
-                <div class="d-flex align-items-center  my-2">
+                <div class="d-flex align-items-center my-2">
                     <span class="mr-2">
                         {{ \App\User::whereId($message->from_id)->first() ? \App\User::whereId($message->from_id)->first()->name : \App\Models\Agency::whereId($message->from_id)->first()->name }}
                     </span> : {!! $message->body !!}

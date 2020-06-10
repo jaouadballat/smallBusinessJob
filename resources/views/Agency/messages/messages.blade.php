@@ -5,7 +5,7 @@
         <div class="my-5">
             @foreach($messages as $message)
                     <div class="d-flex align-items-center  my-2">
-                        <span class="mr-2">{{ auth()->user()->id === $message->user_id ? auth()->user()->name : \App\User::find($message->user_id)->name }} </span> : {!! $message->body !!}
+                        <span class="mr-2">{{ \App\User::whereId($message->from_id)->first() ? \App\User::whereId($message->from_id)->first()->name : \App\Models\Agency::whereId($message->from_id)->first()->name }}</span> : {!! $message->body !!}
                     </div>
                 @endforeach
 
