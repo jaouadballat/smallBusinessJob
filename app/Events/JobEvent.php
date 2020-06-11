@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\Message;
 use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -30,7 +29,7 @@ class JobEvent
      * @param User $user
      * @param Message $message
      */
-    public function __construct(User $user, Message $message)
+    public function __construct(User $user, $message)
     {
         $this->user = $user;
         $this->message = $message;

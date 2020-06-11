@@ -4,26 +4,40 @@
 namespace App\Repositories\MessageRepository;
 
 
+use App\Models\Job;
 use App\Models\Message;
 use App\Repositories\BaseRepository;
 
 class MessageRepository extends BaseRepository implements MessageRepositoryInterface
 {
+    /**
+     * @var Message
+     */
+    private $messageModel;
+    /**
+     * @var Job
+     */
+    private $jobModel;
 
     /**
      * MessageRepository constructor.
-     * @param Message $model
+     * @param Message $messageModel
+     * @param Job $jobModel
      */
-    public function __construct(Message $model)
+    public function __construct(Message $messageModel, Job $jobModel)
     {
-        $this->model = $model;
+        $this->messageModel = $messageModel;
+        $this->jobModel = $jobModel;
     }
 
-    public function allMessages($jobId)
+    public function allMessages($job)
     {
+
+        $job = $this->jobModel->findOrFail($job);
+        $agency = $job->agency;
         return $this->model
-            ->where('user_id', auth()->id())
-            ->where('job_id', $jobId)
+            ->where('freelancer_id', auth()->id())
+            ->where('job_id', $job)
             ->orderBy('created_at', 'asc')
             ->get();
     }

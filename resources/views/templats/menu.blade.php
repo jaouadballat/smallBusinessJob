@@ -54,19 +54,11 @@
                                                                 <a href="{{ route('agency.jobs') }}">My jobs</a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('agency.jobs') }}">Messages</a>
-                                                            </li>
-                                                            <li>
                                                                 <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
                                                             </li>
                                                         @endif
                                                     @endceo
 
-                                                    @freelancer
-                                                        <li>
-                                                            <a href="{{ route('freelancer.list') }}">Messages</a>
-                                                        </li>
-                                                    @endfreelancer
                                                     <li>
                                                         <a href="{{ route('logout') }}">logout</a>
                                                     </li>
