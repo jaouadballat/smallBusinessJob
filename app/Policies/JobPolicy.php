@@ -12,7 +12,7 @@ class JobPolicy
 
     public function update(User $user, Job $job)
     {
-        return $user->jobs->contains($job->id);
+        return $user->agency->jobs->contains($job->id);
     }
 
 }

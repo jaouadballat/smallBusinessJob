@@ -24,7 +24,7 @@ class AgencyRepository extends BaseRepository implements AgencyRepositoryInterfa
 
     public function jobs()
     {
-        return auth()->user()->jobs()->get();
+        return auth()->user()->agency->jobs()->get();
     }
 
 }
