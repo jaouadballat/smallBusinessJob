@@ -20,4 +20,9 @@ class Freelancer extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function jobs()
+    {
+        return $this->belongsToMany(Job::class, 'freelancer_job');
+    }
 }

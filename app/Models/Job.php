@@ -46,5 +46,10 @@ class Job extends Model
     {
         return $this->postedDate->diffForHumans();
     }
+
+    public function freelancers()
+    {
+        return $this->belongsToMany(Freelancer::class, 'freelancer_job');
+    }
 }
 

@@ -71,9 +71,4 @@ class User extends Authenticatable
         return !empty($this->agency->name);
     }
 
-    public function jobs()
-    {
-        return $this->hasManyThrough(Job::class, Agency::class);
-    }
-
 }
