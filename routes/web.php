@@ -10,7 +10,13 @@ Route::get('/categories', 'CategoryController@index');
 Route::post('/search-job', 'SearchJobController')->name('search.job');
 Route::get('/{id}/job-details', 'JobDetailController@index')->name('job-details');
 
-Route::get('/messages', 'MessageController@list')->middleware('auth');
+Route::get('/job/{id}/messages', 'MessageController@list')
+        ->name('job.messages')
+        ->middleware('auth');
+
+Route::post('/job/{id}/messages', 'MessageController@send')
+        ->name('messages.send')
+        ->middleware('auth');
 
 
 

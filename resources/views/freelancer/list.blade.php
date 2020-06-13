@@ -5,7 +5,7 @@
         <h1>My Jobs</h1>
         @forelse($jobs as $job)
             <x-job :job="$job">
-                <a href="" class="text-primary">messages</a>
+                <a href="{{ route('job.messages', ['id' => $job->id]) }}" class="text-primary">messages</a>
             </x-job>
         @empty
             <p>No job yet</p>

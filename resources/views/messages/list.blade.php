@@ -8,7 +8,7 @@
                 <span class="mr-2 bold">{{ $user->whereId($message->from)->first()->name }}</span> : {!! $message->message !!}</div>
         @endforeach
 
-        <form action="" method="post">
+        <form action="{{ route('messages.send', ['id' => $jobId]) }}" method="post">
             @csrf
             @method('POST')
             <textarea name="body" id="body" class="form-control my-3" id="" cols="10" rows="10"></textarea>
