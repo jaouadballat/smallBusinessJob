@@ -14,7 +14,7 @@ class MessageController extends Controller
     public function list($id)
     {
         $freelancer = auth()->user()->freelancer;
-        $messages = $freelancer->messages()->get();
+        $messages = $freelancer->messages()->where('job_id', $id)->get();
         return view('messages.list')
                 ->with(['messages' => $messages, 'jobId' => $id]);
     }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgencyRequest;
+use App\Models\Freelancer;
+use App\Models\Job;
+use App\Models\Message;
 use App\Services\AgencyService;
 use Illuminate\Http\Request;
 
@@ -48,5 +51,30 @@ class AgencyController extends Controller
     {
         $this->service->update($request->except('company_logo'), $id);
         return redirect()->route('agency.jobs');
+    }
+
+    public function freelancers($id)
+    {
+        $job = Job::find($id);
+        $freelancers = $job->freelancers()->get()->unique();
+        return view('Agency.freelancer', compact('freelancers', 'job'));
+    }
+
+    public function messages($freelancerId, $jobId)
+    {
+        $freelancer = Freelancer::find($freelancerId);
+        return view('agency.messages.lists', compact('freelancer', 'jobId', 'freelancerId'));
+    }
+
+    public function send($freelancerId, $jobId)
+    {
+        Message::create([
+           'freelancer_id' => $freelancerId,
+           'job_id' => $jobId,
+           'from' => auth()->user()->id,
+           'message' => \request('body')
+        ]);
+
+        return redirect()->back();
     }
 }

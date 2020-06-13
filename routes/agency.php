@@ -14,6 +14,15 @@ Route::get('/job-list', 'AgencyController@list')
 Route::get('/edit/{id}', 'AgencyController@edit')
     ->name('agency.dashboard.update');
 
+Route::get('/job/{id}/freelancers', 'AgencyController@freelancers')
+    ->name('agency.dashboard.freelancers');
+
+Route::get('/freelancer/{freelancerId}/job/{jobId}/messages', 'AgencyController@messages')
+    ->name('agency.dashboard.messages');
+
+Route::post('/freelancer/{freelancerId}/job/{jobId}/messages', 'AgencyController@send')
+    ->name('agency.dashboard.messages');
+
 Route::put('/edit/{id}', 'AgencyController@update')
     ->name('agency.dashboard.update');
 
