@@ -18,6 +18,16 @@ class FreelancerService extends Service
         $this->repository = $repository;
     }
 
+    /**
+     * find record by id
+     * @param $id
+     * @return mixed
+     */
+    public function findOne($id)
+    {
+        return $this->repository->findOrFail($id);
+    }
+
     public function applyForJob($data, $jobId)
     {
         return $this->repository->create($data, $jobId);

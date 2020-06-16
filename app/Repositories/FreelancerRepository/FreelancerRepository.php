@@ -54,4 +54,9 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         return $freelancer->jobs()->get();
     }
 
+    public function findOrFail($id)
+    {
+        return $this->freelancerModel->findOrFail($id);
+    }
+
 }

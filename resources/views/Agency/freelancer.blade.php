@@ -6,7 +6,7 @@
         <ul>
             @forelse($freelancers as $freelancer)
                 <li>
-                    <a href="{{ route('agency.dashboard.messages', ['freelancerId' => $freelancer->id, 'jobId' => $job->id]) }}" class="text-danger">{{ $freelancer->user()->first()->name }}</a>
+                    <a href="{{ route('agency.dashboard.messages', ['freelancerId' => $freelancer->id, 'jobId' => $id]) }}" class="text-danger">{{ $freelancer->user()->first()->name }}</a>
                 </li>
             @empty
                 <p>no job yet</p>

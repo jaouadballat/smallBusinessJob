@@ -96,4 +96,11 @@ class JobService extends Service
     {
         return $this->repository->deleteById($id);
     }
+
+
+    public function getAllFreelancersForThisJob($id)
+    {
+        $job = $this->findOne($id);
+        return $job->freelancers()->get()->unique();
+    }
 }

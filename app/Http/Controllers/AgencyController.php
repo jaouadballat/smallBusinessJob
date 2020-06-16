@@ -7,6 +7,8 @@ use App\Models\Freelancer;
 use App\Models\Job;
 use App\Models\Message;
 use App\Services\AgencyService;
+use App\Services\FreelancerService;
+use App\Services\JobService;
 use Illuminate\Http\Request;
 
 class AgencyController extends Controller
@@ -15,10 +17,20 @@ class AgencyController extends Controller
      * @var AgencyService
      */
     private $service;
+    /**
+     * @var JobService
+     */
+    private $jobService;
+    /**
+     * @var FreelancerService
+     */
+    private $freelancerService;
 
-    public function __construct(AgencyService $service)
+    public function __construct(AgencyService $service, JobService $jobService, FreelancerService $freelancerService)
     {
         $this->service = $service;
+        $this->jobService = $jobService;
+        $this->freelancerService = $freelancerService;
     }
 
     public function index()
@@ -55,15 +67,14 @@ class AgencyController extends Controller
 
     public function freelancers($id)
     {
-        $job = Job::find($id);
-        $freelancers = $job->freelancers()->get()->unique();
-        return view('Agency.freelancer', compact('freelancers', 'job'));
+        $freelancers = $this->jobService->getAllFreelancersForThisJob($id);
+        return view('Agency.freelancer', compact('freelancers', 'id'));
     }
 
     public function messages($freelancerId, $jobId)
     {
-        $freelancer = Freelancer::find($freelancerId);
-        return view('agency.messages.lists', compact('freelancer', 'jobId', 'freelancerId'));
+            $freelancer = $this->freelancerService->findOne($freelancerId);
+            return view('agency.messages.lists', compact('freelancer', 'jobId', 'freelancerId'));
     }
 
     public function send($freelancerId, $jobId)
