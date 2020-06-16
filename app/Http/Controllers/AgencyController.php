@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgencyRequest;
+use App\Models\Freelancer;
+use App\Models\Job;
+use App\Models\Message;
 use App\Services\AgencyService;
+use App\Services\FreelancerService;
+use App\Services\JobService;
 use Illuminate\Http\Request;
 
 class AgencyController extends Controller
@@ -12,10 +17,20 @@ class AgencyController extends Controller
      * @var AgencyService
      */
     private $service;
+    /**
+     * @var JobService
+     */
+    private $jobService;
+    /**
+     * @var FreelancerService
+     */
+    private $freelancerService;
 
-    public function __construct(AgencyService $service)
+    public function __construct(AgencyService $service, JobService $jobService, FreelancerService $freelancerService)
     {
         $this->service = $service;
+        $this->jobService = $jobService;
+        $this->freelancerService = $freelancerService;
     }
 
     public function index()
@@ -48,5 +63,32 @@ class AgencyController extends Controller
     {
         $this->service->update($request->except('company_logo'), $id);
         return redirect()->route('agency.jobs');
+    }
+
+    public function freelancers($id)
+    {
+        $freelancers = $this->jobService->getAllFreelancersForThisJob($id);
+        return view('Agency.freelancer', compact('freelancers', 'id'));
+    }
+
+    public function messages($freelancerId, $jobId)
+    {
+            $freelancer = $this->freelancerService->findOne($freelancerId);
+            return view('agency.messages.lists', compact('freelancer', 'jobId', 'freelancerId'));
+    }
+
+    public function send($freelancerId, $jobId)
+    {
+        $data = [
+           'freelancer_id' => $freelancerId,
+           'job_id' => $jobId,
+           'from' => auth()->user()->id,
+           'message' => \request('body')
+        ];
+
+        $this->jobService->sendMessageForThisFreelancer($data);
+
+
+        return redirect()->back();
     }
 }

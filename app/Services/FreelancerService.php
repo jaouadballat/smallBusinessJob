@@ -22,4 +22,27 @@ class FreelancerService extends Service
     {
         return $this->repository->create($data, $jobId);
     }
+
+    public function listOfAppliedJobs()
+    {
+        return $this->repository->getJobs();
+    }
+
+    public function getAllMessagesForThisJob($id)
+    {
+        $freelancer = auth()->user()->freelancer;
+        return $freelancer->messages()->where('job_id', $id)->get();
+    }
+
+    public function sendMessageToThisJob($id)
+    {
+        $user = auth()->user();
+        $freelancer = $user->freelancer;
+
+        $freelancer->messages()->create([
+            'from' => $user->id,
+            'job_id' => $id,
+            'message' => request('body')
+        ]);
+    }
 }

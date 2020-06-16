@@ -42,4 +42,24 @@ class FreelancerController extends Controller
         return redirect()->route('freelancer.dashboard');
     }
 
+    public function list()
+    {
+        $jobs = $this->freelancerService->listOfAppliedJobs();
+        return view('freelancer.list', compact('jobs'));
+    }
+
+    public function messages($id)
+    {
+        $messages = $this->freelancerService->getAllMessagesForThisJob($id);
+
+        return view('messages.list')
+            ->with(['messages' => $messages, 'jobId' => $id]);
+    }
+
+    public function send($id)
+    {
+        $this->freelancerService->sendMessageToThisJob($id);
+        return redirect()->back();
+    }
+
 }

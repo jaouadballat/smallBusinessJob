@@ -51,5 +51,10 @@ class Job extends Model
     {
         return $this->belongsToMany(Freelancer::class, 'freelancer_job');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }
 

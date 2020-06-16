@@ -59,6 +59,12 @@
                                                         @endif
                                                     @endceo
 
+                                                    @freelancer
+                                                    <li>
+                                                        <a href="{{ route('freelancer.list') }}">My jobs</a>
+                                                    </li>
+                                                    @endfreelancer
+
                                                     <li>
                                                         <a href="{{ route('logout') }}">logout</a>
                                                     </li>

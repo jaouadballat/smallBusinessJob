@@ -36,5 +36,10 @@ abstract class Service
         $this->service->update($data, $id);
     }
 
+    public function findOne($id)
+    {
+        return $this->service->getById($id);
+    }
+
 
 }
