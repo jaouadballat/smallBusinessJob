@@ -79,12 +79,15 @@ class AgencyController extends Controller
 
     public function send($freelancerId, $jobId)
     {
-        Message::create([
+        $data = [
            'freelancer_id' => $freelancerId,
            'job_id' => $jobId,
            'from' => auth()->user()->id,
            'message' => \request('body')
-        ]);
+        ];
+
+        $this->jobService->sendMessageForThisFreelancer($data);
+
 
         return redirect()->back();
     }

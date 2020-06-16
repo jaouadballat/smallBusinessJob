@@ -3,8 +3,6 @@
 
 namespace App\Services;
 
-
-use App\Http\Resources\Job as JobResource;
 use App\Repositories\JobRepository\JobRepositoryInterface;
 
 class JobService extends Service
@@ -102,5 +100,13 @@ class JobService extends Service
     {
         $job = $this->findOne($id);
         return $job->freelancers()->get()->unique();
+    }
+
+    public function sendMessageForThisFreelancer($data)
+    {
+        $job = $this->findOne($data['job_id']);
+        unset($data['job_id']);
+
+        $job->messages()->create($data);
     }
 }
