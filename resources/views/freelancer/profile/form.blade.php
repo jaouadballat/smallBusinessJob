@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
-            <h1>Create your ptofile</h1>
+            <h1>Create your profile</h1>
         </div>
         <form class="row" action="" method="post">
             @csrf
@@ -30,6 +30,12 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mt-10">
+                    <label for="experiences_number">Number of experience</label>
+                    <input type="number" name="experiences_number" placeholder="Experiences number" class="single-input">
+                </div>
                 <div class="mt-10">
                     <label for="web">Location</label>
                     <input type="text" name="location" placeholder="Location" class="single-input @error('location') is-invalid @enderror">
@@ -43,12 +49,6 @@
                     @error('salary')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="mt-10">
-                    <label for="experiences_number">Number of experience</label>
-                    <input type="number" name="experiences_number" placeholder="Experiences number" class="single-input">
                 </div>
             </div>
             <div class="col-md-12 my-3">

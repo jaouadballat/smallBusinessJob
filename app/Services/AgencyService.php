@@ -19,10 +19,10 @@ class AgencyService extends Service
         $this->repository = $repository;
     }
 
-    public function findOne($id)
+   /* public function findOne($id)
     {
         return $this->repository->getById($id);
-    }
+    }*/
 
     public function jobs()
     {
