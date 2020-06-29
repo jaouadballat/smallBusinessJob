@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between">
             <h1>Create your profile</h1>
         </div>
-        <form class="row" action="" method="post">
+    <form class="row" action="{{ route('freelancer.profile.create') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="col-md-6">
@@ -50,6 +50,14 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="mt-10">
+                    <button class="btn btn-danger" id="profile-image">Upload Your Image</button>
+                    <span id="file-name"></span>
+                    <input type="file" name="avatar" id="avatar" placeholder="profile-image" class="single-input" style="display: none">
+                    @error('avatar')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-12 my-3">
                 <label for="skills">Skills</label>
@@ -81,4 +89,14 @@
     tinymce.init({
     selector: '#experiences'
     });
+
+    document.getElementById('profile-image')
+        .addEventListener('click', function(e) {
+            let avatar = document.getElementById('avatar');
+            e.preventDefault();
+            avatar.click();
+            avatar.addEventListener('change', function(e){
+                document.getElementById('file-name').textContent = e.target.files[0].name;
+            });
+        });
 @endsection

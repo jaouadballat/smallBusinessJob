@@ -20,7 +20,7 @@ class FreelancerService extends Service
 
     public function applyForJob($data, $jobId)
     {
-        return $this->repository->create($data, $jobId);
+        return $this->repository->apply($data, $jobId);
     }
 
     public function listOfAppliedJobs()

@@ -10,4 +10,9 @@ class ProfileFreelancerController extends Controller
     {
         return view('freelancer.profile.form');
     }
+
+    public function create(Request $request) 
+    {
+        dd($request->all());
+    }
 }
