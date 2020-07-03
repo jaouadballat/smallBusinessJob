@@ -53,7 +53,7 @@
                 <div class="mt-10">
                     <button class="btn btn-danger" id="profile-image">Upload Your Image</button>
                     <span id="file-name"></span>
-                    <input type="file" name="avatar" id="avatar" placeholder="profile-image" class="single-input" style="display: none">
+                    <input type="file" name="profile-image" id="avatar" placeholder="profile image" class="single-input" style="display: none">
                     @error('avatar')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

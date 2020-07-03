@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProfileFreelancerRequest;
 
 class ProfileFreelancerController extends Controller
 {
@@ -11,8 +12,8 @@ class ProfileFreelancerController extends Controller
         return view('freelancer.profile.form');
     }
 
-    public function create(Request $request) 
+    public function create(ProfileFreelancerRequest $request) 
     {
-        dd($request->all());
+        dd($request->refactoreRequest());
     }
 }

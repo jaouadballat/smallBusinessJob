@@ -15,18 +15,18 @@ class CreateFreelancersTable extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('firstName');
-            $table->string('lasteName');
-            $table->string('email');
-            $table->string('experiences_number');
-            $table->string('location');
-            $table->string('salary');
-            $table->string('avatar');
-            $table->longText('skills');
-            $table->longText('educations');
-            $table->longText('experiences');
+            $table->string('firstName')->nullable();
+            $table->string('lasteName')->nullable();
+            $table->string('email')->nullable();
+            $table->string('experiences_number')->nullable();
+            $table->string('location')->nullable();
+            $table->string('salary')->nullable();
+            $table->string('avatar')->nullable();
+            $table->longText('skills')->nullable();
+            $table->longText('educations')->nullable();
+            $table->longText('experiences')->nullable();
             $table->string('user_id');
-            $table->string('resume');
+            $table->string('resume')->nullable();
             $table->timestamps();
         });
     }
