@@ -45,4 +45,10 @@ class FreelancerService extends Service
             'message' => request('body')
         ]);
     }
+
+    public function create($data)
+    {
+        $freelancer = auth()->user()->freelancer;
+        return $freelancer->update($data);
+    }
 }

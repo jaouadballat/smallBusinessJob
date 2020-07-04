@@ -64,8 +64,8 @@
                 <textarea name="skills" id="skills" cols="30" rows="10"></textarea>
             </div>
             <div class="col-md-12 my-3">
-                <label for="education">Education</label>
-                <textarea name="education" id="education" cols="30" rows="10"></textarea>
+                <label for="educations">Education</label>
+                <textarea name="educations" id="educations" cols="30" rows="10"></textarea>
             </div>
             <div class="col-md-12 my-3">
                 <label for="experiences">Experiences</label>
@@ -83,7 +83,7 @@
     });
 
     tinymce.init({
-    selector: '#education'
+    selector: '#educations'
     });
 
     tinymce.init({

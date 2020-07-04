@@ -16,7 +16,7 @@ class CreateFreelancersTable extends Migration
         Schema::create('freelancers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('firstName')->nullable();
-            $table->string('lasteName')->nullable();
+            $table->string('lastName')->nullable();
             $table->string('email')->nullable();
             $table->string('experiences_number')->nullable();
             $table->string('location')->nullable();
