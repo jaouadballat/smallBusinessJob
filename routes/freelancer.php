@@ -10,3 +10,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/job/apply/{id}', 'FreelancerController@apply')->name('freelancer.apply');
     Route::get('/job/{id}/messages', 'FreelancerController@messages')->name('job.messages');
     Route::post('/job/{id}/messages', 'FreelancerController@send')->name('messages.send');
+
+    Route::get('/profile', 'ProfileFreelancerController@form')->name('freelancer.profile.form');
+    Route::post('/profile', 'ProfileFreelancerController@create')->name('freelancer.profile.create');
+

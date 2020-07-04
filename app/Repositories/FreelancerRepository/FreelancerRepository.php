@@ -20,7 +20,7 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         $this->model = $freelancerModel;
     }
 
-    public function create($data, $jobId)
+    public function apply($data, $jobId)
     {
         $user = auth()->user();
 
