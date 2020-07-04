@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Freelancer;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,6 +33,8 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+
 
     /**
      * Create a new controller instance.
@@ -66,12 +69,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => $data['role'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if($user->role === User::FREELANCER) {
+            Freelancer::create([
+                'user_id' => $user->id
+            ]);
+        }
+
+        return $user;
     }
 
     public function showRegistrationForm()
