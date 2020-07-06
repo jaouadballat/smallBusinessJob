@@ -30,4 +30,16 @@ class ProfileFreelancerController extends Controller
         return redirect()->route('freelancer.dashboard');
 
     }
+
+    public function edit($id)
+    {
+        $freelancer = $this->freelancerService->findOne($id);
+        return view('freelancer.profile.edit', compact('freelancer'));
+    }
+
+    public function update(ProfileFreelancerRequest $request)
+    {
+        $this->freelancerService->edit($request->refactoreRequest());
+        return redirect()->route('freelancer.dashboard');
+    }
 }

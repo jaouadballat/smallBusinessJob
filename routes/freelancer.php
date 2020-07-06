@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/profile', 'ProfileFreelancerController@form')->name('freelancer.profile.form');
     Route::post('/profile', 'ProfileFreelancerController@create')->name('freelancer.profile.create');
+    Route::put('/profile/{id}', 'ProfileFreelancerController@update')->name('freelancer.profile.update');
+    Route::get('/profile/{id}', 'ProfileFreelancerController@edit')->name('freelancer.profile.edit');
 

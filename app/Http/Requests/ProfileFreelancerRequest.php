@@ -27,7 +27,7 @@ class ProfileFreelancerRequest extends FormRequest
             'firstName' => 'required',
             'lastName' => 'required',
             'email' => 'required',
-            'profile-image' => ['required', 'mimes:jpg,jpeg,png,bmp', 'max:4096'],
+            'profile-image' => ['sometimes', 'mimes:jpg,jpeg,png,bmp', 'max:4096'],
         ];
     }
 
@@ -47,6 +47,7 @@ class ProfileFreelancerRequest extends FormRequest
 
             $this['avatar'] = $avatar;
         }
+
         return $this->except('profile-image');
     }
 }
