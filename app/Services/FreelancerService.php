@@ -51,4 +51,9 @@ class FreelancerService extends Service
         $freelancer = auth()->user()->freelancer;
         return $freelancer->update($data);
     }
+
+    public function edit($data)
+    {
+        return $this->create($data);
+    }
 }
