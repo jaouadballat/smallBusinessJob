@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  height: 50%;
+  width: 50%;
+}
+
+.wrapper .overly {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0%;
+  transition: 0.3s ease-in;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.wrapper .overly button {
+  display: none;
+}
+
+.wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper:hover .overly {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wrapper:hover .overly button {
+  display: block;
+}
+

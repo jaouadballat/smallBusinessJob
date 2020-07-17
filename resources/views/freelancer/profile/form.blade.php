@@ -77,6 +77,7 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript">
 
     tinymce.init({
     selector: '#skills'
@@ -99,4 +100,6 @@
                 document.getElementById('file-name').textContent = e.target.files[0].name;
             });
         });
+
+    </script>
 @endsection

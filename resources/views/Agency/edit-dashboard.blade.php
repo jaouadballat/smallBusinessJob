@@ -75,7 +75,11 @@
 @endsection
 
 @section('scripts')
-    tinymce.init({
+    <script type="text/javascript">
+
+        tinymce.init({
     selector: '#about'
     });
+
+    </script>
 @endsection

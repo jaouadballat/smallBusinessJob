@@ -18,7 +18,9 @@
 @endsection
 
 @section('scripts')
-    tinymce.init({
-    selector: '#body'
-    });
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#body'
+            });
+        <script
 @endsection
