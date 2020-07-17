@@ -50,8 +50,11 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mt-10">
-                    <img src="{{ asset($freelancer->avatar) }}" id="profile-image" />
+                <div class="mt-10 wrapper">
+                    <img src="{{ asset($freelancer->avatar) }}" id="profile-avatar"/>
+                    <div class="overly">
+                        <button class="btn btn-danger" id="profile-image">Upload</button>
+                    </div>
                     <input type="file" name="profile-image" id="avatar" value="{{ $freelancer->avatar }}" placeholder="profile image" class="single-input" style="display: none">
                     @error('profile-image')
                     <span class="text-danger">{{ $message }}</span>
@@ -106,7 +109,7 @@
             const file = element.files[0];
             const reader = new FileReader();
             reader.onloadend = function() {
-                profileImage.src = reader.result
+                document.getElementById('profile-avatar').src = reader.result
             }
             reader.readAsDataURL(file);
         }
