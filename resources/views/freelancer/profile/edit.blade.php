@@ -50,10 +50,11 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mt-10">
-                    <button class="btn btn-danger" id="profile-image">Upload Your Image</button>
-                    <span id="file-name"></span>
-                    {{ $freelancer->avatar }}"
+                <div class="mt-10 wrapper">
+                    <img src="{{ asset($freelancer->avatar) }}" id="profile-avatar"/>
+                    <div class="overly">
+                        <button class="btn btn-danger" id="profile-image">Upload</button>
+                    </div>
                     <input type="file" name="profile-image" id="avatar" value="{{ $freelancer->avatar }}" placeholder="profile image" class="single-input" style="display: none">
                     @error('profile-image')
                     <span class="text-danger">{{ $message }}</span>
@@ -78,26 +79,39 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript">
 
-    tinymce.init({
-    selector: '#skills'
-    });
+        tinymce.init({
+            selector: '#skills'
+        });
 
-    tinymce.init({
-    selector: '#educations'
-    });
+        tinymce.init({
+            selector: '#educations'
+        });
 
-    tinymce.init({
-    selector: '#experiences'
-    });
+        tinymce.init({
+            selector: '#experiences'
+        });
 
-    document.getElementById('profile-image')
-    .addEventListener('click', function(e) {
-    let avatar = document.getElementById('avatar');
-    e.preventDefault();
-    avatar.click();
-    avatar.addEventListener('change', function(e){
-    document.getElementById('file-name').textContent = e.target.files[0].name;
-    });
-    });
+        let profileImage = document.getElementById('profile-image');
+
+
+        profileImage.addEventListener('click', function(e) {
+                let avatar = document.getElementById('avatar');
+                e.preventDefault();
+                avatar.click();
+                avatar.addEventListener('change', function(e){
+                    encodeImageFileAsURL(e.target);
+                });
+            });
+
+        function encodeImageFileAsURL(element) {
+            const file = element.files[0];
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                document.getElementById('profile-avatar').src = reader.result
+            }
+            reader.readAsDataURL(file);
+        }
+    </script>
 @endsection

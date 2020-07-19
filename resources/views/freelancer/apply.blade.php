@@ -26,7 +26,9 @@
 @endsection
 
 @section('scripts')
-    tinymce.init({
+    <script type="text/javascript">
+
+        tinymce.init({
         selector: '#body'
     });
 
@@ -39,4 +41,6 @@
                 document.getElementById('file-name').textContent = e.target.files[0].name;
             });
         });
+
+    </script>
 @endsection

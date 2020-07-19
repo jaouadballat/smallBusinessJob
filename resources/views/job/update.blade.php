@@ -78,7 +78,9 @@
 @endsection
 
 @section('scripts')
-    tinymce.init({
+    <script type="text/javascript">
+
+        tinymce.init({
     selector: '#job_description'
     });
 
@@ -93,4 +95,5 @@
     tinymce.init({
     selector: '#experiences'
     });
+    </script>
 @endsection
