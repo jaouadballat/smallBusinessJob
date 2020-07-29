@@ -48,3 +48,4 @@ class FreelancerRequest extends FormRequest
         return $this->except('cv');
     }
 }
+
