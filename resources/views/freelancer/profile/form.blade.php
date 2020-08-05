@@ -30,6 +30,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="mt-10">
+                    <button class="btn btn-danger" id="profile-resume" onclick="event.preventDefault(); uploadFile('resume');">Upload Your Resume</button>
+                    <span id="file-resume"></span>
+                    <input type="file" name="profile-resume" id="resume" placeholder="resume" class="single-input" style="display: none">
+                    @error('resume')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="mt-10">
@@ -51,9 +59,9 @@
                     @enderror
                 </div>
                 <div class="mt-10">
-                    <button class="btn btn-danger" id="profile-image">Upload Your Image</button>
-                    <span id="file-name"></span>
-                    <input type="file" name="profile-image" id="avatar" placeholder="profile image" class="single-input" style="display: none">
+                    <button class="btn btn-danger" id="profile-avatar" onclick="event.preventDefault(); uploadFile('avatar');">Upload Your Image</button>
+                    <span id="file-avatar"></span>
+                    <input type="file" name="profile-avatar" id="avatar" placeholder="profile image" class="single-input" style="display: none">
                     @error('avatar')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -91,15 +99,17 @@
     selector: '#experiences'
     });
 
-    document.getElementById('profile-image')
-        .addEventListener('click', function(e) {
-            let avatar = document.getElementById('avatar');
+
+    function uploadFile(fileName) {
+        let avatar = document.getElementById(fileName);
+        avatar.click();
+        avatar.addEventListener('change', function(e){
             e.preventDefault();
-            avatar.click();
-            avatar.addEventListener('change', function(e){
-                document.getElementById('file-name').textContent = e.target.files[0].name;
-            });
+            document.getElementById('file-' + fileName).textContent = e.target.files[0].name;
         });
+
+    }
+
 
     </script>
 @endsection
