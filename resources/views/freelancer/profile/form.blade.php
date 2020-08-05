@@ -33,7 +33,7 @@
                 <div class="mt-10">
                     <button class="btn btn-danger" id="profile-resume" onclick="event.preventDefault(); uploadFile('resume');">Upload Your Resume</button>
                     <span id="file-resume"></span>
-                    <input type="file" name="resume" id="resume" placeholder="resume" class="single-input" style="display: none">
+                    <input type="file" name="profile-resume" id="resume" placeholder="resume" class="single-input" style="display: none">
                     @error('resume')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror

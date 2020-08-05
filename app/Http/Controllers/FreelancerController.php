@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FreelancerRequest;
 use App\Services\FreelancerService;
 use App\Services\JobService;
+use Illuminate\Http\Request;
 
 class FreelancerController extends Controller
 {
@@ -37,8 +38,8 @@ class FreelancerController extends Controller
         return view('freelancer.apply', compact('job'));
     }
 
-    public function apply(FreelancerRequest $request, $id) {
-        $this->freelancerService->applyForJob($request->storeResume(), $id);
+    public function apply(Request $request, $id) {
+        $this->freelancerService->applyForJob($request->all(), $id);
         return redirect()->route('freelancer.dashboard');
     }
 

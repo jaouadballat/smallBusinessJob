@@ -30,6 +30,14 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="mt-10">
+                    <button class="btn btn-danger" id="profile-resume" onclick="event.preventDefault(); uploadFile('resume');">Upload Your Resume</button>
+                    <span id="file-resume"></span>
+                    <input type="file" name="profile-resume" id="resume" placeholder="resume" class="single-input" style="display: none">
+                    @error('profile-resume')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="mt-10">
@@ -51,12 +59,12 @@
                     @enderror
                 </div>
                 <div class="mt-10 wrapper">
-                    <img src="{{ asset($freelancer->avatar) }}" id="profile-avatar"/>
+                    <img src="{{ asset($freelancer->avatar) }}" id="image"/>
                     <div class="overly">
                         <button class="btn btn-danger" id="profile-image">Upload</button>
                     </div>
-                    <input type="file" name="profile-image" id="avatar" value="{{ $freelancer->avatar }}" placeholder="profile image" class="single-input" style="display: none">
-                    @error('profile-image')
+                    <input type="file" name="profile-avatar" id="avatar" value="{{ $freelancer->avatar }}" placeholder="profile image" class="single-input" style="display: none">
+                    @error('profile-avatar')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -109,9 +117,19 @@
             const file = element.files[0];
             const reader = new FileReader();
             reader.onloadend = function() {
-                document.getElementById('profile-avatar').src = reader.result
+                document.getElementById('image').src = reader.result
             }
             reader.readAsDataURL(file);
+        }
+
+        function uploadFile(fileName) {
+            let avatar = document.getElementById(fileName);
+            avatar.click();
+            avatar.addEventListener('change', function(e){
+                e.preventDefault();
+                document.getElementById('file-' + fileName).textContent = e.target.files[0].name;
+            });
+
         }
     </script>
 @endsection
