@@ -80,12 +80,22 @@
                                 <li>Job nature : <span>{{ $job->contract_type }}</span></li>
                                 <li>Salary :  <span>{{ $job->salary() }} yearly</span></li>
                             </ul>
-                            <div class="apply-btn2">
-                                <a href="{{ route('freelancer.show', ['id' => $job->id]) }}"
-                                   class="btn">
-                                    Apply Now
-                                </a>
-                            </div>
+                            @if($freelancer->alreadyAppliedForThisJob($job->id))
+                                <div class="apply-btn2">
+                                    <a href="javascript:void(0)"
+                                       class="btn">
+                                        Already applied
+                                    </a>
+                                </div>
+                            @else
+                                <div class="apply-btn2">
+                                    <a href="{{ route('freelancer.show', ['id' => $job->id]) }}"
+                                       class="btn">
+                                        Apply Now
+                                    </a>
+                                </div>
+
+                            @endif
                         </div>
                         <div class="post-details4  mb-50">
                             <!-- Small Section Tittle -->

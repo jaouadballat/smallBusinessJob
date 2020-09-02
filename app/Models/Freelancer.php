@@ -31,6 +31,10 @@ class Freelancer extends Model
      return $this->hasMany(Message::class);
     }
 
+    public function alreadyAppliedForThisJob($jobId)
+    {
+            return !empty($this->jobs()->whereId($jobId)->first());
+     }
     public function isFreelancerRegistred()
     {
         return !empty($this->firstName) && !empty($this->lastName) && !empty($this->email);
