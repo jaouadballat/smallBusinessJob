@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\Helper;
 use App\Traits\HasUUID;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -38,5 +39,15 @@ class Freelancer extends Model
     public function isFreelancerRegistred()
     {
         return !empty($this->title);
+    }
+
+    public function fullName()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function salary()
+    {
+        return Helper::currencyFormat($this->salary);
     }
 }
