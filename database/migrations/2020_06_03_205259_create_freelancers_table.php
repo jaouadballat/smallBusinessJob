@@ -17,6 +17,7 @@ class CreateFreelancersTable extends Migration
             $table->uuid('id')->primary();
             $table->string('firstName')->nullable();
             $table->string('lastName')->nullable();
+            $table->string('title')->nullable();
             $table->string('email')->nullable();
             $table->string('experiences_number')->nullable();
             $table->string('location')->nullable();

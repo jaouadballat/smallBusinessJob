@@ -37,6 +37,6 @@ class Freelancer extends Model
      }
     public function isFreelancerRegistred()
     {
-        return !empty($this->firstName) && !empty($this->lastName) && !empty($this->email);
+        return !empty($this->title);
     }
 }
