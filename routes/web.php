@@ -10,7 +10,7 @@ Route::get('/categories', 'CategoryController@index');
 Route::post('/search-job', 'SearchJobController')->name('search.job');
 Route::get('/{id}/job-details', 'JobDetailController@index')->name('job-details');
 
-
+Route::get('profiles/{id}', 'JobSeekersController@show');
 Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');

@@ -27,6 +27,7 @@ class ProfileFreelancerRequest extends FormRequest
             'firstName' => 'required',
             'lastName' => 'required',
             'email' => 'required',
+            'title' => 'required',
             'profile-avatar' => ['sometimes', 'mimes:jpg,jpeg,png,bmp', 'max:4096'],
             'profile-resume' => ['sometimes', 'mimes:pdf, doc, docx', 'max:4096'],
         ];

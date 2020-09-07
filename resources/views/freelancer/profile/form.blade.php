@@ -31,6 +31,13 @@
                     @enderror
                 </div>
                 <div class="mt-10">
+                    <label for="lastName">Title</label>
+                    <input type="text" name="title" placeholder="Web Developer" class="single-input @error('title') is-invalid @enderror">
+                    @error('title')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mt-10">
                     <button class="btn btn-danger" id="profile-resume" onclick="event.preventDefault(); uploadFile('resume');">Upload Your Resume</button>
                     <span id="file-resume"></span>
                     <input type="file" name="profile-resume" id="resume" placeholder="resume" class="single-input" style="display: none">

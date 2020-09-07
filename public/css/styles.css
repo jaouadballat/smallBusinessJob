@@ -6411,3 +6411,18 @@ section p {
   display: block;
 }
 
+.job__detail-left--block {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job__detail-left--block .items-link a {
+  margin-bottom: 10px;
+}
+
+.job__detail-left--block .items-link span {
+  text-align: center;
+}
+
