@@ -39,4 +39,21 @@
 
 }
 
+.job__detail-left--block {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    .items-link {
+        a {
+            margin-bottom: 10px;
+        }
+
+        span {
+            text-align: center;
+        };
+    }
+}
+
 

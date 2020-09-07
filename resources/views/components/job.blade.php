@@ -12,10 +12,12 @@
             </ul>
         </div>
     </div>
-    <div class="items-link f-right">
-        <a href="job_details.html">{{ $job->contract_type }}</a>
-        <span>{{ $job->posted_date() }}</span>
+    <div class="job__detail-left--block">
+        <div class="items-link f-right">
+            <a href="job_details.html">{{ $job->contract_type }}</a>
+            <span>{{ $job->posted_date() }}</span>
+        </div>
+        {{ $slot }}
     </div>
-    {{ $slot }}
 
 </div>
