@@ -23,6 +23,8 @@ class ProfileFreelancerController extends Controller
     public function edit($id)
     {
         $freelancer = $this->freelancerService->findOne($id);
+        $this->authorize('edit', $freelancer);
+
         return view('freelancer.profile.edit', compact('freelancer'));
     }
 
