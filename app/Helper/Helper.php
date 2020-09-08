@@ -32,7 +32,8 @@ class Helper
             }
             return redirect()->route('ceo.dashboard');
         } elseif($user->role === self::FREELANCER) {
-            return redirect()->route('freelancer.dashboard');
+            $freelancerId = $user->freelancer->id;
+            return redirect()->route('freelancer.profile.edit', ['id' => $freelancerId]);
         } else {
             return redirect()->route('logout');
         }

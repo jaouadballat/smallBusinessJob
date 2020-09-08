@@ -46,14 +46,10 @@ class FreelancerService extends Service
         ]);
     }
 
-    public function create($data)
-    {
-        $freelancer = auth()->user()->freelancer;
-        return $freelancer->update($data);
-    }
 
     public function edit($data)
     {
-        return $this->create($data);
+        $freelancer = auth()->user()->freelancer;
+        return $freelancer->update($data);
     }
 }
