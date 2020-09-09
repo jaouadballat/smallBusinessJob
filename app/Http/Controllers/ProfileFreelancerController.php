@@ -19,21 +19,12 @@ class ProfileFreelancerController extends Controller
         $this->freelancerService = $freelancerService;
     }
 
-    public function form()
-    {
-        return view('freelancer.profile.form');
-    }
-
-    public function create(ProfileFreelancerRequest $request)
-    {
-        $this->freelancerService->create($request->refactoreRequest());
-        return redirect()->route('freelancer.dashboard');
-
-    }
 
     public function edit($id)
     {
         $freelancer = $this->freelancerService->findOne($id);
+        $this->authorize('edit', $freelancer);
+
         return view('freelancer.profile.edit', compact('freelancer'));
     }
 

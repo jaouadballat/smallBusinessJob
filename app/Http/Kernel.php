@@ -65,6 +65,5 @@ class Kernel extends HttpKernel
         'freelancer' => \App\Http\Middleware\FreelancerMiddleware::class,
         'ceo' => \App\Http\Middleware\CeoMiddleware::class,
         'register.agency' => \App\Http\Middleware\HasRegisterAgency::class,
-        'register.freelancer' => \App\Http\Middleware\IsFreelancerRegistred::class,
     ];
 }
