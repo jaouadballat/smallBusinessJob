@@ -31,7 +31,11 @@ class FreelancerService extends Service
     public function getAllMessagesForThisJob($id)
     {
         $freelancer = auth()->user()->freelancer;
-        return $freelancer->messages()->where('job_id', $id)->get();
+        return $freelancer
+                    ->messages()
+                    ->where('job_id', $id)
+                    ->orderBy('created_at', 'asc')
+                    ->get();
     }
 
     public function sendMessageToThisJob($id)
