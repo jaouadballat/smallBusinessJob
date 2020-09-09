@@ -6,11 +6,15 @@
             <div class="col-sm-12 col-md-8 offset-md-2">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 d-flex align-items-center flex-column">
-                            <img src={{ asset($freelancer->avatar) }} class="img-thumbnail" alt="" style="max-width: 200px; max-height: 200px" >
-                            <h1 class="text-danger m-0">{{ $freelancer->fullName()  }}</h1>
-                            <h3 class="font-weight-bold m-0">{{ $freelancer->title }}</h3>
-                            <p class="m-0">{{ $freelancer->email }}</p>
+                        <div class="col-12 d-flex flex-row">
+                            <img src={{ asset($freelancer->avatar) }} class="img-thumbnail mr-5" alt="" style="max-width: 200px; max-height: 200px" >
+                            <div class="profile_info">
+                                <h1 class="text-danger m-0">{{ $freelancer->fullName()  }}</h1>
+                                <h3 class="font-weight-bold m-0">{{ $freelancer->title }}</h3>
+                                <p class="m-0"><span class="font-weight-bold m-0">Email:</span> {{ $freelancer->email }}</p>
+                                <p class="m-0"><span class="font-weight-bold m-0">Salary: </span>{{ $freelancer->salary() }}/years</p>
+                                <p class="m-0"><span class="font-weight-bold m-0">Number of experiences: </span>{{ $freelancer->experiences_number  ? $freelancer->experiences_number . ' years' : "No experience" }}</p>
+                            </div>
                         </div>
                         <div class="col-12">
                             <h2 class="text-danger"><ins>About:</ins></h2>
@@ -27,9 +31,6 @@
                         <div class="col-12">
                             <h2 class="text-danger"><ins>Skills:</ins></h2>
                             <p>{!! $freelancer->skills ?: 'No skills defined'!!}</p>
-                        </div>
-                        <div class="col-12">
-                            <p><span class="font-weight-bold m-0">Salary: </span>{{ $freelancer->salary() }}/years</p>
                         </div>
                     </div>
                 </div>
