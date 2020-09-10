@@ -176,8 +176,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\BladeServiceProvider::class,
-
-
+        App\Providers\RoleComposerProvider::class,
     ],
 
     /*

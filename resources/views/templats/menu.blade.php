@@ -54,7 +54,7 @@
                                                                 <a href="{{ route('agency.jobs') }}">My jobs</a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('agency.dashboard.update', ['id' => auth()->user()->agency->id]) }}">update profile</a>
+                                                                <a href="{{ route('agency.dashboard.update', ['id' => $agency->id]) }}">update profile</a>
                                                             </li>
                                                         @endif
                                                     @endceo
@@ -62,6 +62,8 @@
                                                     @freelancer
                                                     <li>
                                                         <a href="{{ route('freelancer.list') }}">My jobs</a>
+                                                        <a href="{{ route('profile.show', ['id' => $freelancer->id]) }}">My Profile</a>
+                                                        <a href="{{ route('freelancer.profile.edit', ['id' => $freelancer->id]) }}">Settings</a>
                                                     </li>
                                                     @endfreelancer
 
