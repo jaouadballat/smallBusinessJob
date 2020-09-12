@@ -14,7 +14,7 @@ class JobDetailController extends Controller
     public function index($id)
     {
         $job = $this->service->findOne($id);
-        $freelancer = auth()->user()->freelancer;
+        $freelancer = auth()->user() ? auth()->user()->freelancer : null;
         return view('job-details', compact('job', 'freelancer'));
     }
 }

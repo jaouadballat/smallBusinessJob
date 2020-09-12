@@ -16,7 +16,7 @@ class JobSeekersController extends Controller
 
     public function show($id)
     {
-        $freelancer = $this->freelancerService->findOne($id);
-        return view('freelancer.profile.show', compact('freelancer'));
+        $jobSeeker = $this->freelancerService->findOne($id);
+        return view('freelancer.profile.show', compact('jobSeeker'));
     }
 }
