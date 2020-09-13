@@ -6426,3 +6426,11 @@ section p {
   text-align: center;
 }
 
+.btn-xs {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 12px !important;
+  padding: 5px !important;
+  background-color: #fb246a !important;
+}
+
