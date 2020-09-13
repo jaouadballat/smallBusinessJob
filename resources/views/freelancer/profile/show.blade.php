@@ -7,13 +7,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 d-flex flex-row">
-                            <img src={{ asset($jobSeeker->avatar) }} class="img-thumbnail mr-5" alt="" style="max-width: 200px; max-height: 200px" >
+                            <img src={{ asset($freelancer->avatar) }} class="img-thumbnail mr-5" alt="" style="max-width: 200px; max-height: 200px" >
                             <div class="profile_info">
-                                <h1 class="text-danger m-0">{{ $jobSeeker->fullName()  }}</h1>
-                                <h3 class="font-weight-bold m-0">{{ $jobSeeker->title }}</h3>
-                                <p class="m-0"><span class="font-weight-bold m-0">Email:</span> {{ $jobSeeker->email }}</p>
-                                <p class="m-0"><span class="font-weight-bold m-0">Salary: </span>{{ $jobSeeker->salary() }}/years</p>
-                                <p class="m-0"><span class="font-weight-bold m-0">Number of experiences: </span>{{ $jobSeeker->experiences_number  ? $jobSeeker->experiences_number . ' years' : "No experience" }}</p>
+                                <h1 class="text-danger m-0">{{ $freelancer->fullName()  }}</h1>
+                                <h3 class="font-weight-bold m-0">{{ $freelancer->title }}</h3>
+                                <p class="m-0"><span class="font-weight-bold m-0">Email:</span> {{ $freelancer->email }}</p>
+                                <p class="m-0"><span class="font-weight-bold m-0">Salary: </span>{{ $freelancer->salary() }}/years</p>
+                                <p class="m-0"><span class="font-weight-bold m-0">Number of experiences: </span>{{ $freelancer->experiences_number  ? $freelancer->experiences_number . ' years' : "No experience" }}</p>
                             </div>
                         </div>
                         <div class="col-12">
@@ -22,15 +22,15 @@
                         </div>
                         <div class="col-12">
                             <h2 class="text-danger"><ins>Experience:</ins></h2>
-                            <p>{!! $jobSeeker->experiences ?: 'No experiences defined' !!}</p>
+                            <p>{!! $freelancer->experiences ?: 'No experiences defined' !!}</p>
                         </div>
                         <div class="col-12">
                             <h2 class="text-danger"><ins>Education:</ins></h2>
-                            <p>{!! $jobSeeker->educations ?: 'No education defined' !!}</p>
+                            <p>{!! $freelancer->educations ?: 'No education defined' !!}</p>
                         </div>
                         <div class="col-12">
                             <h2 class="text-danger"><ins>Skills:</ins></h2>
-                            <p>{!! $jobSeeker->skills ?: 'No skills defined'!!}</p>
+                            <p>{!! $freelancer->skills ?: 'No skills defined'!!}</p>
                         </div>
                     </div>
                 </div>

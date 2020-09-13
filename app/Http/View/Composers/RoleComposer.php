@@ -15,11 +15,19 @@ class RoleComposer
      */
     public function compose(View $view)
     {
-        $freelancer = auth()->user()->freelancer ?? "";
-        $agency = auth()->user()->agency ?? "";
-        $view->with([
-            'freelancer' => $freelancer,
-            'agency' => $agency,
-        ]);
+        $user = auth()->user();
+        $data = [];
+
+        if($user && $user->isFreelancer()) {
+            $freelancer = $user->freelancer;
+            $data['freelancer'] = $freelancer;
+        } elseif ($user && $user->isCeo()) {
+            $agency = $user->agency;
+            $data['agency'] = $agency;
+        } else {
+            $data = [];
+        }
+
+        $view->with($data);
     }
 }
