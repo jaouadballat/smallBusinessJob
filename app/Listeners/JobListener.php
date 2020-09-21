@@ -26,6 +26,6 @@ class JobListener
      */
     public function handle(JobEvent $event)
     {
-        $event->user->notify(new \App\Notifications\Job($event->message));
+        $event->agency->notify(new \App\Notifications\Job($event->freelancer, $event->message));
     }
 }

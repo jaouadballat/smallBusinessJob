@@ -6,6 +6,7 @@ namespace App\Repositories\FreelancerRepository;
 
 use App\Events\JobEvent;
 use App\Models\Freelancer;
+use App\Models\Job;
 use App\Repositories\BaseRepository;
 
 class FreelancerRepository extends BaseRepository implements FreelancerRepositoryInterface
@@ -14,10 +15,15 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
      * @var Freelancer
      */
     private $freelancerModel;
+    /**
+     * @var Job
+     */
+    private $jobModel;
 
-    public function __construct(Freelancer $freelancerModel)
+    public function __construct(Freelancer $freelancerModel, Job $jobModel)
     {
-        $this->model = $freelancerModel;
+        $this->freelancerModel = $freelancerModel;
+        $this->jobModel = $jobModel;
     }
 
     public function apply($data, $jobId)
@@ -25,6 +31,8 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         $user = auth()->user();
 
         $freelancer = $user->freelancer()->first();
+        $job = $this->jobModel->findOrFail($jobId)->first();
+        $agency = $job->agency()->first();
 
         $freelancer->jobs()->attach([
             'job_id' => $jobId
@@ -36,7 +44,13 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
             'from' => auth()->user()->id
         ]);
 
-        event(new JobEvent($user, $data['body']));
+        $content = [
+            'freelancer' => $freelancer,
+            'agency' => $agency,
+            'message' => $data['body'],
+        ];
+
+        event(new JobEvent($content));
     }
 
     public function getJobs()

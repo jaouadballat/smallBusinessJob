@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Traits\HasUUID;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Agency extends Model
 {
-    use HasUUID;
+    use HasUUID, Notifiable;
 
     protected $guarded = [];
     const TABLE = 'agencies';
