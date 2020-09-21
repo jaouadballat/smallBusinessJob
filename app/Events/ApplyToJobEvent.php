@@ -11,13 +11,14 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class JobEvent
+class ApplyToJobEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $freelancer;
     public $agency;
     public $message;
+    public $job;
 
 
     /**
@@ -29,6 +30,7 @@ class JobEvent
         $this->freelancer = $content['freelancer'];
         $this->agency = $content['agency'];
         $this->message = $content['message'];
+        $this->job = $content['job'];
     }
 
     /**

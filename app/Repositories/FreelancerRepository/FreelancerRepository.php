@@ -4,7 +4,7 @@
 namespace App\Repositories\FreelancerRepository;
 
 
-use App\Events\JobEvent;
+use App\Events\ApplyToJobEvent;
 use App\Models\Freelancer;
 use App\Models\Job;
 use App\Repositories\BaseRepository;
@@ -14,7 +14,7 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
     /**
      * @var Freelancer
      */
-    private $freelancerModel;
+    protected $model;
     /**
      * @var Job
      */
@@ -22,7 +22,7 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
 
     public function __construct(Freelancer $freelancerModel, Job $jobModel)
     {
-        $this->freelancerModel = $freelancerModel;
+        $this->model = $freelancerModel;
         $this->jobModel = $jobModel;
     }
 
@@ -47,10 +47,11 @@ class FreelancerRepository extends BaseRepository implements FreelancerRepositor
         $content = [
             'freelancer' => $freelancer,
             'agency' => $agency,
+            'job' => $job,
             'message' => $data['body'],
         ];
 
-        event(new JobEvent($content));
+        event(new ApplyToJobEvent($content));
     }
 
     public function getJobs()
