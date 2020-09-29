@@ -10,7 +10,7 @@ class Category extends Model
 
     use HasUUID;
 
-    const TABLE = 'Categories';
+    const TABLE = 'categories';
 
     protected $guarded = [];
     protected $table = self::TABLE;

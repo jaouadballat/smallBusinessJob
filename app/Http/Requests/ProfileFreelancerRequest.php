@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileFreelancerRequest extends FormRequest
 {
@@ -44,8 +45,9 @@ class ProfileFreelancerRequest extends FormRequest
                 $file->extension()
             );
             $avatar = $file->storeAs(
-                '/avatar',
-                $fileName
+                '',
+                $this->user()->id,
+                'google'
             );
 
             $this['avatar'] = $avatar;

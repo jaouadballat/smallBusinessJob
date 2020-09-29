@@ -14,8 +14,8 @@ class CreateFreelancerJobTable extends Migration
     public function up()
     {
         Schema::create('freelancer_job', function (Blueprint $table) {
-            $table->string('job_id');
-            $table->string('freelancer_id');
+            $table->uuid('job_id');
+            $table->uuid('freelancer_id');
             $table->timestamps();
         });
     }

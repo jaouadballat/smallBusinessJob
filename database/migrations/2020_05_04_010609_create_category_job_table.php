@@ -14,8 +14,8 @@ class CreateCategoryJobTable extends Migration
     public function up()
     {
         Schema::create('category_job', function (Blueprint $table) {
-            $table->string('category_id');
-            $table->string('job_id');
+            $table->uuid('category_id');
+            $table->uuid('job_id');
             $table->timestamps();
         });
     }
