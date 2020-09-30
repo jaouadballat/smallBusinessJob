@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 d-flex flex-row">
-                            <img src={{ asset($freelancer->avatar) }} class="img-thumbnail mr-5" alt="" style="max-width: 200px; max-height: 200px" >
+                            <img src={{ $freelancer->avatar }} class="img-thumbnail mr-5" alt="" style="max-width: 200px; max-height: 200px" >
                             <div class="profile_info">
                                 <h1 class="text-danger m-0">{{ $freelancer->fullName()  }}</h1>
                                 <h3 class="font-weight-bold m-0">{{ $freelancer->title }}</h3>

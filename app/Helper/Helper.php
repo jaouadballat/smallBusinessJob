@@ -46,10 +46,12 @@ class Helper
      */
     public static function getLink($value)
     {
-        return  collect(Storage::drive('google')
+        $link = collect(Storage::drive('google')
             ->listContents('', false))
             ->where('name', $value)
-            ->first()['path'];
+            ->first();
+
+        return  $link ? $link["path"] : 'jaouad.png';
 
     }
 }
