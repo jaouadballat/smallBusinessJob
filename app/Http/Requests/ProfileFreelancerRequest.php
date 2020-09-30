@@ -40,13 +40,12 @@ class ProfileFreelancerRequest extends FormRequest
         $resume = $this->file('profile-resume');
 
         if($file) {
-            $fileName = sprintf('%s.%s',
-                $this->user()->id,
-                $file->extension()
-            );
             $avatar = $file->storeAs(
                 '',
-                $this->user()->id,
+                sprintf('%s.%s',
+                    $this->user()->id,
+                    $file->extension()
+                ),
                 'google'
             );
 
@@ -54,13 +53,13 @@ class ProfileFreelancerRequest extends FormRequest
         }
 
         if($resume) {
-            $fileName = sprintf('%s.%s',
-                $this->user()->id,
-                $resume->extension()
-            );
             $resume = $resume->storeAs(
-                '/resume',
-                $fileName
+                '',
+                sprintf('%s.%s',
+                    $this->user()->id,
+                    $resume->extension()
+                ),
+                'google'
             );
 
             $this['resume'] = $resume;
