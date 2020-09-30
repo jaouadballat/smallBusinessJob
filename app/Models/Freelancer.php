@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Traits\HasUUID;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Freelancer extends Model
 {
@@ -49,5 +50,10 @@ class Freelancer extends Model
     public function salary()
     {
         return Helper::currencyFormat($this->salary);
+    }
+
+    public function avatar()
+    {
+        return Storage::url(Helper::getLink($this->avatar));
     }
 }

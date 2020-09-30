@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileFreelancerRequest extends FormRequest
 {
@@ -39,26 +40,26 @@ class ProfileFreelancerRequest extends FormRequest
         $resume = $this->file('profile-resume');
 
         if($file) {
-            $fileName = sprintf('%s.%s',
-                $this->user()->id,
-                $file->extension()
-            );
             $avatar = $file->storeAs(
-                '/avatar',
-                $fileName
+                '',
+                sprintf('%s.%s',
+                    $this->user()->id,
+                    $file->extension()
+                ),
+                'google'
             );
 
             $this['avatar'] = $avatar;
         }
 
         if($resume) {
-            $fileName = sprintf('%s.%s',
-                $this->user()->id,
-                $resume->extension()
-            );
             $resume = $resume->storeAs(
-                '/resume',
-                $fileName
+                '',
+                sprintf('%s.%s',
+                    $this->user()->id,
+                    $resume->extension()
+                ),
+                'google'
             );
 
             $this['resume'] = $resume;

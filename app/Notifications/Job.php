@@ -12,15 +12,19 @@ class Job extends Notification
     use Queueable;
 
     public $message;
+    public $freelancer;
+    public $job;
 
     /**
      * Create a new notification instance.
      *
      * @param void
      */
-    public function __construct($message)
+    public function __construct($freelaner, $job, $message)
     {
         $this->message = $message;
+        $this->freelancer = $freelaner;
+        $this->job = $job;
     }
 
     /**
@@ -43,8 +47,17 @@ class Job extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->from('smallbusiness@job.com')
-                ->markdown('mail.job', ['message' => $this->message]);
+                ->from($this->freelancer->email)
+                ->cc('smallbusiness@job.com')
+                ->markdown('mail.applyToJob', [
+                    'freelancer' => $this->freelancer,
+                    'job' => $this->job,
+                    'message' => $this->message
+                ])
+                ->attach(public_path() . '/storage/' . $this->freelancer->resume, [
+                    'as' => sprintf('%s.pdf', $this->freelancer->fullName()),
+                    'mime' => 'text/pdf',
+                ]);
     }
 
     /**

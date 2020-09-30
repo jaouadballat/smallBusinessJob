@@ -66,11 +66,11 @@
                     @enderror
                 </div>
                 <div class="mt-10 wrapper">
-                    <img src="{{ asset($freelancer->avatar) }}" id="image"/>
+                    <img src="{{ $freelancer->avatar() }}" id="image"/>
                     <div class="overly">
                         <button class="btn btn-danger" id="profile-image">Upload</button>
                     </div>
-                    <input type="file" name="profile-avatar" id="avatar" value="{{ $freelancer->avatar }}" placeholder="profile image" class="single-input" style="display: none">
+                    <input type="file" name="profile-avatar" id="avatar" value="{{ $freelancer->avatar() }}" placeholder="profile image" class="single-input" style="display: none">
                     @error('profile-avatar')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror

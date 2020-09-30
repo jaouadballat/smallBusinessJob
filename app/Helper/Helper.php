@@ -4,6 +4,8 @@
 namespace App\Helper;
 
 
+use Illuminate\Support\Facades\Storage;
+
 class Helper
 {
 
@@ -37,5 +39,19 @@ class Helper
         } else {
             return redirect()->route('logout');
         }
+    }
+
+    /*
+     * return link from google drive
+     */
+    public static function getLink($value)
+    {
+        $link = collect(Storage::drive('google')
+            ->listContents('', false))
+            ->where('name', $value)
+            ->first();
+
+        return  $link ? $link["path"] : 'jaouad.png';
+
     }
 }

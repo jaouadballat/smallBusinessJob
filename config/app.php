@@ -177,6 +177,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\BladeServiceProvider::class,
         App\Providers\RoleComposerProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
     ],
 
     /*
