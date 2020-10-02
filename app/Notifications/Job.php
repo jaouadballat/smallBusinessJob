@@ -53,11 +53,11 @@ class Job extends Notification
                     'freelancer' => $this->freelancer,
                     'job' => $this->job,
                     'message' => $this->message
-                ])
-                ->attach(public_path() . '/storage/' . $this->freelancer->resume, [
+                ]);
+                /*->attach(public_path() . '/storage/' . $this->freelancer->resume, [
                     'as' => sprintf('%s.pdf', $this->freelancer->fullName()),
                     'mime' => 'text/pdf',
-                ]);
+                ]);*/
     }
 
     /**
