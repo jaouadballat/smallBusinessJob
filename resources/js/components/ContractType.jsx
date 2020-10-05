@@ -3,8 +3,8 @@ import {appendParamsToUrl, getUrlParams, valueFromUrlParams} from "./services/he
 
 const ContractType = ({onChange}) => {
     const types = [
-        'Full Time',
-        'Part Time',
+        'Full time',
+        'Part time',
         'Remote',
         'Freelance'
     ];

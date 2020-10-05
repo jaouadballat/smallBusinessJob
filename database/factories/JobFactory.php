@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Job::class, function (Faker $faker) {
 
-    $contracts = ['Full time', 'Remote', 'freelance', 'part time'];
+    $contracts = ['Full time', 'Remote', 'Freelance', 'Part time'];
 
     return [
         'title' => $faker->jobTitle,

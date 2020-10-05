@@ -15,3 +15,11 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+
+Route::get('lang', function() {
+    //dd(collect(\Illuminate\Support\Facades\File::allFiles(resource_path() . '/lang/en'))->first()->getFilename());
+    return collect(\Illuminate\Support\Facades\File::allFiles(resource_path() . '/lang/en'))->map(function($file) {
+        return \Illuminate\Support\Facades\Lang::get($file->getBasename(".php"));
+    });
+   //return \Illuminate\Support\Facades\Lang::get('auth');
+});
