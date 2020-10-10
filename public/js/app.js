@@ -66034,7 +66034,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var ContractType = function ContractType(_ref) {
   var onChange = _ref.onChange;
-  var types = ['Full Time', 'Part Time', 'Remote', 'Freelance'];
+  var types = ['Full time', 'Part time', 'Remote', 'Freelance'];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('contract') || ''),
       _useState2 = _slicedToArray(_useState, 2),

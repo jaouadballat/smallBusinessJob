@@ -15,6 +15,10 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('/contact', function() {
+    return view('contact');
+})->name('contact');
+
 
 Route::get('lang', function() {
     //dd(collect(\Illuminate\Support\Facades\File::allFiles(resource_path() . '/lang/en'))->first()->getFilename());
