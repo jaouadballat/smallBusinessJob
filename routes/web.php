@@ -23,3 +23,4 @@ Route::get('lang', function() {
     });
    //return \Illuminate\Support\Facades\Lang::get('auth');
 });
+

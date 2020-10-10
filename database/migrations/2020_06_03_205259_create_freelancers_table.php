@@ -23,6 +23,8 @@ class CreateFreelancersTable extends Migration
             $table->string('location')->nullable();
             $table->string('salary')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('phone')->nullable();
+            $table->longText('about')->nullable();
             $table->longText('skills')->nullable();
             $table->longText('educations')->nullable();
             $table->longText('experiences')->nullable();

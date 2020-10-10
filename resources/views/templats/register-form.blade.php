@@ -66,10 +66,10 @@
     </div>
 
     <div class="form-group row">
-        <label for="role" class="col-md-4 col-form-label text-md-right">Sign Up as</label>
+        <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('registration.signupas') }}</label>
         <select class="form-control col-md-6" id="role" name="role">
-            <option value="freelancer">Individual</option>
-            <option value="ceo">Company</option>
+            <option value="freelancer">{{ __('registration.role.individual') }}</option>
+            <option value="ceo">{{ __('registration.role.company') }}</option>
         </select>
     </div>
 
