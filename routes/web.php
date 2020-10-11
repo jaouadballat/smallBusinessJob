@@ -15,9 +15,8 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/contact', function() {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', 'ContactUsController@show')->name('contact');
+Route::post('/contact', 'ContactUsController@contactUs')->name('contact');
 
 
 Route::get('lang', function() {
