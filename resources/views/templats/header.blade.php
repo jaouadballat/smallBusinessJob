@@ -23,12 +23,7 @@
                                     <div style='color: #fb246a'>{{ $errors->first('job_title') }}</div>
                                 @endif
                             </div>
-                            <div class="input-form">
-                                <input type="text" name="location" placeholder="Job Location">
-                                @if($errors->has('location'))
-                                    <div style='color: #fb246a'>{{ $errors->first('location') }}</div>
-                                @endif
-                            </div>
+                            <div id="citiesDom" class="input-form"></div>
                             <button type="submit" class="btn">
                                 Find job
                             </button>
