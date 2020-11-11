@@ -66342,6 +66342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _cities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../cities */ "./resources/js/cities/index.js");
+/* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/helpers */ "./resources/js/components/services/helpers.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -66357,13 +66358,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function City() {
+
+function City(props) {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([]),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       cities = _React$useState2[0],
       setCities = _React$useState2[1];
 
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(''),
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_2__["valueFromUrlParams"])('location') || ''),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       city = _React$useState4[0],
       setCity = _React$useState4[1];
@@ -66375,12 +66377,13 @@ function City() {
       return city.ville.match(regx);
     });
     setCities(result);
-    setCity(value); //console.log({city})
+    setCity(value);
   };
 
   var handleClick = function handleClick(city) {
     setCity(city.ville);
     setCities([]);
+    props.onChange(city.ville);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -66914,17 +66917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var _City__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./City */ "./resources/js/components/City/index.js");
 
 
 
@@ -66932,35 +66925,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Location = function Location(_ref) {
   var onChange = _ref.onChange;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('location') || ''),
-      _useState2 = _slicedToArray(_useState, 2),
-      value = _useState2[0],
-      setValue = _useState2[1];
-
-  var debouncedFunction = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (event) {
-    onChange(event);
-  }, 2000);
-
-  var onChangeHandler = function onChangeHandler(event) {
-    var value = event.target.value;
-    setValue(value);
-    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('location', value);
+  var onChangeHandler = function onChangeHandler(city) {
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('location', city);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('page', 1);
-    debouncedFunction(event);
+    onChange(city);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "single-listing"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "small-section-tittle2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Location")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "select-job-items2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    placeholder: "Location",
-    name: "location",
-    value: value,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Location")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_City__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onChange: onChangeHandler
-  })));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Location);

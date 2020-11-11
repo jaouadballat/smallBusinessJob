@@ -1,9 +1,10 @@
 import React from 'react';
 import {cities as villes} from "../../cities";
+import {valueFromUrlParams} from "../services/helpers";
 
-function City() {
+function City(props) {
     const [cities, setCities] = React.useState([]);
-    const [city, setCity] = React.useState('');
+    const [city, setCity] = React.useState(valueFromUrlParams('location') || '');
 
     const handleSearchCity = e => {
         const value = e.target.value;
@@ -11,12 +12,12 @@ function City() {
         const result = villes.filter(city => city.ville.match(regx));
         setCities(result);
         setCity(value);
-        //console.log({city})
     }
 
     const handleClick = (city) => {
         setCity(city.ville);
         setCities([]);
+        props.onChange(city.ville);
     }
 
     return (
