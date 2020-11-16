@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {appendParamsToUrl, valueFromUrlParams, debounce} from "./services/helpers";
+import {appendParamsToUrl} from "./services/helpers";
 import City from "./City";
 
 const Location = ({onChange}) => {

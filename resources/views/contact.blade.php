@@ -32,22 +32,34 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                <textarea class="form-control w-100 @error('message') is-invalid @enderror" name="message" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
+                                @error('message')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" placeholder="Enter your name">
+                                <input class="form-control valid @error('name') is-invalid @enderror" name="name" id="name" type="text" placeholder="Enter your name">
+                                @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" placeholder="Email">
+                                <input class="form-control valid @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Email">
+                                @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
+                                <input class="form-control @error('subject') is-invalid @enderror" name="subject" id="subject" type="text" placeholder="Enter Subject">
+                                @error('subject')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

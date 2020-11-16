@@ -19,6 +19,5 @@ if (document.getElementById('job-list')) {
 }
 
 if (document.getElementById('citiesDom')) {
-    console.log('dom')
     ReactDOM.render(<City />, document.getElementById('citiesDom'));
 }

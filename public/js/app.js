@@ -66254,7 +66254,6 @@ if (document.getElementById('job-list')) {
 }
 
 if (document.getElementById('citiesDom')) {
-  console.log('dom');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_City__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('citiesDom'));
 }
 
