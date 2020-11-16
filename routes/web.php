@@ -15,6 +15,9 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('/contact', 'ContactUsController@show')->name('contact');
+Route::post('/contact', 'ContactUsController@contactUs')->name('contact');
+
 
 Route::get('lang', function() {
     //dd(collect(\Illuminate\Support\Facades\File::allFiles(resource_path() . '/lang/en'))->first()->getFilename());
@@ -23,3 +26,4 @@ Route::get('lang', function() {
     });
    //return \Illuminate\Support\Facades\Lang::get('auth');
 });
+
