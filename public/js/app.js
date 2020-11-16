@@ -65903,6 +65903,324 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/cities/index.js":
+/*!**************************************!*\
+  !*** ./resources/js/cities/index.js ***!
+  \**************************************/
+/*! exports provided: cities */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cities", function() { return cities; });
+var cities = [{
+  "id": "1",
+  "ville": "Aïn Harrouda",
+  "region": "6"
+}, {
+  "id": "3",
+  "ville": "Bouskoura",
+  "region": "6"
+}, {
+  "id": "4",
+  "ville": "Casablanca",
+  "region": "6"
+}, {
+  "id": "5",
+  "ville": "Médiouna",
+  "region": "6"
+}, {
+  "id": "6",
+  "ville": "Mohammadia",
+  "region": "6"
+}, {
+  "id": "11",
+  "ville": "Benslimane",
+  "region": "6"
+}, {
+  "id": "12",
+  "ville": "Berrechid",
+  "region": "6"
+}, {
+  "id": "15",
+  "ville": "Bouznika",
+  "region": "6"
+}, {
+  "id": "21",
+  "ville": "Khouribga",
+  "region": "5"
+}, {
+  "id": "23",
+  "ville": "Oued Zem",
+  "region": "5"
+}, {
+  "id": "30",
+  "ville": "Settat",
+  "region": "6"
+}, {
+  "id": "33",
+  "ville": "Azemmour",
+  "region": "6"
+}, {
+  "id": "37",
+  "ville": "El Jadida",
+  "region": "6"
+}, {
+  "id": "49",
+  "ville": "Safi",
+  "region": "7"
+}, {
+  "id": "57",
+  "ville": "Youssoufia",
+  "region": "7"
+}, {
+  "id": "58",
+  "ville": "Fès",
+  "region": "3"
+}, {
+  "id": "79",
+  "ville": "Kénitra",
+  "region": "4"
+}, {
+  "id": "84",
+  "ville": "Moulay Bousselham",
+  "region": "4"
+}, {
+  "id": "86",
+  "ville": "Sidi Kacem",
+  "region": "4"
+}, {
+  "id": "87",
+  "ville": "Sidi Slimane",
+  "region": "4"
+}, {
+  "id": "95",
+  "ville": "Es-Semara",
+  "region": "11"
+}, {
+  "id": "98",
+  "ville": "Guelmim",
+  "region": "10"
+}, {
+  "id": "100",
+  "ville": "Tan-Tan",
+  "region": "10"
+}, {
+  "id": "101",
+  "ville": "Tata",
+  "region": "9"
+}, {
+  "id": "102",
+  "ville": "Zag",
+  "region": "10"
+}, {
+  "id": "103",
+  "ville": "Marrakech",
+  "region": "7"
+}, {
+  "id": "118",
+  "ville": "Ben Guerir",
+  "region": "7"
+}, {
+  "id": "119",
+  "ville": "Chichaoua",
+  "region": "7"
+}, {
+  "id": "121",
+  "ville": "El Kelaâ des Sraghna",
+  "region": "7"
+}, {
+  "id": "122",
+  "ville": "Essaouira",
+  "region": "7"
+}, {
+  "id": "150",
+  "ville": "Meknès‎",
+  "region": "3"
+}, {
+  "id": "151",
+  "ville": "Khénifra",
+  "region": "5"
+}, {
+  "id": "155",
+  "ville": "Rissani",
+  "region": "8"
+}, {
+  "id": "158",
+  "ville": "Arfoud",
+  "region": "8"
+}, {
+  "id": "159",
+  "ville": "Azrou",
+  "region": "3"
+}, {
+  "id": "168",
+  "ville": "El Hajeb",
+  "region": "3"
+}, {
+  "id": "171",
+  "ville": "Errachidia",
+  "region": "8"
+}, {
+  "id": "177",
+  "ville": "Ifrane",
+  "region": "3"
+}, {
+  "id": "184",
+  "ville": "Midelt",
+  "region": "8"
+}, {
+  "id": "211",
+  "ville": "Berkane",
+  "region": "2"
+}, {
+  "id": "217",
+  "ville": "Bouarfa",
+  "region": "2"
+}, {
+  "id": "225",
+  "ville": "Figuig",
+  "region": "2"
+}, {
+  "id": "235",
+  "ville": "Nador",
+  "region": "2"
+}, {
+  "id": "238",
+  "ville": "Oujda",
+  "region": "2"
+}, {
+  "id": "240",
+  "ville": "Saïdia",
+  "region": "2"
+}, {
+  "id": "245",
+  "ville": "Taourirt",
+  "region": "2"
+}, {
+  "id": "252",
+  "ville": "Rabat",
+  "region": "4"
+}, {
+  "id": "253",
+  "ville": "Salé",
+  "region": "4"
+}, {
+  "id": "254",
+  "ville": "Ain El Aouda",
+  "region": "4"
+}, {
+  "id": "255",
+  "ville": "Harhoura",
+  "region": "4"
+}, {
+  "id": "256",
+  "ville": "Khémisset",
+  "region": "4"
+}, {
+  "id": "257",
+  "ville": "Oulmès",
+  "region": "4"
+}, {
+  "id": "261",
+  "ville": "Skhirate",
+  "region": "4"
+}, {
+  "id": "262",
+  "ville": "Tamesna",
+  "region": "4"
+}, {
+  "id": "263",
+  "ville": "Témara",
+  "region": "4"
+}, {
+  "id": "265",
+  "ville": "Tiflet",
+  "region": "4"
+}, {
+  "id": "267",
+  "ville": "Agadir",
+  "region": "9"
+}, {
+  "id": "293",
+  "ville": "Kelaat-M'Gouna",
+  "region": "8"
+}, {
+  "id": "300",
+  "ville": "Ouarzazate",
+  "region": "8"
+}, {
+  "id": "304",
+  "ville": "Sidi Ifni",
+  "region": "10"
+}, {
+  "id": "308",
+  "ville": "Taghzout",
+  "region": "1"
+}, {
+  "id": "319",
+  "ville": "Tiznit",
+  "region": "9"
+}, {
+  "id": "324",
+  "ville": "Azilal",
+  "region": "5"
+}, {
+  "id": "327",
+  "ville": "Béni Mellal",
+  "region": "5"
+}, {
+  "id": "336",
+  "ville": "Fquih Ben Salah",
+  "region": "5"
+}, {
+  "id": "345",
+  "ville": "Tanger‎",
+  "region": "1"
+}, {
+  "id": "346",
+  "ville": "Tétouan‎",
+  "region": "1"
+}, {
+  "id": "348",
+  "ville": "Assilah",
+  "region": "1"
+}, {
+  "id": "352",
+  "ville": "Chefchaouen",
+  "region": "1"
+}, {
+  "id": "360",
+  "ville": "Ksar El Kébir",
+  "region": "1"
+}, {
+  "id": "361",
+  "ville": "Larache",
+  "region": "1"
+}, {
+  "id": "367",
+  "ville": "Ouazzane",
+  "region": "1"
+}, {
+  "id": "374",
+  "ville": "Al Hoceïma‎",
+  "region": "1"
+}, {
+  "id": "379",
+  "ville": "Guercif‎",
+  "region": "2"
+}, {
+  "id": "392",
+  "ville": "Taza‎",
+  "region": "3"
+}, {
+  "id": "397",
+  "ville": "Laayoune‎",
+  "region": "11"
+}];
+
+/***/ }),
+
 /***/ "./resources/js/components/App.js":
 /*!****************************************!*\
   !*** ./resources/js/components/App.js ***!
@@ -65918,6 +66236,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _JobListContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./JobListContainer */ "./resources/js/components/JobListContainer.jsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/components/store/index.js");
+/* harmony import */ var _City__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./City */ "./resources/js/components/City/index.js");
+
 
 
 
@@ -65931,6 +66251,11 @@ function App() {
 
 if (document.getElementById('job-list')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('job-list'));
+}
+
+if (document.getElementById('citiesDom')) {
+  console.log('dom');
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_City__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('citiesDom'));
 }
 
 /***/ }),
@@ -66002,6 +66327,88 @@ var Categories = function Categories(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Categories);
+
+/***/ }),
+
+/***/ "./resources/js/components/City/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/City/index.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _cities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../cities */ "./resources/js/cities/index.js");
+/* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/helpers */ "./resources/js/components/services/helpers.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+function City(props) {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([]),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      cities = _React$useState2[0],
+      setCities = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_2__["valueFromUrlParams"])('location') || ''),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      city = _React$useState4[0],
+      setCity = _React$useState4[1];
+
+  var handleSearchCity = function handleSearchCity(e) {
+    var value = e.target.value;
+    var regx = new RegExp(city, 'gi');
+    var result = _cities__WEBPACK_IMPORTED_MODULE_1__["cities"].filter(function (city) {
+      return city.ville.match(regx);
+    });
+    setCities(result);
+    setCity(value);
+  };
+
+  var handleClick = function handleClick(city) {
+    setCity(city.ville);
+    setCities([]);
+    props.onChange(city.ville);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    id: "city",
+    name: "location",
+    placeholder: "Job Location",
+    value: city,
+    autoComplete: "off",
+    onChange: handleSearchCity
+  }), city.length > 0 && cities.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "list-group",
+    id: "cities"
+  }, cities.map(function (city, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "list-group-item",
+      key: index,
+      onClick: function onClick() {
+        return handleClick(city);
+      }
+    }, city.ville);
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (City);
 
 /***/ }),
 
@@ -66510,17 +66917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/helpers */ "./resources/js/components/services/helpers.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var _City__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./City */ "./resources/js/components/City/index.js");
 
 
 
@@ -66528,35 +66925,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Location = function Location(_ref) {
   var onChange = _ref.onChange;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["valueFromUrlParams"])('location') || ''),
-      _useState2 = _slicedToArray(_useState, 2),
-      value = _useState2[0],
-      setValue = _useState2[1];
-
-  var debouncedFunction = Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (event) {
-    onChange(event);
-  }, 2000);
-
-  var onChangeHandler = function onChangeHandler(event) {
-    var value = event.target.value;
-    setValue(value);
-    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('location', value);
+  var onChangeHandler = function onChangeHandler(city) {
+    Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('location', city);
     Object(_services_helpers__WEBPACK_IMPORTED_MODULE_1__["appendParamsToUrl"])('page', 1);
-    debouncedFunction(event);
+    onChange(city);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "single-listing"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "small-section-tittle2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Location")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "select-job-items2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    placeholder: "Location",
-    name: "location",
-    value: value,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Job Location")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_City__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onChange: onChangeHandler
-  })));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Location);

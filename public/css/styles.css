@@ -6434,3 +6434,8 @@ section p {
   background-color: #fb246a !important;
 }
 
+#cities {
+  position: absolute;
+  width: 100%;
+}
+
